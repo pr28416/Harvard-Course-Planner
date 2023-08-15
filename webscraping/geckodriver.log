@@ -1,0 +1,272 @@
+1691950851762	geckodriver	INFO	Listening on 127.0.0.1:55526
+1691950852273	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileKQoQcF"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691950852576	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691950852799	Marionette	INFO	Listening on port 55534
+WebDriver BiDi listening on ws://127.0.0.1:55527
+Read port: 55534
+1691950852916	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:55527/devtools/browser/b37271b7-c28a-4b3d-9816-c387d524b4d5
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+1691950862685	Marionette	INFO	Stopped listening on port 55534
+1691951202872	geckodriver	INFO	Listening on 127.0.0.1:55707
+1691951203383	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileXqm57T"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691951203685	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691951203902	Marionette	INFO	Listening on port 55716
+Read port: 55716
+WebDriver BiDi listening on ws://127.0.0.1:55708
+1691951203926	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:55708/devtools/browser/7f1b611f-12d9-4fc6-854b-649f8b8cc47c
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691951229041	Marionette	INFO	Stopped listening on port 55716
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+1691951768628	geckodriver	INFO	Listening on 127.0.0.1:57859
+1691951769143	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileeLRIWQ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691951769470	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691951769697	Marionette	INFO	Listening on port 57871
+WebDriver BiDi listening on ws://127.0.0.1:57860
+Read port: 57871
+1691951769813	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:57860/devtools/browser/ada68e97-f9c3-47bc-a0d0-ee77f6db2836
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691951774598	Marionette	INFO	Stopped listening on port 57871
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1691952016048	geckodriver	INFO	Listening on 127.0.0.1:58959
+1691952016473	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileNAWIbH"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691952016777	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691952017006	Marionette	INFO	Listening on port 58977
+WebDriver BiDi listening on ws://127.0.0.1:58960
+Read port: 58977
+1691952017125	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:58960/devtools/browser/365d6117-2a27-43b9-ab3e-6ca05f24b905
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691952211729	geckodriver	INFO	Listening on 127.0.0.1:59875
+1691952212165	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilegpX7gm"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691952212466	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691952212684	Marionette	INFO	Listening on port 59887
+WebDriver BiDi listening on ws://127.0.0.1:59876
+Read port: 59887
+1691952212799	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:59876/devtools/browser/763d02f6-b2e8-4b2a-a345-6c9934bf540d
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1691952232998	geckodriver	INFO	Listening on 127.0.0.1:60018
+1691952233433	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileXdB4Tz"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691952233722	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691952233941	Marionette	INFO	Listening on port 60030
+WebDriver BiDi listening on ws://127.0.0.1:60019
+Read port: 60030
+1691952234020	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:60019/devtools/browser/7493c961-4daa-4b3b-bd09-f8827dfbe90f
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1691952269280	geckodriver	INFO	Listening on 127.0.0.1:60242
+1691952269722	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileeIlr31"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691952270027	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691952270254	Marionette	INFO	Listening on port 60254
+WebDriver BiDi listening on ws://127.0.0.1:60243
+Read port: 60254
+1691952270450	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:60243/devtools/browser/4656b092-c724-41ae-9790-416323c9339d
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691952280390	Marionette	INFO	Stopped listening on port 60254
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+1691952337632	Marionette	INFO	Stopped listening on port 58977
+1691952482842	geckodriver	INFO	Listening on 127.0.0.1:61229
+1691952483283	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilehC2CzN"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691952483613	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691952483713	Marionette	INFO	Listening on port 61241
+WebDriver BiDi listening on ws://127.0.0.1:61230
+Read port: 61241
+1691952483883	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:61230/devtools/browser/39e67c51-d76a-41c4-884b-898cb188a7c1
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691952494816	Marionette	INFO	Stopped listening on port 61241
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+1691952543372	geckodriver	INFO	Listening on 127.0.0.1:61558
+1691952543883	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilerXVDgK"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691952544106	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691952544245	Marionette	INFO	Listening on port 61571
+WebDriver BiDi listening on ws://127.0.0.1:61559
+Read port: 61571
+1691952544367	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:61559/devtools/browser/31349f3c-ea1e-4584-9efa-96108a955dd0
+1691952593827	geckodriver	INFO	Listening on 127.0.0.1:61833
+1691952594261	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilehHBSoB"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691952594476	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691952594623	Marionette	INFO	Listening on port 61845
+WebDriver BiDi listening on ws://127.0.0.1:61834
+Read port: 61845
+1691952594759	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:61834/devtools/browser/c909cc27-9908-49f1-ab31-f5d0d6b9295a
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691952606668	Marionette	INFO	Stopped listening on port 61845
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+1691952630757	geckodriver	INFO	Listening on 127.0.0.1:62082
+1691952631189	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileCF3T2S"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691952631408	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691952631563	Marionette	INFO	Listening on port 62094
+WebDriver BiDi listening on ws://127.0.0.1:62083
+Read port: 62094
+1691952631688	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:62083/devtools/browser/a04411f6-dc71-42f5-b726-7ed565ebe5c7
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691952639644	Marionette	INFO	Stopped listening on port 62094
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+1691953156479	geckodriver	INFO	Listening on 127.0.0.1:63793
+1691953156926	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilew7HaKV"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691953157153	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691953157311	Marionette	INFO	Listening on port 63801
+Read port: 63801
+WebDriver BiDi listening on ws://127.0.0.1:63794
+1691953157361	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:63794/devtools/browser/f4fd7950-04f9-4ba9-8ac4-6d16306097ca
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691953181335	Marionette	INFO	Stopped listening on port 63801
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+1691953203894	geckodriver	INFO	Listening on 127.0.0.1:64064
+1691953204331	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilekMrwQt"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691953204553	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691953204702	Marionette	INFO	Listening on port 64072
+WebDriver BiDi listening on ws://127.0.0.1:64065
+Read port: 64072
+1691953204835	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:64065/devtools/browser/3ac9d86d-7a40-45a4-b10d-e7f26b0177a2
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691953208687	Marionette	INFO	Stopped listening on port 64072
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+1691953239860	geckodriver	INFO	Listening on 127.0.0.1:64299
+1691953240293	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilehviPci"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691953240514	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691953240772	Marionette	INFO	Listening on port 64311
+WebDriver BiDi listening on ws://127.0.0.1:64300
+Read port: 64311
+1691953240873	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:64300/devtools/browser/29baa8a1-93f2-4c8c-8b0e-c1fb905984cc
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691953244851	Marionette	INFO	Stopped listening on port 64311
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1691953299763	geckodriver	INFO	Listening on 127.0.0.1:64629
+1691953300210	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileMU5llI"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691953300435	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691953300590	Marionette	INFO	Listening on port 64641
+WebDriver BiDi listening on ws://127.0.0.1:64630
+Read port: 64641
+1691953300696	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:64630/devtools/browser/671f551a-01a1-4421-98ed-a5b5dfe2fd45
+1691953540547	geckodriver	INFO	Listening on 127.0.0.1:49435
+1691953540988	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileYBFB6O"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691953541211	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1691953541462	Marionette	INFO	Listening on port 49447
+WebDriver BiDi listening on ws://127.0.0.1:49436
+Read port: 49447
+1691953541567	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:49436/devtools/browser/97d31223-3ede-48a6-9e26-90830112a3c9
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON={%22PageNumber%22:1,%22PageSize%22:%22%22,%22SortOrder%22:[%22IS_SCL_SUBJ_CAT%22],%22Facets%22:[],%22Category%22:%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22,%22SearchPropertiesInResults%22:true,%22FacetsInResults%22:true,%22SaveRecent%22:false,%22TopN%22:%22%22,%22ExcludeBracketed%22:true,%22Exclude300%22:false,%22SearchText%22:%22(STRM:\%222238\%22)%22,%22DeepLink%22:false}, line 23: SecurityError: The operation is insecure.
+1691953550590	Marionette	INFO	Stopped listening on port 49447
+JavaScript warning: https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://courses.my.harvard.edu/cs/courses/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+console.warn: services.settings: main/quicksuggest Pruned 3 obsolete attachments
+console.warn: services.settings: main/quicksuggest Pruned 3 obsolete attachments
