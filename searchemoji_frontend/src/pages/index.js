@@ -2,50 +2,95 @@ import FilterPane from "@/components/filterPane";
 import results from "@/components/results";
 import SearchResultCard from "@/components/searchResultCard";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Fuse from "fuse.js";
 import courses from "@/data/courses.js";
 import useSWR from "swr";
 
 export default function Home() {
-  const [searchResults, setSearchResults] = useState(results);
+  const [query, setQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [starredCourses, setStarredCourses] = useState([]);
+  const [filters, setFilters] = useState([]);
+  const [filterTags, setFilterTags] = useState([]);
+  const [render, setRender] = useState(false);
+  const [showFilter, setShowFilter] = useState(true);
 
-  // const options = {
-  //   // includeScore: true,
-  //   // includeMatches: true,
-  //   threshold: 0.95,
-  //   keys: ["class_name", "class_tag", "subject"],
-  // };
+  useEffect(() => {
+    const getFilters = async () => {
+      await fetch("/api/search", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ request: "filters" }),
+      })
+        .then(async (res) => {
+          setFilterTags(await res.json());
+        })
+        .catch((err) => {
+          console.log(err);
+          setShowFilter(false);
+        });
+      setRender(true);
+    };
 
-  // const fuse = new Fuse(courses.data, options);
+    getFilters();
+  }, []);
 
-  const handleSearch = async (event) => {
-    const { value } = event.target;
-    if (value.length === 0) {
+  useEffect(() => {
+    handleSearch();
+  }, [query, filters]);
+
+  const handleStarred = (uuid) => {
+    console.log("Reset");
+    setStarredCourses((old) => {
+      if (old.includes(uuid)) {
+        return old.filter((id) => id !== uuid);
+      } else {
+        return [...old, uuid];
+      }
+    });
+  };
+
+  const handleSearch = async () => {
+    if (query.length === 0) {
       setSearchResults([]);
       return;
     }
 
-    const data = new URLSearchParams();
-    data.append("query", value);
+    // const data = new URLSearchParams();
+    // data.append("query", query);
+    // data.append("filters", filters);
+    console.log({ query: query, filters: filters });
 
     const response = await fetch("/api/search", {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
-      body: data,
+      body: JSON.stringify({
+        query: query,
+        filters: filters,
+        request: "search",
+      }),
     });
     const json = await response.json();
     console.log(json);
-    // const results = fuse.search(value);
-    // const items = results.map((result) => result.item);
-    // console.log(items.slice(0, 10));
     setSearchResults(json.items);
   };
 
-  return (
-    <main className="flex min-h-screen flex-col items-center bg-slate-100">
+  const handleFilter = (tag, items) => {
+    console.log(tag, items);
+    setFilters((old) => {
+      let mod = old.filter((item) => item.tag !== tag);
+      mod.push({ tag: tag, items: items });
+      return mod;
+    });
+  };
+
+  return !render ? null : (
+    <main className="flex flex-col min-h-screen items-center bg-slate-100">
       {/* Top card */}
       <div className="flex flex-row gap-16 w-full rounded-2xl p-4">
         {/* Title */}
@@ -53,8 +98,8 @@ export default function Home() {
           <Image
             alt="RemyNet logo"
             src="/remy.png"
-            width="64"
-            height="64"
+            width="1024"
+            height="1024"
             className="w-12 aspect-square"
           />
           <div className="flex flex-row text-3xl font-extrabold">
@@ -66,21 +111,29 @@ export default function Home() {
         <input
           className="p-4 bg-white border border-slate-200 placeholder:text-slate-500 rounded-lg w-full focus:outline-none"
           placeholder="Search course"
-          onChange={handleSearch}
+          onChange={(event) => setQuery(event.target.value)}
         />
       </div>
 
       {/* Main content */}
-      <div className="flex flex-row w-full mt-8 h-full">
+      <div className="flex flex-row grow w-full mt-8 h-full">
         {/* Filter panel */}
-        {/* <FilterPane /> */}
-        {/* <div className="flex flex-col border-r border-r-slate-200 px-12 py-8 w-64">
-          Filter
-        </div> */}
+        {showFilter ? (
+          <FilterPane
+            // term={["2023 Fall", "2024 Spring"]}
+            {...filterTags}
+            handler={handleFilter}
+          />
+        ) : null}
         {/* Search results */}
-        <div className="flex flex-col w-full gap-8 px-8">
+        <div className="flex flex-col w-full gap-8 px-8 h-full mb-8">
           {searchResults.map((result, idx) => (
-            <SearchResultCard key={idx} {...result} />
+            <SearchResultCard
+              key={idx}
+              {...result}
+              handler={handleStarred}
+              starred={starredCourses.includes(result.uuid)}
+            />
           ))}
         </div>
       </div>
