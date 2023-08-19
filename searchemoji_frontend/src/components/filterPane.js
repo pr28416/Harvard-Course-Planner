@@ -13,7 +13,7 @@ function Dropdown({ datasource, handler, tag }) {
   return (
     <Listbox
       as="div"
-      className="relative"
+      className="relative w-48"
       value={selectedData}
       onChange={handleSelect}
       multiple
@@ -88,26 +88,26 @@ function Dropdown({ datasource, handler, tag }) {
 
 export default function FilterPane({ term, school, subject, handler }) {
   return (
-    <div className="flex flex-col  pl-8 pr-4 gap-4 w-96 text-slate-700">
+    <div className="flex flex-row flex-wrap pl-8 pr-4 gap-4 text-slate-700 shrink-0 items-center">
       {/* Title */}
-      <div className="text-lg font-bold">Filters</div>
+      {/* <div className="text-lg font-bold">Filters</div> */}
       {/* Select term */}
       {term === null || term === undefined ? null : (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-row items-center gap-2">
           <div className="font-medium">Term</div>
           <Dropdown datasource={term} handler={handler} tag="term" />
         </div>
       )}
       {/* Select school */}
       {school === null || school === undefined ? null : (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-row items-center gap-2">
           <div className="font-medium">School</div>
           <Dropdown datasource={school} handler={handler} tag="school" />
         </div>
       )}
       {/* Select subject */}
       {school === null || school === undefined ? null : (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-row items-center gap-2">
           <div className="font-medium">Subject</div>
           <Dropdown datasource={subject} handler={handler} tag="subject" />
         </div>

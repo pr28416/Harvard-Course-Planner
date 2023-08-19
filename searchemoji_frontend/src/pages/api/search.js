@@ -25,6 +25,17 @@ async function loadData() {
     ) {
       item.subject = item.subject.replace(/[\[\]']+/g, "");
     }
+
+    if (
+      item.days &&
+      item.days[0] === "[" &&
+      item.days[item.days.length - 1] === "]"
+    ) {
+      item.days = item.days
+        .slice(1, item.days.length - 1)
+        .replaceAll("'", "")
+        .split(", ");
+    }
   });
   const tagHeaders = ["term", "school", "subject"];
   const tags = tagHeaders.map((field) => [
@@ -72,6 +83,12 @@ export default async function handler(req, res) {
   // console.log(req.body);
   if (req.body.request === "filters") {
     res.status(200).json(filterTags);
+  } else if (req.body.request === "retrieve") {
+    res.status(200).json({
+      items: fileContents.data.filter((item) =>
+        req.body.ids.includes(item.uuid)
+      ),
+    });
   } else if (req.body.request === "search") {
     // console.log("FILTERS", req.body.filters, typeof req.body.filters);
     let results = ms.search(req.body.query, {
