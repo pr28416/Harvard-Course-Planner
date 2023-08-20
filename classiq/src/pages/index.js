@@ -159,6 +159,7 @@ export default function Home() {
           <ScheduleMatrix
             starredCourses={starredCourses}
             terms={filterTags.term}
+            visible={showScheduleMatrix}
           />
         </div>
       </div>

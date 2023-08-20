@@ -98,7 +98,7 @@ function formatCourses({ terms, courses }) {
   return termSplit;
 }
 
-export default function ScheduleMatrix({ terms, starredCourses }) {
+export default function ScheduleMatrix({ terms, starredCourses, visible }) {
   const dayHeaders = ["Su", "M", "T", "W", "Th", "F", "Sa"];
   const dayHeaderMap = {
     Su: "Sun",
@@ -133,7 +133,7 @@ export default function ScheduleMatrix({ terms, starredCourses }) {
   useLayoutEffect(() => {
     console.log("LAYOUT WIDTH:", dayColWidthRef.current.offsetWidth);
     setDayColWidth(dayColWidthRef.current.offsetWidth);
-  }, []);
+  }, [visible]);
 
   let timeLabels = Array.from({ length: 48 }, (_, i) => i)
     .filter((time) => time >= 14 && time < 40)

@@ -6,7 +6,7 @@ export default function SearchResultTable({
   starredCourses,
   handler,
 }) {
-  console.log("SRT:", starredCourses);
+  // console.log("SRT:", starredCourses);
   return (
     <table className="table table-auto md:divide-y-2 w-full">
       {/* Header */}
