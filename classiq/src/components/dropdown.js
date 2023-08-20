@@ -2,7 +2,13 @@ import { Listbox, Transition } from "@headlessui/react";
 import { Check, KeyboardArrowDownRounded } from "@mui/icons-material";
 import React, { Fragment, useState } from "react";
 
-export default function Dropdown({ single, datasource, handler, tag }) {
+export default function Dropdown({
+  customLabel,
+  single,
+  datasource,
+  handler,
+  tag,
+}) {
   const [selectedData, setSelectedData] = useState(
     single ? datasource[0] : [...datasource]
   );
@@ -21,12 +27,16 @@ export default function Dropdown({ single, datasource, handler, tag }) {
       multiple={!single}
     >
       <Listbox.Button className="flex flex-row items-center w-full rounded-lg bg-white pl-3 pr-2 py-1 text-left justify-between border border-zinc-200">
-        {selectedData.length === datasource.length
+        {single
+          ? customLabel
+            ? customLabel(selectedData)
+            : selectedData
+          : selectedData.length === datasource.length
           ? "All"
           : selectedData.length === 0
           ? "None"
-          : single
-          ? selectedData
+          : selectedData.length === 1
+          ? selectedData[0]
           : "Multiple selected"}
         <KeyboardArrowDownRounded />
       </Listbox.Button>
@@ -60,7 +70,7 @@ export default function Dropdown({ single, datasource, handler, tag }) {
                 value={data}
                 className="flex flex-row items-center pl-4 py-2 hover:bg-orange-100 hover:text-orange-800 justify-between text-sm"
               >
-                {data}
+                {customLabel ? customLabel(data) : data}
                 <Check className="mr-4" fontSize="small" />
                 {/* {selectedData.includes(data) ? (
                 ) : null} */}
@@ -84,9 +94,9 @@ export default function Dropdown({ single, datasource, handler, tag }) {
               <Listbox.Option
                 key={idx}
                 value={data}
-                className="flex flex-row items-center pl-4 py-2 hover:bg-orange-100 hover:text-orange-800 justify-between text-sm"
+                className="flex flex-row items-center px-4 py-2 hover:bg-orange-100 hover:text-orange-800 justify-between text-sm"
               >
-                {data}
+                {customLabel ? customLabel(data) : data}
                 {/* {selectedData.includes(data) ? (
                 ) : null} */}
               </Listbox.Option>

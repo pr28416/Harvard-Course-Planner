@@ -165,7 +165,11 @@ export default function InfoButton({ course }) {
                       </div>
                       <div className="grow flex flex-row justify-end">
                         <Link
-                          href={course.q_report}
+                          href={
+                            course.q_report !== null
+                              ? course.q_report
+                              : `https://qreports.fas.harvard.edu/search/courses?search=${course.class_tag}`
+                          }
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex flex-row items-center gap-2 text-zinc-100 font-semibold text-sm bg-zinc-900 px-3 py-2 rounded-lg"

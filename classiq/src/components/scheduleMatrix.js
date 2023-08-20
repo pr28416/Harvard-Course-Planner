@@ -58,7 +58,7 @@ function formatCourses({ terms, courses }) {
       );
     }
   }
-  console.log("Preformatted:", termSplit);
+  // console.log("Preformatted:", termSplit);
   // Divide into groups; iterate by term first
   // Iterate by term
   for (let term of terms) {
@@ -81,7 +81,7 @@ function formatCourses({ terms, courses }) {
             groups[groups.length - 1].push(course);
             usedCourses.add(course.uuid);
             courseCount++;
-            console.log("Scheduled", course.class_tag);
+            // console.log("Scheduled", course.class_tag);
           }
         }
 
@@ -94,7 +94,7 @@ function formatCourses({ terms, courses }) {
     }
   }
 
-  console.log("Formatted courses:", termSplit);
+  // console.log("Formatted courses:", termSplit);
   return termSplit;
 }
 
@@ -119,19 +119,19 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
 
   useEffect(() => {
     function handleCalendarResize() {
-      console.log("RESIZE WIDTH:", dayColWidthRef.current.offsetWidth);
+      // console.log("RESIZE WIDTH:", dayColWidthRef.current.offsetWidth);
       setDayColWidth(dayColWidthRef.current.offsetWidth);
     }
     window.addEventListener("resize", handleCalendarResize);
-    console.log("Added event listener");
+    // console.log("Added event listener");
     return () => {
-      console.log("Removed event listener");
+      // console.log("Removed event listener");
       window.removeEventListener("resize", handleCalendarResize);
     };
   }, []);
 
   useLayoutEffect(() => {
-    console.log("LAYOUT WIDTH:", dayColWidthRef.current.offsetWidth);
+    // console.log("LAYOUT WIDTH:", dayColWidthRef.current.offsetWidth);
     setDayColWidth(dayColWidthRef.current.offsetWidth);
   }, [visible]);
 
@@ -151,13 +151,13 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
   timeLabels.push("");
 
   useEffect(() => {
-    console.log("COURSES:", courses);
+    // console.log("COURSES:", courses);
     setFormattedCourses(formatCourses({ terms: terms, courses: courses }));
     // formatCourses({ terms: terms, courses: courses });
   }, [courses]);
 
   useEffect(() => {
-    console.log("FORMAT:", formattedCourses);
+    // console.log("FORMAT:", formattedCourses);
   }, [formattedCourses]);
 
   useEffect(() => {
@@ -176,12 +176,23 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
     );
   }, [starredCourses]);
 
+  const getNumCourses = (term) => {
+    if (formattedCourses[term] === undefined || formattedCourses[term] === null)
+      return 0;
+    let numCourses = 0;
+    for (let day of dayHeaders) {
+      numCourses += formattedCourses[term][day].length;
+    }
+    return numCourses;
+  };
+
   return (
     <div className="flex flex-col h-full items-start gap-4">
       {/* Filter */}
       <Dropdown
         datasource={terms}
         handler={(_, newTerm) => setSelectedTerm(newTerm)}
+        customLabel={(term) => `${term} (${getNumCourses(term)})`}
         tag="term"
         single
       />

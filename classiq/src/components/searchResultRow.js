@@ -3,6 +3,7 @@ import WeekBar from "./weekBar";
 import StarButton from "./starButton";
 import { AccessTime, SchoolRounded } from "@mui/icons-material";
 import InfoButton from "./infoButton";
+import results from "./results";
 
 export default function SearchResultRow({ result, handler, starred }) {
   return (
@@ -26,10 +27,11 @@ export default function SearchResultRow({ result, handler, starred }) {
           <div className="md:hidden flex flex-row gap-4 items-end w-full">
             <div className="md:hidden flex flex-row flex-wrap w-full items-center gap-2 text-xs">
               {/* Mobile: Instructors */}
-              {result.instructors !== null ? (
+              {result.instructors !== null &&
+              result.instructors !== undefined ? (
                 <div className="flex flex-row gap-2 items-center">
                   <SchoolRounded fontSize="small" className="text-zinc-700" />
-
+                  {/* {console.log("TYPE", typeof result.instructors)} */}
                   <div className="text-zinc-600">
                     {result.instructors.join(", ")}
                   </div>

@@ -14,7 +14,7 @@ let filterTags = {};
 async function loadData() {
   console.log("Loading data...");
   const jsonDirectory = path.join(process.cwd(), "src/json");
-  fileContents = await fs.readFile(jsonDirectory + "/fas.json", "utf8");
+  fileContents = await fs.readFile(jsonDirectory + "/all.json", "utf8");
   fileContents = JSON.parse(fileContents);
   fileContents.data.forEach((item, idx) => {
     item.id = idx;
@@ -33,6 +33,17 @@ async function loadData() {
     ) {
       item.days = item.days
         .slice(1, item.days.length - 1)
+        .replaceAll("'", "")
+        .split(", ");
+    }
+
+    if (
+      item.instructors &&
+      item.instructors[0] === "[" &&
+      item.instructors[item.instructors.length - 1] === "]"
+    ) {
+      item.instructors = item.instructors
+        .slice(1, item.instructors.length - 1)
         .replaceAll("'", "")
         .split(", ");
     }
