@@ -98,7 +98,7 @@ export default async function handler(req, res) {
           .reduce((a, b) => a && b, true),
     });
     // console.log(results.slice(0, 15));
-    res.status(200).json({ items: results.slice(0, 25) });
+    res.status(200).json({ items: results.slice(0, 100) });
     // let myFuse = new Fuse(fileContents.data, {
     //   threshold: 0.95,
     //   keys: ["class_name", "class_tag"],

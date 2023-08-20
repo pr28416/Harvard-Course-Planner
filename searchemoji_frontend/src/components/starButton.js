@@ -1,11 +1,14 @@
 import { StarBorderRounded, StarRounded } from "@mui/icons-material";
 import React from "react";
 
-export default function StarButton({ starred, handler, uuid }) {
+export default function StarButton({ starred, handler, result }) {
   return (
-    <button className="focus:outline-none" onClick={() => handler(uuid)}>
+    <button
+      className="focus:outline-none"
+      onClick={() => handler(result.uuid, result)}
+    >
       {starred ? (
-        <StarRounded className="text-orange-500" />
+        <StarRounded className="text-zinc-900" />
       ) : (
         <StarBorderRounded />
       )}

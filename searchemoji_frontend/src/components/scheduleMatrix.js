@@ -110,7 +110,7 @@ export default function ScheduleMatrix({ terms, starredCourses }) {
   };
   const [courses, setCourses] = useState([]);
   const [selectedTerm, setSelectedTerm] = useState(
-    terms.length ? terms[0] : null
+    terms !== null && terms !== undefined && terms.length ? terms[0] : null
   );
   const dayColWidthRef = useRef(null);
   const [dayColWidth, setDayColWidth] = useState(0);
@@ -126,7 +126,9 @@ export default function ScheduleMatrix({ terms, starredCourses }) {
       setDayColWidth(dayColWidthRef.current.offsetWidth);
     }
     window.addEventListener("resize", handleCalendarResize);
+    console.log("Added event listener");
     return () => {
+      console.log("Removed event listener");
       window.removeEventListener("resize", handleCalendarResize);
     };
   }, []);
@@ -163,47 +165,55 @@ export default function ScheduleMatrix({ terms, starredCourses }) {
 
   useEffect(() => {
     console.log(starredCourses);
-    const getStarredCourses = async () => {
-      await fetch("/api/search", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          request: "retrieve",
-          ids: starredCourses,
-        }),
-      })
-        .then(async (res) => {
-          const items = (await res.json()).items;
-          console.log("RETRIEVED", courses);
-          setCourses(
-            items.map((item) => ({
-              class_name: item.class_name,
-              class_tag: item.class_tag,
-              days: item.days,
-              start_time: item.start_time,
-              end_time: item.end_time,
-              term: item.term,
-              uuid: item.uuid,
-            }))
-          );
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
 
-    getStarredCourses();
+    setCourses(
+      Object.values(starredCourses).map((item) => ({
+        class_name: item.class_name,
+        class_tag: item.class_tag,
+        days: item.days,
+        start_time: item.start_time,
+        end_time: item.end_time,
+        term: item.term,
+        uuid: item.uuid,
+      }))
+    );
+    // const getStarredCourses = async () => {
+    //   await fetch("/api/search", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       request: "retrieve",
+    //       ids: starredCourses,
+    //     }),
+    //   })
+    //     .then(async (res) => {
+    //       const items = (await res.json()).items;
+    //       console.log("RETRIEVED", courses);
+    //       setCourses(
+    //         items.map((item) => ({
+    //           class_name: item.class_name,
+    //           class_tag: item.class_tag,
+    //           days: item.days,
+    //           start_time: item.start_time,
+    //           end_time: item.end_time,
+    //           term: item.term,
+    //           uuid: item.uuid,
+    //         }))
+    //       );
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // };
+
+    // getStarredCourses();
   }, [starredCourses]);
 
   return (
-    <div className="flex flex-col gap-4 text-slate-700 pr-8 w-full h-full mb-8 items-start">
-      {/* Header */}
-      <div className="text-lg font-bold">Schedule</div>
-
-      {/* Calendar view */}
-      <div className="flex flex-row max-w-full max-h-full border border-slate-200 overflow-clip rounded-lg">
+    <div className="flex h-full items-start">
+      <div className="flex flex-row max-w-full max-h-full border border-slate-200 overflow-clip rounded-lg text-zinc-700">
         {/* First column */}
         <table className="h-full table-fixed bg-white rounded-lg">
           {/* Days header */}
@@ -230,7 +240,7 @@ export default function ScheduleMatrix({ terms, starredCourses }) {
         </table>
 
         {/* Main calendar content */}
-        <table className="h-full table-fixed bg-white rounded-lg divide-y divide-slate-100 border-l border-l-slate-100 overflow-x-scroll">
+        <table className="w-full h-full table-fixed bg-white rounded-lg divide-y divide-slate-100 border-l border-l-slate-100 overflow-x-scroll">
           {/* Days header */}
           <thead className=" divide-slate-100 divide-x bg-slate-100">
             {dayHeaders.map((day, idx) => (
@@ -269,7 +279,7 @@ export default function ScheduleMatrix({ terms, starredCourses }) {
                                 // Course
                                 <div
                                   key={groupIdx * group.length + courseIdx}
-                                  className={`absolute p-1 text-xs break-words font-semibold rounded-sm ${course.color.border} ${course.color.bg} ${course.color.text}`}
+                                  className={`absolute p-1 text-xs break-words font-semibold rounded-sm overflow-clip ${course.color.border} ${course.color.bg} ${course.color.text}`}
                                   style={{
                                     fontSize: "0.55rem",
                                     lineHeight: "0.75rem",

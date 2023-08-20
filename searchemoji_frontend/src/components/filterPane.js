@@ -18,7 +18,7 @@ function Dropdown({ datasource, handler, tag }) {
       onChange={handleSelect}
       multiple
     >
-      <Listbox.Button className="flex flex-row items-center w-full rounded-lg bg-white pl-4 pr-2 py-2 text-left justify-between border border-slate-200">
+      <Listbox.Button className="flex flex-row items-center w-full rounded-lg bg-white pl-3 pr-2 py-1 text-left justify-between border border-zinc-200">
         {selectedData.length === datasource.length
           ? "All"
           : selectedData.length === 0
@@ -58,7 +58,7 @@ function Dropdown({ datasource, handler, tag }) {
               </Listbox.Option>
             ))}
           {/* Unselected data */}
-          <div className="flex flex-row items-center text-xs font-bold px-4 py-2 bg-slate-50 justify-between">
+          <div className="flex flex-row items-center text-xs font-bold px-4 py-2 bg-zinc-50 justify-between">
             Unselected
             <button
               onClick={() => handleSelect([...datasource])}
@@ -88,7 +88,7 @@ function Dropdown({ datasource, handler, tag }) {
 
 export default function FilterPane({ term, school, subject, handler }) {
   return (
-    <div className="flex flex-row flex-wrap pl-8 pr-4 gap-4 text-slate-700 shrink-0 items-center">
+    <div className="flex flex-row flex-wrap gap-4 text-zinc-700 text-sm shrink-0 items-center">
       {/* Title */}
       {/* <div className="text-lg font-bold">Filters</div> */}
       {/* Select term */}
