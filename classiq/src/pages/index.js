@@ -119,7 +119,7 @@ export default function Home() {
       {/* Main content */}
       <div className="flex flex-col-reverse lg:flex-row gap-4 lg:gap-12 px-4 md:px-12 w-full">
         {/* Search and starred */}
-        <div className="flex flex-col w-full justify-center">
+        <div className="flex flex-col w-full justify-start">
           {!showFilter ? null : (
             <FilterPane {...filterTags} handler={handleFilter} />
           )}

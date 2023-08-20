@@ -1,5 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import colors from "./colors";
+import Dropdown from "./dropdown";
 
 function formatCourses({ terms, courses }) {
   // Filter by term/day
@@ -116,10 +117,6 @@ export default function ScheduleMatrix({ terms, starredCourses }) {
   const [dayColWidth, setDayColWidth] = useState(0);
   const [formattedCourses, setFormattedCourses] = useState([]);
 
-  // useLayoutEffect(() => {
-  //   setDayColWidth(ref.current.offsetWidth)
-  // }, [])
-
   useEffect(() => {
     function handleCalendarResize() {
       console.log("RESIZE WIDTH:", dayColWidthRef.current.offsetWidth);
@@ -177,42 +174,18 @@ export default function ScheduleMatrix({ terms, starredCourses }) {
         uuid: item.uuid,
       }))
     );
-    // const getStarredCourses = async () => {
-    //   await fetch("/api/search", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       request: "retrieve",
-    //       ids: starredCourses,
-    //     }),
-    //   })
-    //     .then(async (res) => {
-    //       const items = (await res.json()).items;
-    //       console.log("RETRIEVED", courses);
-    //       setCourses(
-    //         items.map((item) => ({
-    //           class_name: item.class_name,
-    //           class_tag: item.class_tag,
-    //           days: item.days,
-    //           start_time: item.start_time,
-    //           end_time: item.end_time,
-    //           term: item.term,
-    //           uuid: item.uuid,
-    //         }))
-    //       );
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // };
-
-    // getStarredCourses();
   }, [starredCourses]);
 
   return (
-    <div className="flex h-full items-start">
+    <div className="flex flex-col h-full items-start gap-4">
+      {/* Filter */}
+      <Dropdown
+        datasource={terms}
+        handler={(_, newTerm) => setSelectedTerm(newTerm)}
+        tag="term"
+        single
+      />
+      {/* Calendar */}
       <div className="flex flex-row max-w-full max-h-full border border-slate-200 overflow-clip rounded-lg text-zinc-700">
         {/* First column */}
         <table className="h-full table-fixed bg-white rounded-lg">
@@ -279,7 +252,7 @@ export default function ScheduleMatrix({ terms, starredCourses }) {
                                 // Course
                                 <div
                                   key={groupIdx * group.length + courseIdx}
-                                  className={`absolute p-1 text-xs break-words font-semibold rounded-sm overflow-clip ${course.color.border} ${course.color.bg} ${course.color.text}`}
+                                  className={`absolute text-xs break-words font-semibold rounded-sm overflow-y-auto no-scrollbar ${course.color.border} ${course.color.bg} ${course.color.text}`}
                                   style={{
                                     fontSize: "0.55rem",
                                     lineHeight: "0.75rem",
