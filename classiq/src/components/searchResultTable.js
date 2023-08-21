@@ -11,10 +11,12 @@ export default function SearchResultTable({
     <table className="table table-auto md:divide-y-2 w-full">
       {/* Header */}
       <thead className="hidden md:table-header-group">
-        <th className="text-start py-2">Course</th>
-        <th className="text-start py-2">Instructors</th>
-        <th className="text-start py-2 hidden xl:table-cell">Term</th>
-        <th className="text-start py-2">Time</th>
+        <tr>
+          <th className="text-start py-2">Course</th>
+          <th className="text-start py-2">Instructors</th>
+          <th className="text-start py-2 hidden xl:table-cell">Term</th>
+          <th className="text-start py-2">Time</th>
+        </tr>
       </thead>
       <tbody className="divide-y">
         {/* Content */}

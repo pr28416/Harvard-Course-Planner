@@ -3,19 +3,28 @@ import { promises as fs } from "fs";
 // const Fuse = require("fuse.js");
 import Fuse from "fuse.js";
 import MiniSearch from "minisearch";
+import fuzzysort from "fuzzysort";
+import FlexSearch, { Document } from "flexsearch";
 
 let fileContents = [];
 let didUpdateData = false;
 
 let fuse = null;
 let ms = null;
+let flexIndex = null;
 let filterTags = {};
 
 async function loadData() {
   console.log("Loading data...");
   const jsonDirectory = path.join(process.cwd(), "src/json");
-  fileContents = await fs.readFile(jsonDirectory + "/all.json", "utf8");
+  fileContents = await fs.readFile(jsonDirectory + "/combined.json", "utf8");
   fileContents = JSON.parse(fileContents);
+  // flexIndex = new Document({
+  //   document: {
+  //     id: "id",
+  //     index: ["class_name", "class_tag"],
+  //   },
+  // });
   fileContents.data.forEach((item, idx) => {
     item.id = idx;
 
@@ -35,6 +44,7 @@ async function loadData() {
         .slice(1, item.days.length - 1)
         .replaceAll("'", "")
         .split(", ");
+      item.days = item.days.filter((day) => day.length > 0);
     }
 
     if (
@@ -47,7 +57,10 @@ async function loadData() {
         .replaceAll("'", "")
         .split(", ");
     }
+
+    // flexIndex.add(item);
   });
+  // flexIndex.add(fileContents.data);
   const tagHeaders = ["term", "school", "subject"];
   const tags = tagHeaders.map((field) => [
     ...new Set(fileContents.data.map((item) => item[field])),
@@ -57,7 +70,7 @@ async function loadData() {
   }
   // console.log(filterTags);
   ms = new MiniSearch({
-    fields: ["class_name", "class_tag", "instructors"],
+    fields: ["class_name", "class_tag", "ab0", "ab1", "ab2"],
     storeFields: [
       "class_name",
       "class_tag",
@@ -75,6 +88,7 @@ async function loadData() {
     searchOptions: { fuzzy: 0.3 },
   });
   ms.addAll(fileContents.data);
+
   // console.log("Done loading data");
   // console.log(typeof fileContents);
   // fuse = new Fuse(fileContents.data, {
@@ -85,6 +99,7 @@ async function loadData() {
 }
 
 export default async function handler(req, res) {
+  // console.log("Request received:", req.body.request);
   if (!didUpdateData) {
     await loadData();
     // console.log("Finished loading");
@@ -108,8 +123,30 @@ export default async function handler(req, res) {
           .map((filt) => filt.items.includes(result[filt.tag]))
           .reduce((a, b) => a && b, true),
     });
-    // console.log(results.slice(0, 15));
-    res.status(200).json({ items: results.slice(0, 100) });
+    // const results = fuzzysort
+    //   .go(req.body.query, fileContents.data, {
+    //     keys: ["class_tag", "class_name"],
+    //     limit: 25,
+    //     all: true,
+    //     threshold: -Infinity,
+    //     scoreFn: (a) =>
+    //       Math.max(a[0] ? a[0].score : -1000, a[1] ? a[1].score - 300 : -1000),
+    //   })
+    //   .map((result) => result.obj);
+    // let results = flexIndex.search(req.body.query, {
+    //   index: ["class_name", "class_tag"],
+    //   limit: 25,
+    //   tokenizer: "full",
+    //   encoder: "extra",
+    // });
+    // let actual = [];
+    // for (let res of results) {
+    //   res.result.forEach((resIdx) => actual.push(fileContents.data[resIdx]));
+    // }
+    // results = actual;
+    // console.log(results);
+    res.status(200).json({ items: results.slice(0, 25) });
+    // res.status(200).json({ items: [] });
     // let myFuse = new Fuse(fileContents.data, {
     //   threshold: 0.95,
     //   keys: ["class_name", "class_tag"],

@@ -17,6 +17,7 @@ export default function Home() {
   const [searchResults, setSearchResults] = useState([]);
   const [starredCourses, setStarredCourses] = useState({});
   const [filters, setFilters] = useState([]);
+  const [allTerms, setAllTerms] = useState([]);
   const [filterTags, setFilterTags] = useState([]);
   const [render, setRender] = useState(false);
   const [showFilter, setShowFilter] = useState(true);
@@ -32,7 +33,9 @@ export default function Home() {
         body: JSON.stringify({ request: "filters" }),
       })
         .then(async (res) => {
-          setFilterTags(await res.json());
+          const json = await res.json();
+          setAllTerms(json.term);
+          setFilterTags(json);
         })
         .catch((err) => {
           console.log(err);
@@ -156,9 +159,10 @@ export default function Home() {
 
         {/* Schedule matrix */}
         <div className={`${showScheduleMatrix ? "" : "hidden"} flex w-full`}>
+          {console.log("All terms:", allTerms)}
           <ScheduleMatrix
             starredCourses={starredCourses}
-            terms={filterTags.term}
+            terms={allTerms}
             visible={showScheduleMatrix}
           />
         </div>

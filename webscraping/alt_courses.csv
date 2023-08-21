@@ -1,0 +1,168 @@
+subject,ab0,ab1,ab2
+African & African Amer Studies,AFRAMER,AAAS,AFRSTUD
+Afrikaans,AFRIKAAN,AFRK,
+"Art, Film, and Visual Studies",AFVS,ARTFVS,
+Akkadian,AKKAD,AKD,
+Albanian Language,ALBANIAN,ALBN,ALB
+Amharic,AMHARIC,AMHR,
+American Studies,AMSTDIES,AMSTD,AMS
+Ancient Studies,ANCSTD,ANSTUD,
+Ancient Near East,ANE,ANCNE,
+Anthropology,ANTHRO,ANTH,
+Applied Computation,APCOMP,ACOMP,
+Applied Mathematics,APMTH,APMATH,
+Applied Physics,APPHY,APHYS,
+Arabic,ARABIC,ARB,
+Aramaic,ARAMAIC,ARMC,
+Armenian,ARMEN,ARMN,
+Armenian Studies,ARMENST,ARMSTUD,
+Astronomy,ASTRON,ASTRO,
+Biological & Biomedical Sci,BBS,BIOBIO,
+Biolog Chem & Molecular Pharm,BCMP,BCM,
+Bosnian, Croatian & Serbian,BCS,BCSER
+Biomedical Engineering,BE,BIOENG,
+Bahasa Indonesia,BI,BAHASA,
+Biophysics,BIOPHYS,BIOPHY,BIOPH
+Biostatistics,BIOSTAT,BSTAT,
+Biomedical Informatics,BMIF,BMINF,
+Biological Sci in Public Hlth,BPH,BIOPHLTH,
+Bio Sciences in Dental Med,BSDM,BSD,
+Catalan,CATALAN,CAT,
+Creativity and Entrepreneurshi,CE,CRENT,
+Cell Biology,CELLBIO,CELLB,
+Celtic,CELTIC,CELT,
+Chaghatay,CHAGATAY,CHAG,
+Chemistry,CHEM,CHM,
+Chemical Biology,CHEMBIO,CHBIO,
+Chinese,CHNSE,CHN,
+Chinese History,CHNSHIS,CHIST,
+Chinese Literature,CHNSLIT,CLIT,
+Classical Hebrew,CLAS-HEB,CLHEB,
+Classical Archaeology,CLASARCH,CARCH,
+Classical Philology,CLASPHIL,CPHIL,
+Classics,CLASSIC,CLSS,
+Classical Studies,CLS-STDY,CLSTUDY,
+Comparative Literature,COMPLIT,COMPL,CLIT
+Computer Science,COMPSCI,CS,CSCI
+Chemical and Physical Biology,CPB,CPBIO,
+Czech,CZCH,CZECH,CZ
+Design,DESIGN,DSGN,
+Developmental & Regen Biology,DRB,DEVRB,
+Earth & Planetary Sciences,E-PSCI,EPSCI,
+East Asian Buddhist Studies,EABS,EABUD,EABST
+E Asian Film & Media Studies,EAFM,EAFMS,EAFILM
+East Asian Studies,EASTD,EAST,EAS
+Economics,ECON,ECONO,EC
+Education Studies,EDST,EDSTD,EDSTU
+Education,EDU,EDUC,
+Egyptarb,EGYPTARB,EGYTA,EGYAR
+Egyptian,EGYPTIAN,EGYP,EGY
+"Ethnicity, Migration, Rights",EMR,EMRIGHT,ETMIG
+Engineering Sciences,ENG-SCI,ENGS,ENGSCI
+English,ENGLISH,ENGL,ENG
+Environ Science & Engineering,ESE,ENVSCIENG,ENVSE
+Environmental Sci & Public Pol,ESPP,ENVSCIPOL,EVSP
+Expository Writing,EXPOS,EXPWRI,EXWR
+Folklore & Mythology,FOLKMYTH,FOLKM,FMYTH
+French,FRENCH,FRN,FR
+Filipino Tagalog,FT,FILTAG,FILTA
+First Year Seminar,FYSEMR,FYSM,FSEM
+Geez,GEEZ,GZ,
+General Education,GENED,GENEDU,GED
+Genetics,GENETIC,GENET,GENT
+German,GERMAN,GERM,GER
+Germanic Philology,GERMPHIL,GPHIL,GERMP
+Global Health & Health Policy,GHHP,GLHHP,GHPOL
+Government,GOV,GOVT,
+Greek,GREEK,GRK,
+Georgian,GRGN,GEO,
+Gullah,GULLAH,GUL,
+History of Art & Architecture,HAA,HISTART,HAArch
+Haitian,HAITIAN,HAI,HAT
+Hausa,HAUSA,HAU,HAS
+Business Doctoral,HBSDOC,BUSDOC,HBDOC
+Human Bio & Translational Med,HBTM,HUMBIOTM,HBIO
+Human Evolutionary Biology,HEB,HUMEVBIO,HEVBIO
+Hebrew,HEBREW,HEBR,HEBW
+Hindi-Urdu,HIND-URD,HINURD,HURD
+History,HIST,HIS,
+History & Literature,HIST-LIT,HISLIT,HLIT
+History of Science,HISTSCI,HSCI,HOSCI
+Health Policy,HLTHPOL,HEALTHP,HLPOL
+Humanities,HUMAN,HUM,HUMN
+Inner Asian and Altaic Studies,IAAS,INASALT,IAA
+Igbo,IGBO,IGB,
+Immunology,IMMUN,IMM,IMUN
+Indo-Persian,INDO-PER,INPER,INDP
+Independent Study,INDSTUDY,INDSTD,ISTUDY
+Irish,IRISH,IRI,IRS
+Islamic Civilizations,ISLAMCIV,ISLCIV,ISLCV
+Italian,ITAL,ITA,ITLN
+Jamaican,JAMAICAN,JAM,JAI
+Japanese,JAPAN,JAP,
+Japanese History,JAPNHIST,JPHIST,JHIST
+Japanese Literature,JAPNLIT,JPLIT,JLIT
+Jewish Studies,JEWISHST,JSTUD,JEWST
+Kimeru,KIMERU,KIM,KMR
+Kinyarwanda,KINYARWA,KINRW,KINY
+Korean,KOREAN,KOR,KRN
+Korean History,KORHIST,KHIST,KORH
+Korean Literature,KORLIT,KLIT,KORL
+Kurdish,KURDISH,KURD,KRD
+Latin,LATIN,LAT,LTN
+Life Sciences,LIFESCI,LFSCI,LSCI
+Linguistics,LING,LINGU,LNG
+Life & Physical Sciences,LPS,LIFEPHYSCI,LPSCI
+Manchu,MANCHU,MAN,MCHU
+Mathematics,MATH,MATHS,MAT
+"Mind, Brain & Behavior",MBB,MINDBB,MBBHV
+Molecular & Cellular Biology,MCB,MOLCELLBIO,MCBIOL
+Medical Sciences,MED-SCI,MEDSC,MEDS
+Medieval Latin,MEDLATIN,MEDLAT,MLATIN
+Medieval Studies,MEDVLSTD,MEDSTUD,MEDSTD
+Middle Eastern Studies,MES,MIDEASTS,MESTD
+Microbiology,MICROBI,MICROB,MICB
+Modern Hebrew,MOD-HEB,MHEB,MODH
+Modern Greek,MODGRK,MGREEK,MODG
+Modern Middle East,MODMDEST,MME,MODME
+Mongolian,MONGOLN,MONG,MON
+Music,MUSIC,MUS,MUSC
+Near Eastern Civilizations,NEC,NEARCIV,NECIV
+Nepali,NEP,NEPAL,NEPL
+Neuroscience - Undergraduate,NEURO,NEUR,NEUROU
+Neurobiology - Graduate,NEUROBIO,NEUROB,NEUBIO
+Organismic & Evolutionary Biol,OEB,ORGEB,OEVB
+Oromo,OROMO,ORO,ORM
+Political Economy & Government,PEGV,POLGOV,PEG
+Persian,PERSIAN,PERS,PER
+Philosophy,PHIL,PHILO,PHILS
+Population Health Sciences,PHS,POPHS,POPHEALTH
+Physical Sciences,PHYSCI,PHYSICS,PHYSC
+Physics,PHYSICS,PHYS,PHY
+Polish,PLSH,POL,PL
+Portuguese,PORTUG,PORT,PT
+Public Policy,PPOL,PUBPOL,PPLC
+Psychology,PSY,PSYCH,PSYC
+Quantum Sci and Engineering,QSE,QUANSE,QSCIENG
+Religion,RELIGION,RELIG,REL
+Romance Languages,ROM-LANG,ROMLANG,RMLANG
+Romance Studies,ROM-STD,ROMSTD,RMSTUD
+Russian,RUSSIAN,RUSS,RUS
+Russian History,RUSHIST,RUHIST,RUSH
+Russian Literature,RUSLIT,RLIT,RUSL
+South Asian Studies,SAS,SOUTHAS,SASTUD
+Slavic,SLAVIC,SLAV,SLV
+Social Sciences,SOCS,SOCSIS,SOCSISCI
+Sanskrit,SANSKRIT,SANSK,SANS
+Spanish,SPANISH,SPAN,SPN
+Statistics,STAT,STATS,STT
+Swahili,SWAHILI,SWAH,SWA
+Swedish,SWEDISH,SWED,SWE
+Systems Biology,SYSBIO,SYSBIO,SYBIOL
+Turkish,TURKISH,TURK,TRK
+Ukrainian,UKRANIAN,UKR,UKRAN
+Uzbek,UZBEK,UZB,UZBK
+Vietnamese,VIETNAME,VIETN,VIET
+Visual & Environmental Studies,VES,VISUALST,VISSTUD
+Yoruba,YORUBA,YOR,YORU
+Zulu,ZULU,ZUL,ZU

@@ -68,7 +68,7 @@ export default function SearchResultRow({ result, handler, starred }) {
 
       {/* Instructors */}
       <td className="py-2 text-sm hidden md:table-cell">
-        {result.instructors !== null ? (
+        {result.instructors ? (
           <div className="mr-8 text-zinc-500">
             {result.instructors.join(", ")}
           </div>

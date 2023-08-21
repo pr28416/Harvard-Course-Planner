@@ -49,6 +49,7 @@ function formatCourses({ terms, courses }) {
         course.raw_end_time = null;
       }
       // Add to the terms
+      console.log("TERM", course.term, course.class_tag, day);
       termSplit[course.term][day].push(course);
     }
     // Sort by end time
@@ -180,10 +181,16 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
     if (formattedCourses[term] === undefined || formattedCourses[term] === null)
       return 0;
     let numCourses = 0;
+    let uuids = new Set();
     for (let day of dayHeaders) {
-      numCourses += formattedCourses[term][day].length;
+      // numCourses += formattedCourses[term][day].length;
+      for (let group of formattedCourses[term][day]) {
+        for (let course of group) {
+          uuids.add(course.uuid);
+        }
+      }
     }
-    return numCourses;
+    return uuids.size;
   };
 
   return (
@@ -200,110 +207,120 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
       <div className="flex flex-row max-w-full max-h-full border border-slate-200 overflow-clip rounded-lg text-zinc-700">
         {/* First column */}
         <table className="h-full table-fixed bg-white rounded-lg">
-          {/* Days header */}
-          <thead className="divide-slate-100 divide-x bg-slate-100">
-            <th className="py-2 font-medium text-sm border-b border-b-slate-100">
-              &nbsp;
-            </th>
+          <thead>
+            {/* Days header */}
+            <tr className="divide-slate-100 divide-x bg-slate-100">
+              <th className="py-2 font-medium text-sm border-b border-b-slate-100">
+                &nbsp;
+              </th>
+            </tr>
           </thead>
-          {/* Times */}
-          {timeLabels
-            .filter((_, idx) => !(idx % 2))
-            .map((time, key) => (
-              <tr
-                key={key}
-                className={`divide-slate-100 divide-x ${
-                  time === "" ? "h-6" : "h-12"
-                }`}
-              >
-                <td className="pl-4 pr-2 py-2 font-light text-xs text-end text-slate-400">
-                  {time}
-                </td>
-              </tr>
-            ))}
+          <tbody>
+            {/* Times */}
+            {timeLabels
+              .filter((_, idx) => !(idx % 2))
+              .map((time, key) => (
+                <tr
+                  key={key}
+                  className={`divide-slate-100 divide-x ${
+                    time === "" ? "h-6" : "h-12"
+                  }`}
+                >
+                  <td className="pl-4 pr-2 py-2 font-light text-xs text-end text-slate-400">
+                    {time}
+                  </td>
+                </tr>
+              ))}
+          </tbody>
         </table>
 
         {/* Main calendar content */}
         <table className="w-full h-full table-fixed bg-white rounded-lg divide-y divide-slate-100 border-l border-l-slate-100 overflow-x-scroll">
-          {/* Days header */}
-          <thead className=" divide-slate-100 divide-x bg-slate-100">
-            {dayHeaders.map((day, idx) => (
-              <th
-                key={idx}
-                style={{ minWidth: "4.5rem" }}
-                className=" py-2 font-medium text-sm"
-              >
-                {dayHeaderMap[day]}
-              </th>
-            ))}
-          </thead>
-          {/* Times */}
-          {timeLabels.map((time, key) => (
-            <tr key={key} className="divide-slate-100 divide-x">
+          <thead>
+            {/* Days header */}
+            <tr className=" divide-slate-100 divide-x bg-slate-100">
               {dayHeaders.map((day, idx) => (
-                <td
-                  // style={{ width: "20rem" }}
+                <th
                   key={idx}
-                  className="w-12 relative py-2 font-medium text-sm h-6"
+                  style={{ minWidth: "4.5rem" }}
+                  className=" py-2 font-medium text-sm"
                 >
-                  {time !== "7AM" ? null : (
-                    // Day column where classes are scheduled
-                    <div
-                      className="absolute top-6 w-full"
-                      style={{
-                        height: `${(6 * (timeLabels.length - 1)) / 4}rem`,
-                      }}
-                      ref={dayColWidthRef}
-                    >
-                      {formattedCourses.length === 0
-                        ? null
-                        : formattedCourses[selectedTerm][day].map(
-                            (group, groupIdx) =>
-                              group.map((course, courseIdx) => (
-                                // Course
-                                <div
-                                  key={groupIdx * group.length + courseIdx}
-                                  className={`absolute text-xs break-words font-semibold rounded-sm overflow-y-auto no-scrollbar ${course.color.border} ${course.color.bg} ${course.color.text}`}
-                                  style={{
-                                    fontSize: "0.55rem",
-                                    lineHeight: "0.75rem",
-                                    top: `${
-                                      (course.raw_start_time - 420) / 20
-                                    }rem`,
-                                    height: `${
-                                      (course.raw_end_time -
-                                        course.raw_start_time) /
-                                      20
-                                    }rem`,
-                                    width: `${
-                                      dayColWidth /
-                                      formattedCourses[selectedTerm][day].length
-                                    }px`,
-                                    left: `${
-                                      (groupIdx * dayColWidth) /
-                                      formattedCourses[selectedTerm][day].length
-                                    }px`,
-                                  }}
-                                >
-                                  <div className="flex flex-col">
-                                    <div>{course.class_tag}</div>
-                                    <div className="font-normal">
-                                      {course.start_time} - {course.end_time}
-                                    </div>
-                                  </div>
-                                </div>
-                              ))
-                          )}
-                      {/* {time} */}
-                    </div>
-                  )}
-                  {/* <div className="absolute top-6 left-0 bg-blue-100">
-                    {time}
-                  </div> */}
-                </td>
+                  {dayHeaderMap[day]}
+                </th>
               ))}
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            {/* Times */}
+            {timeLabels.map((time, key) => (
+              <tr key={key} className="divide-slate-100 divide-x">
+                {dayHeaders.map((day, idx) => (
+                  <td
+                    // style={{ width: "20rem" }}
+                    key={idx}
+                    className="w-12 relative py-2 font-medium text-sm h-6"
+                  >
+                    {time !== "7AM" ? null : (
+                      // Day column where classes are scheduled
+                      <div
+                        className="absolute top-6 w-full"
+                        style={{
+                          height: `${(6 * (timeLabels.length - 1)) / 4}rem`,
+                        }}
+                        ref={dayColWidthRef}
+                      >
+                        {formattedCourses.length === 0
+                          ? null
+                          : formattedCourses[selectedTerm][day].map(
+                              (group, groupIdx) =>
+                                group.map((course, courseIdx) => (
+                                  // Course
+                                  <div
+                                    key={groupIdx * group.length + courseIdx}
+                                    className={`absolute text-xs break-words font-semibold rounded-sm overflow-y-auto no-scrollbar ${course.color.border} ${course.color.bg} ${course.color.text}`}
+                                    style={{
+                                      fontSize: "0.55rem",
+                                      lineHeight: "0.75rem",
+                                      top: `${
+                                        (course.raw_start_time - 420) / 20
+                                      }rem`,
+                                      height: `${
+                                        (course.raw_end_time -
+                                          course.raw_start_time) /
+                                        20
+                                      }rem`,
+                                      width: `${
+                                        dayColWidth /
+                                        formattedCourses[selectedTerm][day]
+                                          .length
+                                      }px`,
+                                      left: `${
+                                        (groupIdx * dayColWidth) /
+                                        formattedCourses[selectedTerm][day]
+                                          .length
+                                      }px`,
+                                    }}
+                                  >
+                                    <div className="flex flex-col">
+                                      <div>{course.class_tag}</div>
+                                      <div className="font-normal">
+                                        {course.start_time} - {course.end_time}
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))
+                            )}
+                        {/* {time} */}
+                      </div>
+                    )}
+                    {/* <div className="absolute top-6 left-0 bg-blue-100">
+                    {time}
+                  </div> */}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
