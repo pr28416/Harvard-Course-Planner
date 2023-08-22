@@ -98,6 +98,8 @@ async function loadData() {
   didUpdateData = true;
 }
 
+let fullResults = [];
+
 export default async function handler(req, res) {
   // console.log("Request received:", req.body.request);
   if (!didUpdateData) {
@@ -117,12 +119,20 @@ export default async function handler(req, res) {
     });
   } else if (req.body.request === "search") {
     // console.log("FILTERS", req.body.filters, typeof req.body.filters);
-    let results = ms.search(req.body.query, {
-      filter: (result) =>
+    if (req.body.query.length === 0) {
+      fullResults = fileContents.data.filter((result) =>
         req.body.filters
           .map((filt) => filt.items.includes(result[filt.tag]))
-          .reduce((a, b) => a && b, true),
-    });
+          .reduce((a, b) => a && b, true)
+      );
+    } else {
+      fullResults = ms.search(req.body.query, {
+        filter: (result) =>
+          req.body.filters
+            .map((filt) => filt.items.includes(result[filt.tag]))
+            .reduce((a, b) => a && b, true),
+      });
+    }
     // const results = fuzzysort
     //   .go(req.body.query, fileContents.data, {
     //     keys: ["class_tag", "class_name"],
@@ -145,7 +155,10 @@ export default async function handler(req, res) {
     // }
     // results = actual;
     // console.log(results);
-    res.status(200).json({ items: results.slice(0, 25) });
+    res.status(200).json({
+      items: fullResults.slice(0, req.body.limit),
+      canPaginate: fullResults.length > req.body.limit,
+    });
     // res.status(200).json({ items: [] });
     // let myFuse = new Fuse(fileContents.data, {
     //   threshold: 0.95,
@@ -155,6 +168,15 @@ export default async function handler(req, res) {
     // // console.log(results);
     // const items = results.map((result) => result.item);
     // res.status(200).json({ items: items.slice(0, 15) });
+  } else if (req.body.request === "paginate") {
+    // console.log("PAGINATE", req.body);
+    res.status(200).json({
+      items: fullResults.slice(
+        req.body.offset,
+        req.body.offset + req.body.limit
+      ),
+      canPaginate: req.body.offset + req.body.limit < fullResults.length,
+    });
   } else {
     res.status(500).json({ message: "Invalid request" });
   }

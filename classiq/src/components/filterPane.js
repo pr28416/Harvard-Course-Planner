@@ -16,14 +16,14 @@ export default function FilterPane({ term, school, subject, handler }) {
         </div>
       )}
       {/* Select school */}
-      {school === null || school === undefined ? null : (
+      {/* {school === null || school === undefined ? null : (
         <div className="flex flex-row items-center gap-2">
           <div className="font-medium">School</div>
           <Dropdown datasource={school} handler={handler} tag="school" />
         </div>
-      )}
+      )} */}
       {/* Select subject */}
-      {school === null || school === undefined ? null : (
+      {subject === null || subject === undefined ? null : (
         <div className="flex flex-row items-center gap-2">
           <div className="font-medium">Subject</div>
           <Dropdown datasource={subject} handler={handler} tag="subject" />

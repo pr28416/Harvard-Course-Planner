@@ -1,13 +1,23 @@
 import React from "react";
 import WeekBar from "./weekBar";
 import StarButton from "./starButton";
-import { AccessTime, SchoolRounded } from "@mui/icons-material";
+import {
+  AccessTime,
+  Info,
+  InfoOutlined,
+  SchoolRounded,
+  Today,
+  TodayRounded,
+} from "@mui/icons-material";
 import InfoButton from "./infoButton";
-import results from "./results";
 
 export default function SearchResultRow({ result, handler, starred }) {
   return (
-    <tr>
+    <tr
+      className="hover:bg-zinc-50 hover:cursor-pointer"
+      onClick={() => handler(result.uuid, result)}
+      title={`${starred ? "Remove from" : "Add to"} starred courses`}
+    >
       {/* Course */}
       <td className="py-3 flex flex-row gap-4">
         <StarButton starred={starred} result={result} handler={handler} />
@@ -23,7 +33,9 @@ export default function SearchResultRow({ result, handler, starred }) {
               )}
             </div>
           </div>
-          <div className="font-bold text-zinc-900">{result.class_name}</div>
+          <div className="font-bold text-zinc-900 text-start">
+            {result.class_name}
+          </div>
           <div className="md:hidden flex flex-row gap-4 items-end w-full">
             <div className="md:hidden flex flex-row flex-wrap w-full items-center gap-2 text-xs">
               {/* Mobile: Instructors */}
@@ -58,6 +70,12 @@ export default function SearchResultRow({ result, handler, starred }) {
                   <div className="text-zinc-300 italic">No times</div>
                 </div>
               )}
+
+              {/* Mobile: Term */}
+              <div className="flex flex-row gap-2 items-center">
+                <Today fontSize="small" className="text-zinc-700" />
+                <div className="text-zinc-600">{result.term}</div>
+              </div>
             </div>
             <div className="md:hidden">
               <InfoButton course={result} />
@@ -97,6 +115,7 @@ export default function SearchResultRow({ result, handler, starred }) {
         </div>
       </td>
 
+      {/* Info button */}
       <td className="hidden md:table-cell">
         <InfoButton course={result} />
       </td>

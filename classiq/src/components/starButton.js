@@ -5,10 +5,13 @@ export default function StarButton({ starred, handler, result }) {
   return (
     <button
       className="focus:outline-none"
-      onClick={() => handler(result.uuid, result)}
+      onClick={(e) => {
+        e.stopPropagation();
+        handler(result.uuid, result);
+      }}
     >
       {starred ? (
-        <StarRounded className="text-zinc-900" />
+        <StarRounded className="text-amber-500" />
       ) : (
         <StarBorderRounded />
       )}

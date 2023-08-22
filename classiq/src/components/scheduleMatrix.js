@@ -2,6 +2,20 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import colors from "./colors";
 import Dropdown from "./dropdown";
 
+function bsearch(arr, target, comp) {
+  let lo = 0;
+  let up = arr.length;
+  while (lo < up) {
+    let mid = Math.floor((lo + up) / 2);
+    if (comp(target, arr[mid])) {
+      up = mid;
+    } else {
+      lo = mid + 1;
+    }
+  }
+  return lo;
+}
+
 function formatCourses({ terms, courses }) {
   // Filter by term/day
   let termSplit = {};
@@ -49,15 +63,15 @@ function formatCourses({ terms, courses }) {
         course.raw_end_time = null;
       }
       // Add to the terms
-      console.log("TERM", course.term, course.class_tag, day);
-      termSplit[course.term][day].push(course);
+      // console.log("TERM", course.term, course.class_tag, day);
+      termSplit[course.term][day].push({ ...course });
     }
     // Sort by end time
-    for (let day of course.days) {
-      termSplit[course.term][day].sort(
-        (a, b) => a.raw_end_time - b.raw_end_time
-      );
-    }
+    // for (let day of course.days) {
+    //   termSplit[course.term][day].sort(
+    //     (a, b) => a.raw_end_time - b.raw_end_time
+    //   );
+    // }
   }
   // console.log("Preformatted:", termSplit);
   // Divide into groups; iterate by term first
@@ -65,33 +79,124 @@ function formatCourses({ terms, courses }) {
   for (let term of terms) {
     // Iterate by day
     for (let day of ["Su", "M", "T", "W", "Th", "F", "Sa"]) {
-      let groups = [];
-      let courseCount = 0;
-      let totalCourses = termSplit[term][day].length;
-      // Iterate until there are no items left
-      while (courseCount < totalCourses) {
-        // Add new group
-        groups.push([]);
-        let usedCourses = new Set();
-        let end = -1;
+      let classes = termSplit[term][day];
 
-        // Schedule most courses possible
-        for (let course of termSplit[term][day]) {
-          if (end <= course.raw_start_time) {
-            end = course.raw_end_time;
-            groups[groups.length - 1].push(course);
-            usedCourses.add(course.uuid);
-            courseCount++;
-            // console.log("Scheduled", course.class_tag);
+      // Sort by start time and find number of chunks
+      classes.sort((a, b) => a.raw_start_time - b.raw_start_time);
+      let greatestEndTime = 0;
+      let chunks = [[]];
+      if (classes.length > 0) {
+        classes[0].chunk = 0;
+        greatestEndTime = classes[0].raw_end_time;
+        chunks[chunks.length - 1].push(classes[0]);
+      }
+      // console.log("Iterating thru courses for day", day, ":");
+      for (let courseIdx = 1; courseIdx < classes.length; courseIdx++) {
+        let course = classes[courseIdx];
+        let prevCourse = classes[courseIdx - 1];
+        greatestEndTime = Math.max(greatestEndTime, prevCourse.raw_end_time);
+        if (course.raw_start_time >= greatestEndTime) {
+          course.chunk = prevCourse.chunk + 1;
+          greatestEndTime = course.raw_end_time;
+          chunks.push([]);
+        } else {
+          course.chunk = prevCourse.chunk;
+        }
+        chunks[chunks.length - 1].push(course);
+      }
+
+      // Every element in chunkGroups is an array of groups
+      let chunkGroups = [];
+
+      // For each chunk, add column groups
+      for (let chunk of chunks) {
+        // Sort by end time
+        chunk.sort((a, b) => a.raw_end_time - b.raw_end_time);
+        // chunkGroups.push([])
+
+        let colGroups = [];
+        let courseCount = 0;
+        let totalCourses = chunk.length;
+        // let totalCourses = termSplit[term][day].length;
+
+        // Iterate until there are no items left
+        while (courseCount < totalCourses) {
+          // Add new group
+          colGroups.push([]);
+          let usedCourses = new Set();
+          let end = -1;
+
+          // Schedule most courses possible
+          for (let course of chunk) {
+            if (end <= course.raw_start_time) {
+              end = course.raw_end_time;
+              course.width = 1;
+              colGroups[colGroups.length - 1].push(course);
+              usedCourses.add(course.uuid);
+              courseCount++;
+              // console.log("Scheduled", course.class_tag);
+            }
+          }
+
+          // Removed scheduled courses
+          chunk = chunk.filter((course) => !usedCourses.has(course.uuid));
+        }
+        // termSplit[term][day] = colGroups;
+        // For each column group in chunk, expand width of each course to fill
+        for (
+          let colGroupIdx = 0;
+          colGroupIdx < colGroups.length - 1;
+          colGroupIdx++
+        ) {
+          // Iterate through each course
+          for (let course of colGroups[colGroupIdx]) {
+            // console.log("Width-ing", course.class_tag, course);
+            for (
+              let compareIdx = colGroupIdx + 1;
+              compareIdx < colGroups.length;
+              compareIdx++
+            ) {
+              let idx = bsearch(
+                colGroups[compareIdx],
+                course,
+                (a, b) => a.raw_start_time <= b.raw_start_time
+              );
+              let prevIdx = idx - 1;
+              // console.log("Adjacent:", idx, prevIdx, colGroups[compareIdx]);
+              if (
+                prevIdx >= 0 &&
+                colGroups[compareIdx][prevIdx].raw_end_time >=
+                  course.raw_start_time
+              ) {
+                break;
+              }
+              if (
+                idx < colGroups[compareIdx].length &&
+                colGroups[compareIdx][idx].raw_start_time <= course.raw_end_time
+              ) {
+                break;
+              }
+              course.width++;
+            }
           }
         }
 
-        // Removed scheduled courses
-        termSplit[term][day] = termSplit[term][day].filter(
-          (course) => !usedCourses.has(course.uuid)
-        );
+        // Add column group to chunkGroups
+        chunkGroups.push(colGroups);
       }
-      termSplit[term][day] = groups;
+      // classes.sort((a, b) => a.raw_end_time - b.raw_end_time);
+      termSplit[term][day] = chunkGroups;
+    }
+  }
+
+  // For each group, split into subgroups
+  // Iterate by term
+  for (let term of terms) {
+    // Iterate by day
+    for (let day of ["Su", "M", "T", "W", "Th", "F", "Sa"]) {
+      // Iterate by group
+      // for (let groupIdx = 0;  termSplit[term][day]) {
+      // }
     }
   }
 
@@ -184,9 +289,11 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
     let uuids = new Set();
     for (let day of dayHeaders) {
       // numCourses += formattedCourses[term][day].length;
-      for (let group of formattedCourses[term][day]) {
-        for (let course of group) {
-          uuids.add(course.uuid);
+      for (let chunk of formattedCourses[term][day]) {
+        for (let group of chunk) {
+          for (let course of group) {
+            uuids.add(course.uuid);
+          }
         }
       }
     }
@@ -235,7 +342,7 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
         </table>
 
         {/* Main calendar content */}
-        <table className="w-full h-full table-fixed bg-white rounded-lg divide-y divide-slate-100 border-l border-l-slate-100 overflow-x-scroll">
+        <table className="w-full h-full table-fixed bg-white rounded-lg border-l border-l-slate-100 overflow-x-scroll">
           <thead>
             {/* Days header */}
             <tr className=" divide-slate-100 divide-x bg-slate-100">
@@ -250,7 +357,7 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="divide-y divide-slate-100">
             {/* Times */}
             {timeLabels.map((time, key) => (
               <tr key={key} className="divide-slate-100 divide-x">
@@ -271,12 +378,12 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
                       >
                         {formattedCourses.length === 0
                           ? null
-                          : formattedCourses[selectedTerm][day].map(
-                              (group, groupIdx) =>
-                                group.map((course, courseIdx) => (
+                          : formattedCourses[selectedTerm][day].map((chunk) =>
+                              chunk.map((colGroup, colGroupIdx) =>
+                                colGroup.map((course) => (
                                   // Course
                                   <div
-                                    key={groupIdx * group.length + courseIdx}
+                                    key={course.uuid}
                                     className={`absolute text-xs break-words font-semibold rounded-sm overflow-y-auto no-scrollbar ${course.color.border} ${course.color.bg} ${course.color.text}`}
                                     style={{
                                       fontSize: "0.55rem",
@@ -290,14 +397,12 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
                                         20
                                       }rem`,
                                       width: `${
-                                        dayColWidth /
-                                        formattedCourses[selectedTerm][day]
-                                          .length
+                                        (dayColWidth / chunk.length) *
+                                        course.width
                                       }px`,
                                       left: `${
-                                        (groupIdx * dayColWidth) /
-                                        formattedCourses[selectedTerm][day]
-                                          .length
+                                        (colGroupIdx * dayColWidth) /
+                                        chunk.length
                                       }px`,
                                     }}
                                   >
@@ -309,6 +414,7 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
                                     </div>
                                   </div>
                                 ))
+                              )
                             )}
                         {/* {time} */}
                       </div>

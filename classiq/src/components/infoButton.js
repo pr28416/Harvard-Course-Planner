@@ -16,9 +16,15 @@ export default function InfoButton({ course }) {
   let [isOpen, setOpen] = useState(false);
 
   return (
-    <>
+    <div onClick={(e) => e.stopPropagation()}>
       {/* Button */}
-      <button onClick={() => setOpen(true)} className="focus:outline-none">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setOpen(true);
+        }}
+        className="focus:outline-none"
+      >
         <InfoOutlined className="text-zinc-700" />
       </button>
       {/* Dialog */}
@@ -38,7 +44,10 @@ export default function InfoButton({ course }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div
+              className="fixed inset-0 bg-black bg-opacity-25"
+              onClick={(e) => e.stopPropagation()}
+            />
           </Transition.Child>
 
           {/* Content */}
@@ -66,7 +75,12 @@ export default function InfoButton({ course }) {
                           {course.class_name}
                         </div>
                       </div>
-                      <button onClick={() => setOpen(false)}>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setOpen(false);
+                        }}
+                      >
                         <Close className="text-zinc-700" />
                       </button>
                     </div>
@@ -189,6 +203,6 @@ export default function InfoButton({ course }) {
           </div>
         </Dialog>
       </Transition>
-    </>
+    </div>
   );
 }
