@@ -9,7 +9,7 @@ export default function FilterPane({ term, school, subject, handler }) {
       {/* Title */}
       {/* <div className="text-lg font-bold">Filters</div> */}
       {/* Select term */}
-      {term === null || term === undefined ? null : (
+      {term === null || term === undefined || !Array.isArray(term) ? null : (
         <div className="flex flex-row items-center gap-2">
           <div className="font-medium">Term</div>
           <Dropdown datasource={term.toSorted()} handler={handler} tag="term" />
