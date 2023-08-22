@@ -165,7 +165,7 @@ export default function DescriptionView({ course, isOpen, setOpen }) {
                         }
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex flex-row items-center gap-2 text-zinc-100 font-semibold text-sm bg-zinc-900 px-3 py-2 rounded-lg"
+                        className="flex flex-row items-center gap-2 text-zinc-100 font-semibold text-sm bg-red-500 px-3 py-2 rounded-lg"
                       >
                         <Assessment
                           fontSize="small"

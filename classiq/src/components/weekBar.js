@@ -10,7 +10,7 @@ export default function WeekBar({ days, minimal }) {
             key={idx}
             className={`flex items-center justify-center w-6 h-6 text-xs ${
               days.includes(day)
-                ? "bg-zinc-700 text-white font-bold"
+                ? "bg-red-600 text-white font-bold"
                 : "font-semibold"
             }`}
           >
@@ -28,7 +28,7 @@ export default function WeekBar({ days, minimal }) {
             style={{ fontSize: "0.6rem", width: "1.1rem", height: "1.1rem" }}
             className={`flex text-center items-center justify-center ${
               days.includes(day)
-                ? "bg-zinc-700 text-white font-bold"
+                ? "bg-red-600 text-white font-bold"
                 : "font-semibold"
             }`}
           >

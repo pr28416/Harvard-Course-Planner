@@ -17,6 +17,7 @@ import {
   KeyboardArrowUp,
 } from "@mui/icons-material";
 import { CircularProgress } from "@mui/material";
+import Link from "next/link";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -175,7 +176,7 @@ export default function Home() {
             <button
               className={`flex shrink-0 font-semibold ${
                 showScheduleMatrix
-                  ? "text-zinc-100 bg-zinc-900"
+                  ? "text-zinc-100 bg-red-500"
                   : "text-zinc-700 bg-zinc-100"
               } text-sm px-3 py-2 rounded-lg flex-row items-center gap-2 w-fit`}
               onClick={() => setShowScheduleMatrix(!showScheduleMatrix)}
@@ -279,6 +280,26 @@ export default function Home() {
             terms={allTerms}
             visible={showScheduleMatrix}
           />
+        </div>
+      </div>
+      {/* Footer & credits */}
+      <div className="flex flex-col w-full py-20 px-12 items-center text-center text-xs text-zinc-400">
+        <div>
+          Made with ❤️ by{" "}
+          <Link
+            className="underline"
+            href="mailto:pranavramesh@college.harvard.edu"
+          >
+            Pranav Ramesh
+          </Link>{" "}
+          and{" "}
+          <Link
+            className="underline"
+            href="mailto:atipirneni@college.harvard.edu"
+          >
+            Armaan Tipirneni
+          </Link>
+          .
         </div>
       </div>
     </main>
