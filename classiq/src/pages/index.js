@@ -12,6 +12,7 @@ import WeekBar from "@/components/weekBar";
 import SearchResultRow from "@/components/searchResultRow";
 import SearchResultTable from "@/components/searchResultTable";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
+import { CircularProgress } from "@mui/material";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -123,7 +124,14 @@ export default function Home() {
     });
   };
 
-  return !render ? null : (
+  return !render ? (
+    <main className="flex flex-col h-screen items-center justify-center gap-12">
+      <div className="text-4xl sm:text-5xl font-extrabold text-zinc-950">
+        Classiq.
+      </div>
+      <CircularProgress color="inherit" size="2rem" />
+    </main>
+  ) : (
     <main className="flex flex-col min-h-screen items-center bg-white w-full text-zinc-950">
       {/* Nav bar */}
       <div className="flex flex-col md:flex-row items-center gap-4 w-full pt-8 md:pt-4 pb-4 px-4 md:px-12">
@@ -179,13 +187,13 @@ export default function Home() {
 
           {/* Search */}
           {searchResults.length === 0 ? null : (
-            <div className="mt-8 mb-2 text-2xl font-extrabold text-zinc-900">
+            <div className="mt-8 mb-0 sm:mb-2 text-xl sm:text-2xl font-extrabold text-zinc-900">
               {query.length === 0 ? "All courses" : "Search results"}
             </div>
           )}
 
-          {query.length !== 0 ? null : (
-            <div className="h-full flex flex-col text-zinc-400 mb-4 font-semibold text-lg">
+          {query.length !== 0 || searchResults.length === 0 ? null : (
+            <div className="h-full flex flex-col text-zinc-400 mb-4 font-semibold text-md sm:text-lg">
               Type a course name or number above to start.
             </div>
           )}
