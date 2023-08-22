@@ -11,7 +11,11 @@ import StarButton from "@/components/starButton";
 import WeekBar from "@/components/weekBar";
 import SearchResultRow from "@/components/searchResultRow";
 import SearchResultTable from "@/components/searchResultTable";
-import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
+import {
+  CalendarMonth,
+  KeyboardArrowDown,
+  KeyboardArrowUp,
+} from "@mui/icons-material";
 import { CircularProgress } from "@mui/material";
 
 export default function Home() {
@@ -65,6 +69,12 @@ export default function Home() {
       }
     });
   };
+
+  useEffect(() => {
+    if (starredCourses.length === 0) {
+      setShowStarredCourses(true);
+    }
+  }, [starredCourses]);
 
   const handleSearch = async () => {
     // if (query.length === 0) {
@@ -126,43 +136,29 @@ export default function Home() {
 
   return !render ? (
     <main className="flex flex-col h-screen items-center justify-center gap-12">
-      <div className="text-4xl sm:text-5xl font-extrabold text-zinc-950">
+      <div className="text-5xl sm:text-5xl font-extrabold text-zinc-950">
         Classiq.
       </div>
       <CircularProgress color="inherit" size="2rem" />
     </main>
   ) : (
     <main className="flex flex-col min-h-screen items-center bg-white w-full text-zinc-950">
-      {/* Nav bar */}
-      <div className="flex flex-col md:flex-row items-center gap-4 w-full pt-8 md:pt-4 pb-4 px-4 md:px-12">
-        {/* Title */}
-        <div className="text-3xl font-extrabold text-zinc-950">Classiq.</div>
-        {/* Search bar */}
-        <input
-          className="p-4 bg-zinc-50 border border-zinc-200 placeholder:text-zinc-500 text-sm rounded-lg w-full focus:outline-none"
-          placeholder="Search course"
-          onChange={(event) => setQuery(event.target.value)}
-        />
-        {/* Toggle schedule matrix */}
-        <button
-          className="shrink-0 font-semibold text-zinc-700"
-          onClick={() => setShowScheduleMatrix(!showScheduleMatrix)}
-        >
-          {showScheduleMatrix ? "Hide" : "Show"} schedule matrix
-        </button>
+      {/* Title */}
+      <div className="w-full mt-8 sm:mt-16 mb-8 text-4xl sm:text-5xl px-4 md:px-12 text-center md:text-start font-extrabold text-zinc-950">
+        Classiq.
       </div>
 
       {/* Main content */}
       <div className="h-full flex flex-col-reverse lg:flex-row gap-4 lg:gap-12 px-4 md:px-12 w-full">
         {/* Search and starred */}
         <div className="flex flex-col h-full w-full justify-start">
-          {!showFilter ? null : (
-            <FilterPane {...filterTags} handler={handleFilter} />
-          )}
-          {/* Starred */}
-          {Object.keys(starredCourses).length === 0 ? null : (
-            <div className="mt-8 mb-2 text-2xl font-extrabold text-zinc-900 flex flex-row justify-between items-center flex-wrap">
-              Starred courses
+          {/* Selected courses */}
+          <div className="mb-2 flex flex-row items-center justify-between gap-4 font-extrabold text-zinc-900">
+            {/* Selected courses title */}
+            <div className="flex flex-row justify-start items-center flex-wrap gap-2">
+              {/* Title */}
+              <div className="text-xl sm:text-2xl ">Selected courses</div>
+              {/* Show/hide button */}
               <button
                 className="flex flex-row items-end rounded-full aspect-square hover:bg-zinc-100"
                 onClick={() => setShowStarredCourses((old) => !old)}
@@ -174,10 +170,30 @@ export default function Home() {
                 )}
               </button>
             </div>
-          )}
 
-          {Object.keys(starredCourses).length === 0 ||
-          !showStarredCourses ? null : (
+            {/* Show schedule matrix button */}
+            <button
+              className={`flex shrink-0 font-semibold ${
+                showScheduleMatrix
+                  ? "text-zinc-100 bg-zinc-900"
+                  : "text-zinc-700 bg-zinc-100"
+              } text-sm px-3 py-2 rounded-lg flex-row items-center gap-2 w-fit`}
+              onClick={() => setShowScheduleMatrix(!showScheduleMatrix)}
+            >
+              <CalendarMonth />
+              <div className="hidden sm:flex">
+                {showScheduleMatrix ? "Hide" : "Show"} schedule matrix
+              </div>
+            </button>
+          </div>
+          {/* )} */}
+
+          {/* Starred courses */}
+          {Object.keys(starredCourses).length === 0 ? (
+            <div className="h-full flex flex-col text-zinc-400 mb-4 font-medium text-md sm:text-xl">
+              Your selected courses will appear here.
+            </div>
+          ) : !showStarredCourses ? null : (
             <SearchResultTable
               searchResults={Object.values(starredCourses)}
               starredCourses={starredCourses}
@@ -185,19 +201,51 @@ export default function Home() {
             />
           )}
 
+          {/* Mobile: Show schedule matrix button */}
+          {/* <div className="w-full flex sm:hidden flex-row justify-center">
+            <button
+              className="shrink-0 font-semibold text-zinc-700 text-sm px-3 py-2 bg-zinc-100 rounded-lg flex flex-row items-center gap-2 w-fit"
+              onClick={() => setShowScheduleMatrix(!showScheduleMatrix)}
+            >
+              <CalendarMonth />
+              {showScheduleMatrix ? "Hide" : "Show"} schedule matrix
+            </button>
+          </div> */}
+
+          {/* Mobile: Schedule matrix */}
+          <div
+            className={`${
+              showScheduleMatrix ? "flex lg:hidden" : "hidden"
+            } w-full mt-4`}
+          >
+            {/* {console.log("All terms:", allTerms)} */}
+            <ScheduleMatrix
+              starredCourses={starredCourses}
+              terms={allTerms}
+              visible={showScheduleMatrix}
+            />
+          </div>
+
           {/* Search */}
           {searchResults.length === 0 ? null : (
-            <div className="mt-8 mb-0 sm:mb-2 text-xl sm:text-2xl font-extrabold text-zinc-900">
-              {query.length === 0 ? "All courses" : "Search results"}
+            <div className="mt-8 mb-2 sm:mb-2 text-xl sm:text-2xl font-extrabold text-zinc-900">
+              Search courses
             </div>
           )}
 
-          {query.length !== 0 || searchResults.length === 0 ? null : (
-            <div className="h-full flex flex-col text-zinc-400 mb-4 font-semibold text-md sm:text-lg">
-              Type a course name or number above to start.
-            </div>
+          {/* Search bar */}
+          <input
+            className="placeholder:text-zinc-400 font-medium text-sm sm:text-lg mb-4 w-full focus:outline-none border border-zinc-200 rounded-lg px-3 py-2"
+            placeholder="Type a course name or number to start."
+            onChange={(event) => setQuery(event.target.value)}
+          />
+
+          {/* Filter panel */}
+          {!showFilter ? null : (
+            <FilterPane {...filterTags} handler={handleFilter} />
           )}
 
+          {/* Search result table */}
           {searchResults.length === 0 ? null : (
             <SearchResultTable
               searchResults={searchResults}
@@ -205,6 +253,8 @@ export default function Home() {
               handler={handleStarred}
             />
           )}
+
+          {/* Paginate button */}
           {searchResults.length === 0 || !canPaginate ? null : (
             <div className="flex flex-row justify-center mt-4 pb-8">
               <button
@@ -218,7 +268,11 @@ export default function Home() {
         </div>
 
         {/* Schedule matrix */}
-        <div className={`${showScheduleMatrix ? "" : "hidden"} flex w-full`}>
+        <div
+          className={`${
+            showScheduleMatrix ? "hidden lg:flex" : "hidden"
+          } w-full`}
+        >
           {/* {console.log("All terms:", allTerms)} */}
           <ScheduleMatrix
             starredCourses={starredCourses}

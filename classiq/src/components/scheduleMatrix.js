@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import colors from "./colors";
 import Dropdown from "./dropdown";
+import DescriptionView from "./descriptionView";
 
 function bsearch(arr, target, comp) {
   let lo = 0;
@@ -222,6 +223,8 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
   const dayColWidthRef = useRef(null);
   const [dayColWidth, setDayColWidth] = useState(0);
   const [formattedCourses, setFormattedCourses] = useState([]);
+  const [descIsOpen, setDescIsOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
 
   useEffect(() => {
     function handleCalendarResize() {
@@ -267,19 +270,19 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
   }, [formattedCourses]);
 
   useEffect(() => {
-    console.log(starredCourses);
-
-    setCourses(
-      Object.values(starredCourses).map((item) => ({
-        class_name: item.class_name,
-        class_tag: item.class_tag,
-        days: item.days,
-        start_time: item.start_time,
-        end_time: item.end_time,
-        term: item.term,
-        uuid: item.uuid,
-      }))
-    );
+    // console.log(starredCourses);
+    setCourses(Object.values(starredCourses));
+    // setCourses(
+    //   Object.values(starredCourses).map((item) => ({
+    //     class_name: item.class_name,
+    //     class_tag: item.class_tag,
+    //     days: item.days,
+    //     start_time: item.start_time,
+    //     end_time: item.end_time,
+    //     term: item.term,
+    //     uuid: item.uuid,
+    //   }))
+    // );
   }, [starredCourses]);
 
   const getNumCourses = (term) => {
@@ -384,7 +387,7 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
                                   // Course
                                   <div
                                     key={course.uuid}
-                                    className={`absolute text-xs break-words font-semibold rounded-sm overflow-y-auto no-scrollbar ${course.color.border} ${course.color.bg} ${course.color.text}`}
+                                    className={`absolute text-xs break-words font-semibold rounded-sm overflow-y-auto no-scrollbar z-10 hover:cursor-pointer ${course.color.border} ${course.color.bg} ${course.color.text}`}
                                     style={{
                                       fontSize: "0.55rem",
                                       lineHeight: "0.75rem",
@@ -404,6 +407,10 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
                                         (colGroupIdx * dayColWidth) /
                                         chunk.length
                                       }px`,
+                                    }}
+                                    onClick={(e) => {
+                                      setSelectedCourse(course);
+                                      setDescIsOpen(true);
                                     }}
                                   >
                                     <div className="flex flex-col">
@@ -429,6 +436,13 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
           </tbody>
         </table>
       </div>
+      {selectedCourse === null ? null : (
+        <DescriptionView
+          course={selectedCourse}
+          setOpen={setDescIsOpen}
+          isOpen={descIsOpen}
+        />
+      )}
     </div>
   );
 }
