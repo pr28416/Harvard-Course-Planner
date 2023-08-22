@@ -136,7 +136,7 @@ export default function Home() {
 
   return !render ? (
     <main className="flex flex-col h-screen items-center justify-center gap-12">
-      <div className="text-5xl sm:text-5xl font-extrabold text-zinc-950">
+      <div className="text-5xl sm:text-5xl font-extrabold text-red-600">
         Classiq.
       </div>
       <CircularProgress color="inherit" size="2rem" />
@@ -144,7 +144,7 @@ export default function Home() {
   ) : (
     <main className="flex flex-col min-h-screen items-center bg-white w-full text-zinc-950">
       {/* Title */}
-      <div className="w-full mt-8 sm:mt-16 mb-8 text-4xl sm:text-5xl px-4 md:px-12 text-center md:text-start font-extrabold text-zinc-950">
+      <div className="w-full mt-8 sm:mt-16 mb-8 text-4xl sm:text-5xl px-4 md:px-12 text-center md:text-start font-extrabold text-red-600">
         Classiq.
       </div>
 
