@@ -12,12 +12,13 @@ def safe_literal_eval(s):
 
 
 def main():
-    df = pd.read_csv("combined.csv")
+    df = pd.read_csv("qcombpost.csv")
     print(df.head())
     # df["instructors"].fillna(pd.Series([]))
     df["instructors"] = df["instructors"].apply(safe_literal_eval)
     df["uuid"] = [uuid.uuid4().hex for _ in range(len(df.index))]
-    df.to_json("combined.json", orient="table", index=False)
+    df.to_json("qcomb.json", orient="table", index=False)
+    df.to_csv("qcomb.csv", index=False)
 
 
 def merge():
@@ -59,5 +60,5 @@ def add_Q_data():
     df1.to_csv("qcombpost.csv", index=False)
 
 
-add_Q_data()
-# main()
+# add_Q_data()
+main()
