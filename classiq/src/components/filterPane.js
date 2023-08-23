@@ -3,9 +3,15 @@ import { Check, KeyboardArrowDownRounded } from "@mui/icons-material";
 import React, { Fragment, useState } from "react";
 import Dropdown from "./dropdown";
 
-export default function FilterPane({ term, school, subject, handler }) {
+export default function FilterPane({
+  term,
+  school,
+  subject,
+  handler,
+  sortOptions,
+}) {
   return (
-    <div className="flex flex-row flex-wrap gap-4 text-zinc-700 text-sm shrink-0 items-center">
+    <div className="flex flex-row flex-wrap gap-4 text-zinc-700 text-sm shrink-0 items-center mb-2">
       {/* Title */}
       {/* <div className="text-lg font-bold">Filters</div> */}
       {/* Select term */}
@@ -34,6 +40,27 @@ export default function FilterPane({ term, school, subject, handler }) {
           <Dropdown datasource={subject} handler={handler} tag="subject" />
         </div>
       )}
+
+      {/* Only show Q ratings */}
+      <div className="flex flex-row items-center gap-2 rounded-lg border border-zinc-200 px-3 py-2">
+        <input
+          type="checkbox"
+          className=" h-4 w-4"
+          onChange={(e) => handler("show_only_q", e.target.checked)}
+        />
+        <div className="font-medium">Show only courses with Q ratings</div>
+      </div>
+
+      {/* Sort */}
+      <div className="flex flex-row items-center gap-2">
+        <div className="font-medium">Sort</div>
+        <Dropdown
+          single
+          datasource={sortOptions}
+          handler={handler}
+          tag="sortOption"
+        />
+      </div>
     </div>
   );
 }

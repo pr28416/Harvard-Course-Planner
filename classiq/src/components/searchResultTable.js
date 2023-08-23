@@ -16,6 +16,7 @@ export default function SearchResultTable({
           <th className="text-start py-2">Instructors</th>
           <th className="text-start py-2 hidden xl:table-cell">Term</th>
           <th className="text-start py-2">Time</th>
+          {/* <th className="text-start py-2 hidden xl:table-cell">QReport</th> */}
         </tr>
       </thead>
       <tbody className="divide-y">

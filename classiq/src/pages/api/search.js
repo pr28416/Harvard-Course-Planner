@@ -12,12 +12,12 @@ let didUpdateData = false;
 let fuse = null;
 let ms = null;
 let flexIndex = null;
-let filterTags = {};
+let filterTags = { sortOption: "Relevance" };
 
 async function loadData() {
   console.log("Loading data...");
   const jsonDirectory = path.join(process.cwd(), "src/json");
-  fileContents = await fs.readFile(jsonDirectory + "/combined.json", "utf8");
+  fileContents = await fs.readFile(jsonDirectory + "/qcomb.json", "utf8");
   fileContents = JSON.parse(fileContents);
   // flexIndex = new Document({
   //   document: {
@@ -86,6 +86,8 @@ async function loadData() {
       "subject",
       "topic",
       "class_notes",
+      "mean_hours",
+      "Overall score Course Mean",
     ],
     searchOptions: { fuzzy: 0.3 },
   });
@@ -101,6 +103,23 @@ async function loadData() {
 }
 
 let fullResults = [];
+
+let filterFunc = (result, filters) =>
+  filters
+    .map((filt) => {
+      if (filt.tag === "sortOption") {
+        return true;
+      } else if (filt.tag === "show_only_q") {
+        if (filt.items) {
+          return result["Overall score Course Mean"] && result.mean_hours;
+        } else {
+          return true;
+        }
+      } else {
+        return filt.items.includes(result[filt.tag]);
+      }
+    })
+    .reduce((a, b) => a && b, true);
 
 export default async function handler(req, res) {
   // console.log("Request received:", req.body.request);
@@ -120,56 +139,71 @@ export default async function handler(req, res) {
       ),
     });
   } else if (req.body.request === "search") {
-    // console.log("FILTERS", req.body.filters, typeof req.body.filters);
+    console.log("FILTERS", req.body.filters, typeof req.body.filters);
+
+    // Filters
     if (req.body.query.length === 0) {
       fullResults = fileContents.data.filter((result) =>
-        req.body.filters
-          .map((filt) => filt.items.includes(result[filt.tag]))
-          .reduce((a, b) => a && b, true)
+        filterFunc(result, req.body.filters)
       );
     } else {
       fullResults = ms.search(req.body.query, {
-        filter: (result) =>
-          req.body.filters
-            .map((filt) => filt.items.includes(result[filt.tag]))
-            .reduce((a, b) => a && b, true),
+        filter: (result) => filterFunc(result, req.body.filters),
       });
     }
-    // const results = fuzzysort
-    //   .go(req.body.query, fileContents.data, {
-    //     keys: ["class_tag", "class_name"],
-    //     limit: 25,
-    //     all: true,
-    //     threshold: -Infinity,
-    //     scoreFn: (a) =>
-    //       Math.max(a[0] ? a[0].score : -1000, a[1] ? a[1].score - 300 : -1000),
-    //   })
-    //   .map((result) => result.obj);
-    // let results = flexIndex.search(req.body.query, {
-    //   index: ["class_name", "class_tag"],
-    //   limit: 25,
-    //   tokenizer: "full",
-    //   encoder: "extra",
-    // });
-    // let actual = [];
-    // for (let res of results) {
-    //   res.result.forEach((resIdx) => actual.push(fileContents.data[resIdx]));
-    // }
-    // results = actual;
-    // console.log(results);
+
+    // Sort
+    const sortOption = req.body.filters.find(
+      (filt) => filt.tag === "sortOption"
+    ) || { items: "Relevance" };
+    if (sortOption.items === "Q rating (high to low)") {
+      fullResults.sort((a, b) => {
+        const acm = a["Overall score Course Mean"] || 0;
+        const bcm = b["Overall score Course Mean"] || 0;
+        if (acm === bcm) {
+          return (a.mean_hours || 1000) - (b.mean_hours || 1000);
+        }
+        return bcm - acm;
+      });
+    } else if (sortOption.items === "Q rating (low to high)") {
+      fullResults.sort((a, b) => {
+        const acm = a["Overall score Course Mean"] || 0;
+        const bcm = b["Overall score Course Mean"] || 0;
+        if (acm === bcm) {
+          return (a.mean_hours || 1000) - (b.mean_hours || 1000);
+        }
+        return acm - bcm;
+      });
+    } else if (sortOption.items === "Q hrs/week (busy to light)") {
+      fullResults.sort((a, b) => {
+        const amh = a.mean_hours || 1000;
+        const bmh = b.mean_hours || 1000;
+        if (amh === bmh) {
+          return (
+            (b["Overall score Course Mean"] || 0) -
+            (a["Overall score Course Mean"] || 0)
+          );
+        }
+        return bmh - amh;
+      });
+    } else if (sortOption.items === "Q hrs/week (light to busy)") {
+      fullResults.sort((a, b) => {
+        const amh = a.mean_hours || 1000;
+        const bmh = b.mean_hours || 1000;
+        if (amh === bmh) {
+          return (
+            (b["Overall score Course Mean"] || 0) -
+            (a["Overall score Course Mean"] || 0)
+          );
+        }
+        return amh - bmh;
+      });
+    }
+
     res.status(200).json({
       items: fullResults.slice(0, req.body.limit),
       canPaginate: fullResults.length > req.body.limit,
     });
-    // res.status(200).json({ items: [] });
-    // let myFuse = new Fuse(fileContents.data, {
-    //   threshold: 0.95,
-    //   keys: ["class_name", "class_tag"],
-    // });
-    // const results = myFuse.search(req.body.query);
-    // // console.log(results);
-    // const items = results.map((result) => result.item);
-    // res.status(200).json({ items: items.slice(0, 15) });
   } else if (req.body.request === "paginate") {
     // console.log("PAGINATE", req.body);
     res.status(200).json({

@@ -292,7 +292,17 @@ export default function Home() {
 
             {/* Filter panel */}
             {!showFilter ? null : (
-              <FilterPane {...filterTags} handler={handleFilter} />
+              <FilterPane
+                {...filterTags}
+                handler={handleFilter}
+                sortOptions={[
+                  "Relevance",
+                  "Q rating (high to low)",
+                  "Q hrs/week (light to busy)",
+                  "Q rating (low to high)",
+                  "Q hrs/week (busy to light)",
+                ]}
+              />
             )}
 
             {/* Search result table */}

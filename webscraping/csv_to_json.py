@@ -30,4 +30,13 @@ def merge():
     df.to_csv("all.csv", index=False)
 
 
-main()
+def add_Q_data():
+    df1 = pd.read_csv("combined.csv")
+    df2 = pd.read_csv("qdata_mod.csv")
+    df = pd.merge(df1, df2, how="outer")
+    df.to_json("qcomb.json", orient="table", index=False)
+    df.to_csv("qcomb.csv", index=False)
+
+
+add_Q_data()
+# main()
