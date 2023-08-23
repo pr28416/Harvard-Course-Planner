@@ -10,6 +10,7 @@ import {
 import { CircularProgress } from "@mui/material";
 import Link from "next/link";
 import ErrorBoundary from "./errorBoundary";
+import ReactGA from "react-ga4";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -24,6 +25,28 @@ export default function Home() {
   const [canPaginate, setCanPaginate] = useState(true);
   const [showStarredCourses, setShowStarredCourses] = useState(true);
   const [didLoadPage, setLoadPage] = useState(false);
+
+  try {
+    ReactGA.initialize("G-G9PP9CV83V");
+    ReactGA.send({
+      hitType: "pageview",
+      page: "https://classiq.red/",
+      title: "Home",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  // ReactGA.pageview(window.location.pathname + window.location.search);
+
+  // <!-- Google tag (gtag.js) -->
+  // <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9PP9CV83V"></script>
+  // <script>
+  //   window.dataLayer = window.dataLayer || [];
+  //   function gtag(){dataLayer.push(arguments);}
+  //   gtag('js', new Date());
+
+  //   gtag('config', 'G-G9PP9CV83V');
+  // </script>
 
   useEffect(() => {
     try {
