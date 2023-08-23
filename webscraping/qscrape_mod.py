@@ -40,8 +40,16 @@ courseRatings = [
 ]
 
 
+def isFloat(val):
+    try:
+        float(val)
+        return True
+    except:
+        return False
+
+
 def qscrape():
-    df = pd.read_csv("fas.csv")
+    df = pd.read_csv("qcomb.csv")
     class_tags = df["class_tag"].values
     class_names = df["class_name"].values
     # print(class_tags)
@@ -63,6 +71,7 @@ def qscrape():
         #     }
         # )
         # driver.get(URL)
+        print("Getting url...")
         driver.get("https://qreports.fas.harvard.edu/")
         WebDriverWait(driver, 120).until(
             EC.presence_of_element_located((By.ID, "content-wrapper"))
@@ -75,10 +84,26 @@ def qscrape():
         # input("Hit enter when you're ready to continue...")
         # time.sleep(120)
         # save_cookie(driver, "qreport_cookies.txt")
+        # raise
         # print("Saved cookies to qreport_cookies.txt")
         all_results = []
+        print("Gotten url, starting")
         for class_tag_idx, class_tag in enumerate(class_tags):
-            print(f"On course {class_tag_idx+1} of {len(class_tags)}: {class_tag}")
+            if pd.isna(df.iloc[class_tag_idx]["mean_hours"]) or isFloat(
+                df.iloc[class_tag_idx]["mean_hours"]
+            ):
+                # print(
+                #     f"Skip course {class_tag_idx+1} of {len(class_tags)}: {class_tag}",
+                #     df.iloc[class_tag_idx],
+                #     df.iloc[class_tag_idx]["mean_hours"],
+                # )
+                continue
+            print(
+                f"On course {class_tag_idx+1} of {len(class_tags)}: {class_tag}",
+                df.iloc[class_tag_idx]["mean_hours"],
+                type(df.iloc[class_tag_idx]["mean_hours"]),
+                pd.api.types.is_numeric_dtype(df.iloc[class_tag_idx]["mean_hours"]),
+            )
             results = {"class_tag_mod": class_tag}
             try:
                 sp = class_tag.split(" ")
@@ -118,6 +143,8 @@ def qscrape():
 
                 # Get course general questions report block
                 reports = driver.find_elements(By.CLASS_NAME, "report-block")
+
+                # if False:
                 report = reports[2]
                 tbody = report.find_element(By.TAG_NAME, "tbody")
                 rows = tbody.find_elements(By.TAG_NAME, "tr")
@@ -134,7 +161,14 @@ def qscrape():
                         ] = cell.text
 
                 # Get course hours
-                report = reports[5]
+                report = None
+                for r in reports:
+                    h3 = r.find_element(By.TAG_NAME, "h3").text
+                    if "hour" in h3:
+                        report = r
+                        break
+                else:
+                    continue
                 table = report.find_element(By.TAG_NAME, "table")
                 tbody = table.find_element(By.TAG_NAME, "tbody")
                 results["mean_hours"] = tbody.find_elements(By.TAG_NAME, "tr")[2].text[
@@ -153,7 +187,7 @@ def qscrape():
     finally:
         driver.quit()
         sdf = pd.DataFrame.from_records(all_results)
-        sdf.to_csv("qdata_mod.csv", index=False)
+        sdf.to_csv("qtmp.csv", index=False)
 
 
 qscrape()

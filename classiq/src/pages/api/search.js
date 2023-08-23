@@ -29,6 +29,7 @@ async function loadData() {
     item.id = idx;
 
     if (
+      // item.subject &&
       item.subject[0] === "[" &&
       item.subject[item.subject.length - 1] === "]"
     ) {
@@ -139,7 +140,7 @@ export default async function handler(req, res) {
       ),
     });
   } else if (req.body.request === "search") {
-    console.log("FILTERS", req.body.filters, typeof req.body.filters);
+    // console.log("FILTERS", req.body.filters, typeof req.body.filters);
 
     // Filters
     if (req.body.query.length === 0) {
