@@ -26,18 +26,26 @@ export default function Home() {
   const [didLoadPage, setLoadPage] = useState(false);
 
   useEffect(() => {
-    if (!didLoadPage) {
-      const cookie = localStorage.getItem("starredCourses");
-      if (cookie !== undefined && cookie !== null && cookie !== "{}") {
-        setStarredCourses(JSON.parse(cookie));
+    try {
+      if (!didLoadPage) {
+        const cookie = localStorage.getItem("starredCourses");
+        if (cookie !== undefined && cookie !== null && cookie !== "{}") {
+          setStarredCourses(JSON.parse(cookie));
+        }
+        setLoadPage(true);
       }
-      setLoadPage(true);
+    } catch (error) {
+      console.log(error);
     }
   }, []);
 
   useEffect(() => {
-    if (didLoadPage) {
-      localStorage.setItem("starredCourses", JSON.stringify(starredCourses));
+    try {
+      if (didLoadPage) {
+        localStorage.setItem("starredCourses", JSON.stringify(starredCourses));
+      }
+    } catch (error) {
+      console.log(error);
     }
   }, [starredCourses]);
 
@@ -154,13 +162,6 @@ export default function Home() {
   ) : (
     <ErrorBoundary>
       <main className="flex flex-col min-h-screen items-center bg-white w-full text-zinc-950">
-        <button
-          onClick={() => {
-            throw new Error("Thrown user error");
-          }}
-        >
-          throw error
-        </button>
         {/* Title */}
         <div className="w-full mt-8 sm:mt-16 mb-8 text-4xl sm:text-5xl px-4 md:px-12 text-center md:text-start font-extrabold text-red-600">
           Classiq.
@@ -307,7 +308,9 @@ export default function Home() {
             Made with ❤️ by{" "}
             <Link
               className="underline"
-              href="mailto:pranavramesh@college.harvard.edu"
+              href="https://www.pranavramesh.com/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Pranav Ramesh
             </Link>{" "}
@@ -318,7 +321,13 @@ export default function Home() {
             >
               Armaan Tipirneni
             </Link>
-            .
+            .{" "}
+            <Link
+              className="underline"
+              href="mailto:pranavramesh@college.harvard.edu"
+            >
+              Report a bug.
+            </Link>
           </div>
         </div>
       </main>
