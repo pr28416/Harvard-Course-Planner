@@ -192,7 +192,9 @@ export default function Home() {
           {/* Starred courses */}
           {Object.keys(starredCourses).length === 0 ? (
             <div className="h-full flex flex-col text-zinc-400 mb-4 font-medium text-md sm:text-xl">
-              Your selected courses will appear here.
+              Your selected courses will appear here. Click the star icon to
+              select a course, which will then appear in the schedule matrix
+              alongside your other courses.
             </div>
           ) : !showStarredCourses ? null : (
             <SearchResultTable
