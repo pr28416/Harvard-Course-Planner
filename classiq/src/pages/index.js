@@ -9,6 +9,7 @@ import {
 } from "@mui/icons-material";
 import { CircularProgress } from "@mui/material";
 import Link from "next/link";
+import ErrorBoundary from "./errorBoundary";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -151,69 +152,77 @@ export default function Home() {
       <CircularProgress color="inherit" size="2rem" />
     </main>
   ) : (
-    <main className="flex flex-col min-h-screen items-center bg-white w-full text-zinc-950">
-      {/* Title */}
-      <div className="w-full mt-8 sm:mt-16 mb-8 text-4xl sm:text-5xl px-4 md:px-12 text-center md:text-start font-extrabold text-red-600">
-        Classiq.
-      </div>
+    <ErrorBoundary>
+      <main className="flex flex-col min-h-screen items-center bg-white w-full text-zinc-950">
+        <button
+          onClick={() => {
+            throw new Error("Thrown user error");
+          }}
+        >
+          throw error
+        </button>
+        {/* Title */}
+        <div className="w-full mt-8 sm:mt-16 mb-8 text-4xl sm:text-5xl px-4 md:px-12 text-center md:text-start font-extrabold text-red-600">
+          Classiq.
+        </div>
 
-      {/* Main content */}
-      <div className="h-full flex flex-col-reverse lg:flex-row gap-4 lg:gap-12 px-4 md:px-12 w-full">
-        {/* Search and starred */}
-        <div className="flex flex-col h-full w-full justify-start">
-          {/* Selected courses */}
-          <div className="mb-2 flex flex-row items-center justify-between gap-4 font-extrabold text-zinc-900">
-            {/* Selected courses title */}
-            <div className="flex flex-row justify-start items-center flex-wrap gap-2">
-              {/* Title */}
-              <div className="text-xl sm:text-2xl ">Selected courses</div>
-              {/* Show/hide button */}
+        {/* Main content */}
+        <div className="h-full flex flex-col-reverse lg:flex-row gap-4 lg:gap-12 px-4 md:px-12 w-full">
+          {/* Search and starred */}
+          <div className="flex flex-col h-full w-full justify-start">
+            {/* Selected courses */}
+            <div className="mb-2 flex flex-row items-center justify-between gap-4 font-extrabold text-zinc-900">
+              {/* Selected courses title */}
+              <div className="flex flex-row justify-start items-center flex-wrap gap-2">
+                {/* Title */}
+                <div className="text-xl sm:text-2xl ">Selected courses</div>
+                {/* Show/hide button */}
+                <button
+                  className="flex flex-row items-end rounded-full aspect-square hover:bg-zinc-100"
+                  onClick={() => setShowStarredCourses((old) => !old)}
+                >
+                  {showStarredCourses ? (
+                    <KeyboardArrowUp />
+                  ) : (
+                    <KeyboardArrowDown />
+                  )}
+                </button>
+              </div>
+
+              {/* Show schedule matrix button */}
               <button
-                className="flex flex-row items-end rounded-full aspect-square hover:bg-zinc-100"
-                onClick={() => setShowStarredCourses((old) => !old)}
+                className={`flex shrink-0 font-semibold ${
+                  showScheduleMatrix
+                    ? "text-zinc-100 bg-red-500"
+                    : "text-zinc-700 bg-zinc-100"
+                } text-sm px-3 py-2 rounded-lg flex-row items-center gap-2 w-fit`}
+                onClick={() => setShowScheduleMatrix(!showScheduleMatrix)}
               >
-                {showStarredCourses ? (
-                  <KeyboardArrowUp />
-                ) : (
-                  <KeyboardArrowDown />
-                )}
+                <CalendarMonth />
+                <div className="hidden sm:flex">
+                  {showScheduleMatrix ? "Hide" : "Show"} schedule matrix
+                </div>
               </button>
             </div>
+            {/* )} */}
 
-            {/* Show schedule matrix button */}
-            <button
-              className={`flex shrink-0 font-semibold ${
-                showScheduleMatrix
-                  ? "text-zinc-100 bg-red-500"
-                  : "text-zinc-700 bg-zinc-100"
-              } text-sm px-3 py-2 rounded-lg flex-row items-center gap-2 w-fit`}
-              onClick={() => setShowScheduleMatrix(!showScheduleMatrix)}
-            >
-              <CalendarMonth />
-              <div className="hidden sm:flex">
-                {showScheduleMatrix ? "Hide" : "Show"} schedule matrix
+            {/* Starred courses */}
+            {Object.keys(starredCourses).length === 0 ? (
+              <div className="h-full flex flex-col text-zinc-400 mb-4 font-medium text-md sm:text-xl">
+                Your selected courses will appear here. Click the star icon to
+                select a course, which will then appear in the schedule matrix
+                alongside your other courses.
               </div>
-            </button>
-          </div>
-          {/* )} */}
+            ) : !showStarredCourses ? null : (
+              <SearchResultTable
+                searchResults={Object.values(starredCourses)}
+                starredCourses={starredCourses}
+                handler={handleStarred}
+              />
+            )}
 
-          {/* Starred courses */}
-          {Object.keys(starredCourses).length === 0 ? (
-            <div className="h-full flex flex-col text-zinc-400 mb-4 font-medium text-md sm:text-xl">
-              Your selected courses will appear here. Click the star icon to
-              select a course, which will then appear in the schedule matrix
-              alongside your other courses.
-            </div>
-          ) : !showStarredCourses ? null : (
-            <SearchResultTable
-              searchResults={Object.values(starredCourses)}
-              starredCourses={starredCourses}
-              handler={handleStarred}
-            />
-          )}
-
-          {/* Mobile: Show schedule matrix button */}
-          {/* <div className="w-full flex sm:hidden flex-row justify-center">
+            {/* Mobile: Show schedule matrix button */}
+            {/* <div className="w-full flex sm:hidden flex-row justify-center">
             <button
               className="shrink-0 font-semibold text-zinc-700 text-sm px-3 py-2 bg-zinc-100 rounded-lg flex flex-row items-center gap-2 w-fit"
               onClick={() => setShowScheduleMatrix(!showScheduleMatrix)}
@@ -223,11 +232,66 @@ export default function Home() {
             </button>
           </div> */}
 
-          {/* Mobile: Schedule matrix */}
+            {/* Mobile: Schedule matrix */}
+            <div
+              className={`${
+                showScheduleMatrix ? "flex lg:hidden" : "hidden"
+              } w-full mt-4`}
+            >
+              {/* {console.log("All terms:", allTerms)} */}
+              <ScheduleMatrix
+                starredCourses={starredCourses}
+                terms={allTerms}
+                visible={showScheduleMatrix}
+              />
+            </div>
+
+            {/* Search */}
+            {searchResults.length === 0 ? null : (
+              <div className="mt-8 mb-2 sm:mb-2 text-xl sm:text-2xl font-extrabold text-zinc-900">
+                Search courses
+              </div>
+            )}
+
+            {/* Search bar */}
+            <input
+              className="placeholder:text-zinc-400 font-medium text-sm sm:text-lg mb-4 w-full focus:outline-none border border-zinc-200 rounded-lg px-3 py-2"
+              placeholder="Type a course name or number to start."
+              onChange={(event) => setQuery(event.target.value)}
+            />
+
+            {/* Filter panel */}
+            {!showFilter ? null : (
+              <FilterPane {...filterTags} handler={handleFilter} />
+            )}
+
+            {/* Search result table */}
+            {searchResults.length === 0 ? null : (
+              <SearchResultTable
+                searchResults={searchResults}
+                starredCourses={starredCourses}
+                handler={handleStarred}
+              />
+            )}
+
+            {/* Paginate button */}
+            {searchResults.length === 0 || !canPaginate ? null : (
+              <div className="flex flex-row justify-center mt-4 pb-8">
+                <button
+                  className="bg-zinc-100 font-medium text-sm  px-3 py-2 rounded-lg"
+                  onClick={handleLoadMoreResults}
+                >
+                  Load more
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Schedule matrix */}
           <div
             className={`${
-              showScheduleMatrix ? "flex lg:hidden" : "hidden"
-            } w-full mt-4`}
+              showScheduleMatrix ? "hidden lg:flex" : "hidden"
+            } w-full`}
           >
             {/* {console.log("All terms:", allTerms)} */}
             <ScheduleMatrix
@@ -236,82 +300,28 @@ export default function Home() {
               visible={showScheduleMatrix}
             />
           </div>
-
-          {/* Search */}
-          {searchResults.length === 0 ? null : (
-            <div className="mt-8 mb-2 sm:mb-2 text-xl sm:text-2xl font-extrabold text-zinc-900">
-              Search courses
-            </div>
-          )}
-
-          {/* Search bar */}
-          <input
-            className="placeholder:text-zinc-400 font-medium text-sm sm:text-lg mb-4 w-full focus:outline-none border border-zinc-200 rounded-lg px-3 py-2"
-            placeholder="Type a course name or number to start."
-            onChange={(event) => setQuery(event.target.value)}
-          />
-
-          {/* Filter panel */}
-          {!showFilter ? null : (
-            <FilterPane {...filterTags} handler={handleFilter} />
-          )}
-
-          {/* Search result table */}
-          {searchResults.length === 0 ? null : (
-            <SearchResultTable
-              searchResults={searchResults}
-              starredCourses={starredCourses}
-              handler={handleStarred}
-            />
-          )}
-
-          {/* Paginate button */}
-          {searchResults.length === 0 || !canPaginate ? null : (
-            <div className="flex flex-row justify-center mt-4 pb-8">
-              <button
-                className="bg-zinc-100 font-medium text-sm  px-3 py-2 rounded-lg"
-                onClick={handleLoadMoreResults}
-              >
-                Load more
-              </button>
-            </div>
-          )}
         </div>
-
-        {/* Schedule matrix */}
-        <div
-          className={`${
-            showScheduleMatrix ? "hidden lg:flex" : "hidden"
-          } w-full`}
-        >
-          {/* {console.log("All terms:", allTerms)} */}
-          <ScheduleMatrix
-            starredCourses={starredCourses}
-            terms={allTerms}
-            visible={showScheduleMatrix}
-          />
+        {/* Footer & credits */}
+        <div className="flex flex-col w-full py-20 px-12 items-center text-center text-xs text-zinc-400">
+          <div>
+            Made with ❤️ by{" "}
+            <Link
+              className="underline"
+              href="mailto:pranavramesh@college.harvard.edu"
+            >
+              Pranav Ramesh
+            </Link>{" "}
+            and{" "}
+            <Link
+              className="underline"
+              href="mailto:atipirneni@college.harvard.edu"
+            >
+              Armaan Tipirneni
+            </Link>
+            .
+          </div>
         </div>
-      </div>
-      {/* Footer & credits */}
-      <div className="flex flex-col w-full py-20 px-12 items-center text-center text-xs text-zinc-400">
-        <div>
-          Made with ❤️ by{" "}
-          <Link
-            className="underline"
-            href="mailto:pranavramesh@college.harvard.edu"
-          >
-            Pranav Ramesh
-          </Link>{" "}
-          and{" "}
-          <Link
-            className="underline"
-            href="mailto:atipirneni@college.harvard.edu"
-          >
-            Armaan Tipirneni
-          </Link>
-          .
-        </div>
-      </div>
-    </main>
+      </main>
+    </ErrorBoundary>
   );
 }
