@@ -1,15 +1,6 @@
 import FilterPane from "@/components/filterPane";
-import results from "@/components/results";
-import SearchResultCard from "@/components/searchResultCard";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import Fuse from "fuse.js";
-import courses from "@/data/courses.js";
-import useSWR from "swr";
 import ScheduleMatrix from "@/components/scheduleMatrix";
-import StarButton from "@/components/starButton";
-import WeekBar from "@/components/weekBar";
-import SearchResultRow from "@/components/searchResultRow";
 import SearchResultTable from "@/components/searchResultTable";
 import {
   CalendarMonth,
@@ -31,6 +22,23 @@ export default function Home() {
   const [showScheduleMatrix, setShowScheduleMatrix] = useState(false);
   const [canPaginate, setCanPaginate] = useState(true);
   const [showStarredCourses, setShowStarredCourses] = useState(true);
+  const [didLoadPage, setLoadPage] = useState(false);
+
+  useEffect(() => {
+    if (!didLoadPage) {
+      const cookie = localStorage.getItem("starredCourses");
+      if (cookie !== undefined && cookie !== null && cookie !== "{}") {
+        setStarredCourses(JSON.parse(cookie));
+      }
+      setLoadPage(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (didLoadPage) {
+      localStorage.setItem("starredCourses", JSON.stringify(starredCourses));
+    }
+  }, [starredCourses]);
 
   useEffect(() => {
     const getFilters = async () => {
