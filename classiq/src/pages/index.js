@@ -25,17 +25,23 @@ export default function Home() {
   const [canPaginate, setCanPaginate] = useState(true);
   const [showStarredCourses, setShowStarredCourses] = useState(true);
   const [didLoadPage, setLoadPage] = useState(false);
+  const [didTrack, setTrack] = useState(false);
 
-  try {
-    ReactGA.initialize("G-G9PP9CV83V");
-    ReactGA.send({
-      hitType: "pageview",
-      page: "https://classiq.red/",
-      title: "Home",
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  useEffect(() => {
+    if (!didTrack) {
+      try {
+        ReactGA.initialize("G-G9PP9CV83V");
+        ReactGA.send({
+          hitType: "pageview",
+          page: "https://classiq.red/",
+          title: "Home",
+        });
+      } catch (error) {
+        console.log(error);
+      }
+      setTrack(true);
+    }
+  });
   // ReactGA.pageview(window.location.pathname + window.location.search);
 
   // <!-- Google tag (gtag.js) -->
