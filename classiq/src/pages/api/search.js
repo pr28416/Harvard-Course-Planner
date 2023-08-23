@@ -84,6 +84,8 @@ async function loadData() {
       "uuid",
       "school",
       "subject",
+      "topic",
+      "class_notes",
     ],
     searchOptions: { fuzzy: 0.3 },
   });

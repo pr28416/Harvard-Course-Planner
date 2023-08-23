@@ -42,10 +42,12 @@ courseRatings = [
 
 def qscrape():
     df = pd.read_csv("fas.csv")
-    class_tags = map(lambda x: " ".join(x.split(" ")[:2]), set(df["class_tag"].values))
+    class_tags = list(
+        map(lambda x: " ".join(x.split(" ")[:2]), set(df["class_tag"].values))
+    )
     # print(class_tags)
     options = webdriver.FirefoxOptions()
-    # options.add_argument("-headless")
+    options.add_argument("-headless")
     driver = webdriver.Firefox(
         # service=FirefoxService(GeckoDriverManager().install()),
         options=options,
@@ -76,7 +78,8 @@ def qscrape():
         # save_cookie(driver, "qreport_cookies.txt")
         # print("Saved cookies to qreport_cookies.txt")
         all_results = []
-        for class_tag in class_tags:
+        for class_tag_idx, class_tag in enumerate(class_tags):
+            print(f"On course {class_tag_idx+1} of {len(class_tags)}: {class_tag}")
             results = {"class_tag_mod": class_tag}
             try:
                 driver.get(URL + "&search=" + "+".join(class_tag.split(" ")))
@@ -135,7 +138,7 @@ def qscrape():
                 ]
 
             except Exception as e:
-                print("Inner error:", e)
+                print(class_tag, "Inner error:", e)
                 # raise e
             finally:
                 all_results.append(results)

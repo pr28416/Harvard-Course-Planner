@@ -35,6 +35,7 @@ export default function SearchResultRow({ result, handler, starred }) {
           </div>
           <div className="font-bold text-zinc-900 text-start">
             {result.class_name}
+            {result.topic ? `: ${result.topic}` : ""}
           </div>
           <div className="md:hidden flex flex-row gap-4 items-end w-full">
             <div className="md:hidden flex flex-row flex-wrap w-full items-center gap-2 text-xs">

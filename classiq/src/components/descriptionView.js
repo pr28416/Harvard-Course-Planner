@@ -56,6 +56,7 @@ export default function DescriptionView({ course, isOpen, setOpen }) {
                       </div>
                       <div className="text-zinc-900 font-bold">
                         {course.class_name}
+                        {course.topic ? `: ${course.topic}` : ""}
                       </div>
                     </div>
                     <button
@@ -132,6 +133,13 @@ export default function DescriptionView({ course, isOpen, setOpen }) {
                   <p className="text-sm mt-2 text-zinc-800">
                     {course.description}
                   </p>
+
+                  {/* Class notes */}
+                  {course.class_notes ? (
+                    <p className="text-sm mt-2 text-zinc-800">
+                      {course.class_notes}
+                    </p>
+                  ) : null}
 
                   {/* More details */}
                   <div className="flex flex-row items-end justify-between gap-4 flex-wrap mt-4 w-full">
