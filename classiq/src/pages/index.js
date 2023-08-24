@@ -11,6 +11,7 @@ import { CircularProgress } from "@mui/material";
 import Link from "next/link";
 import ErrorBoundary from "./errorBoundary";
 import ReactGA from "react-ga4";
+import DescriptionView from "@/components/descriptionView";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -26,6 +27,8 @@ export default function Home() {
   const [showStarredCourses, setShowStarredCourses] = useState(true);
   const [didLoadPage, setLoadPage] = useState(false);
   const [didTrack, setTrack] = useState(false);
+  const [descriptionViewCourse, setDescriptionViewCourse] = useState(null);
+  const [isDescriptionViewOpen, setDescriptionViewOpen] = useState(false);
 
   useEffect(() => {
     if (!didTrack) {
@@ -248,6 +251,8 @@ export default function Home() {
                 searchResults={Object.values(starredCourses)}
                 starredCourses={starredCourses}
                 handler={handleStarred}
+                setDescriptionViewCourse={setDescriptionViewCourse}
+                setDescriptionViewOpen={setDescriptionViewOpen}
               />
             )}
 
@@ -273,6 +278,9 @@ export default function Home() {
                 starredCourses={starredCourses}
                 terms={allTerms}
                 visible={showScheduleMatrix}
+                handler={handleStarred}
+                setDescriptionViewCourse={setDescriptionViewCourse}
+                setDescriptionViewOpen={setDescriptionViewOpen}
               />
             </div>
 
@@ -311,6 +319,8 @@ export default function Home() {
                 searchResults={searchResults}
                 starredCourses={starredCourses}
                 handler={handleStarred}
+                setDescriptionViewCourse={setDescriptionViewCourse}
+                setDescriptionViewOpen={setDescriptionViewOpen}
               />
             )}
 
@@ -338,6 +348,9 @@ export default function Home() {
               starredCourses={starredCourses}
               terms={allTerms}
               visible={showScheduleMatrix}
+              handler={handleStarred}
+              setDescriptionViewCourse={setDescriptionViewCourse}
+              setDescriptionViewOpen={setDescriptionViewOpen}
             />
           </div>
         </div>
@@ -360,7 +373,7 @@ export default function Home() {
             >
               Armaan Tipirneni
             </Link>
-            .{" "}
+            . Not affiliated with Harvard University.{" "}
             <Link
               className="underline"
               href="mailto:pranavramesh@college.harvard.edu"
@@ -369,6 +382,15 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        {descriptionViewCourse ? (
+          <DescriptionView
+            course={descriptionViewCourse}
+            isOpen={isDescriptionViewOpen}
+            setOpen={setDescriptionViewOpen}
+            starred={descriptionViewCourse.uuid in starredCourses}
+            handler={handleStarred}
+          />
+        ) : null}
       </main>
     </ErrorBoundary>
   );

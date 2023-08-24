@@ -205,7 +205,14 @@ function formatCourses({ terms, courses }) {
   return termSplit;
 }
 
-export default function ScheduleMatrix({ terms, starredCourses, visible }) {
+export default function ScheduleMatrix({
+  terms,
+  starredCourses,
+  visible,
+  handler,
+  setDescriptionViewCourse,
+  setDescriptionViewOpen,
+}) {
   const dayHeaders = ["Su", "M", "T", "W", "Th", "F", "Sa"];
   const dayHeaderMap = {
     Su: "Sun",
@@ -409,8 +416,10 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
                                       }px`,
                                     }}
                                     onClick={(e) => {
-                                      setSelectedCourse(course);
-                                      setDescIsOpen(true);
+                                      setDescriptionViewCourse(course),
+                                        setDescriptionViewOpen(true);
+                                      // setSelectedCourse(course);
+                                      // setDescIsOpen(true);
                                     }}
                                   >
                                     <div className="flex flex-col">
@@ -436,13 +445,15 @@ export default function ScheduleMatrix({ terms, starredCourses, visible }) {
           </tbody>
         </table>
       </div>
-      {selectedCourse === null ? null : (
+      {/* {selectedCourse === null ? null : (
         <DescriptionView
           course={selectedCourse}
           setOpen={setDescIsOpen}
           isOpen={descIsOpen}
+          starred={selectedCourse.uuid in starredCourses}
+          handler={() => handler(selectedCourse.uuid, selectedCourse)}
         />
-      )}
+      )} */}
     </div>
   );
 }

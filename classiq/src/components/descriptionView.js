@@ -11,8 +11,26 @@ import {
 import React, { Fragment, useState } from "react";
 import WeekBar from "./weekBar";
 import Link from "next/link";
+import { Q_MeanHoursView, Q_OverallScoreFASMeanView } from "./qGuideLabels";
+import StarButton from "./starButton";
 
-export default function DescriptionView({ course, isOpen, setOpen }) {
+export default function DescriptionView({
+  course,
+  isOpen,
+  setOpen,
+  starred,
+  handler,
+}) {
+  const formattedLink = (course) => {
+    const tagSplit = course.class_tag.split(" ");
+    const formalTag = `${tagSplit[0]}+${tagSplit[1]}`;
+    let result = `${formalTag}-${course.class_name}`;
+    if (tagSplit.length > 2) {
+      result += "+" + tagSplit[2];
+    }
+    return result;
+  };
+
   /* Dialog */
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -51,10 +69,10 @@ export default function DescriptionView({ course, isOpen, setOpen }) {
                 <Dialog.Title>
                   <div className="flex flex-row justify-between items-start gap-4">
                     <div className="flex flex-col gap-0">
-                      <div className="text-xs text-zinc-600 font-medium">
+                      <div className="text-xs text-zinc-600 font-medium flex flex-row gap-2 items-center">
                         {course.class_tag}
                       </div>
-                      <div className="text-zinc-900 font-bold">
+                      <div className="text-zinc-900 font-bold flex flex-row gap-2 items-center">
                         {course.class_name}
                         {course.topic ? `: ${course.topic}` : ""}
                       </div>
@@ -143,8 +161,12 @@ export default function DescriptionView({ course, isOpen, setOpen }) {
 
                   {/* More details */}
                   <div className="flex flex-row items-end justify-between gap-4 flex-wrap mt-4 w-full">
-                    {/* School, subject */}
+                    {/* School, subject, Q data */}
                     <div className="flex flex-col gap-2">
+                      <div className="flex flex-row gap-1 flex-wrap items-center">
+                        <Q_OverallScoreFASMeanView result={course} />
+                        <Q_MeanHoursView result={course} />
+                      </div>
                       {course.school === null ? null : (
                         <div className="flex flex-row gap-2 items-center text-zinc-600 text-xs">
                           <AccountBalanceOutlined
@@ -164,13 +186,17 @@ export default function DescriptionView({ course, isOpen, setOpen }) {
                         </div>
                       )}
                     </div>
-                    <div className="grow flex flex-row justify-end">
+                    <div className="grow flex flex-row flex-wrap gap-2 justify-end">
+                      <StarButton
+                        starred={starred}
+                        result={course}
+                        handler={handler}
+                        full
+                      />
                       <Link
-                        href={
-                          course.q_report !== null
-                            ? course.q_report
-                            : `https://qreports.fas.harvard.edu/search/courses?search=${course.class_tag}`
-                        }
+                        href={`https://qreports.fas.harvard.edu/search/courses?search=${formattedLink(
+                          course
+                        )}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex flex-row items-center gap-2 text-zinc-100 font-semibold text-sm bg-red-500 px-3 py-2 rounded-lg"

@@ -13,21 +13,35 @@ import WeekBar from "./weekBar";
 import Link from "next/link";
 import DescriptionView from "./descriptionView";
 
-export default function InfoButton({ course }) {
-  let [isOpen, setOpen] = useState(false);
+export default function InfoButton({
+  course,
+  starred,
+  handler,
+  setDescriptionViewCourse,
+  setDescriptionViewOpen,
+}) {
+  // let [isOpen, setOpen] = useState(false);
   return (
     <div onClick={(e) => e.stopPropagation()}>
       {/* Button */}
       <button
         onClick={(e) => {
           e.stopPropagation();
-          setOpen(true);
+          setDescriptionViewCourse(course);
+          setDescriptionViewOpen(true);
+          // handler(course.uuid, course);
         }}
         className="focus:outline-none"
       >
         <InfoOutlined className="text-zinc-700" />
       </button>
-      <DescriptionView course={course} isOpen={isOpen} setOpen={setOpen} />
+      {/* <DescriptionView
+        course={course}
+        isOpen={isOpen}
+        setOpen={setOpen}
+        starred={starred}
+        handler={handler}
+      /> */}
     </div>
   );
 }

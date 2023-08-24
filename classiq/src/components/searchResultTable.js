@@ -5,6 +5,8 @@ export default function SearchResultTable({
   searchResults,
   starredCourses,
   handler,
+  setDescriptionViewCourse,
+  setDescriptionViewOpen,
 }) {
   // console.log("SRT:", starredCourses);
   return (
@@ -27,6 +29,8 @@ export default function SearchResultTable({
             result={result}
             handler={handler}
             starred={result.uuid in starredCourses}
+            setDescriptionViewCourse={setDescriptionViewCourse}
+            setDescriptionViewOpen={setDescriptionViewOpen}
           />
         ))}
       </tbody>
