@@ -62,12 +62,25 @@ export default function Home() {
       if (!didLoadPage) {
         const cookie = localStorage.getItem("starredCourses");
         if (cookie !== undefined && cookie !== null && cookie !== "{}") {
-          setStarredCourses(JSON.parse(cookie));
+          let res = JSON.parse(cookie);
+          for (let course of Object.values(res)) {
+            console.log("Parsing", course);
+            if (
+              "start_date" in course &&
+              "end_date" in course &&
+              course.start_date &&
+              course.end_date
+            ) {
+              setStarredCourses(res);
+              break;
+            }
+          }
         }
         setLoadPage(true);
       }
     } catch (error) {
       console.log(error);
+    } finally {
     }
   }, []);
 

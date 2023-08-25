@@ -3,6 +3,7 @@ import colors from "./colors";
 import Dropdown from "./dropdown";
 import DescriptionView from "./descriptionView";
 import { Cancel, CloseRounded } from "@mui/icons-material";
+import ExportCalendarView from "./exportCalendarView";
 
 function bsearch(arr, target, comp) {
   let lo = 0;
@@ -20,6 +21,7 @@ function bsearch(arr, target, comp) {
 
 function formatCourses({ terms, courses }) {
   let unused = [];
+  let used = [];
   // Filter by term/day
   let termSplit = {};
   for (let term of terms) {
@@ -29,7 +31,11 @@ function formatCourses({ terms, courses }) {
   let colorIdx = 0;
 
   for (let course of courses) {
-    if (course.days === null) {
+    if (
+      course.days === null ||
+      course.start_date === null ||
+      course.end_date === null
+    ) {
       // Add to unused
       unused.push(course);
       continue;
@@ -43,20 +49,15 @@ function formatCourses({ terms, courses }) {
         let split = course.start_time.split(":");
         course.raw_start_time = parseInt(split[0]);
         course.raw_start_time =
-          (parseInt(split[0]) +
-            (split[1][split[1].length - 2] == "p" &&
-            course.raw_start_time !== 12
-              ? 12
-              : 0)) *
+          ((parseInt(split[0]) % 12) +
+            (split[1][split[1].length - 2] == "p" ? 12 : 0)) *
             60 +
           parseInt(split[1].slice(0, 2));
         split = course.end_time.split(":");
         course.raw_end_time = parseInt(split[0]);
         course.raw_end_time =
-          (parseInt(split[0]) +
-            (split[1][split[1].length - 2] == "p" && course.raw_end_time !== 12
-              ? 12
-              : 0)) *
+          ((parseInt(split[0]) % 12) +
+            (split[1][split[1].length - 2] == "p" ? 12 : 0)) *
             60 +
           parseInt(split[1].slice(0, 2));
         // Add to the terms
@@ -65,9 +66,10 @@ function formatCourses({ terms, courses }) {
         // Add to unused
         course.raw_start_time = null;
         course.raw_end_time = null;
-        unused.push(course);
+        continue;
       }
     }
+    used.push(course);
   }
   // Divide into groups; iterate by term first
   // Iterate by term
@@ -179,7 +181,7 @@ function formatCourses({ terms, courses }) {
     }
   }
 
-  return { used: termSplit, unused: unused };
+  return { formatted: termSplit, used: used, unused: unused };
 }
 
 export default function ScheduleMatrix({
@@ -206,9 +208,11 @@ export default function ScheduleMatrix({
   const dayColWidthRef = useRef(null);
   const [dayColWidth, setDayColWidth] = useState(0);
   const [formattedCourses, setFormattedCourses] = useState([]);
+  const [usedCourses, setUsedCourses] = useState([]);
   const [unusedCourses, setUnusedCourses] = useState([]);
   const [descIsOpen, setDescIsOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [exportViewIsOpen, setExportViewIsOpen] = useState(false);
 
   useEffect(() => {
     function handleCalendarResize() {
@@ -240,11 +244,12 @@ export default function ScheduleMatrix({
   timeLabels.push("");
 
   useEffect(() => {
-    const { used, unused } = formatCourses({
+    const { formatted, used, unused } = formatCourses({
       terms: terms,
       courses: Object.values(starredCourses),
     });
-    setFormattedCourses(used);
+    setFormattedCourses(formatted);
+    setUsedCourses(used);
     setUnusedCourses(unused);
     // setFormattedCourses(
     //   formatCourses({ terms: terms, courses: Object.values(starredCourses) })
@@ -254,7 +259,6 @@ export default function ScheduleMatrix({
   const getNumCourses = (term) => {
     if (formattedCourses[term] === undefined || formattedCourses[term] === null)
       return 0;
-    let numCourses = 0;
     let uuids = new Set();
     for (let day of dayHeaders) {
       // numCourses += formattedCourses[term][day].length;
@@ -272,13 +276,27 @@ export default function ScheduleMatrix({
   return (
     <div className="flex flex-col h-full items-start gap-4">
       {/* Filter */}
-      <Dropdown
-        datasource={terms}
-        handler={(_, newTerm) => setSelectedTerm(newTerm)}
-        customLabel={(term) => `${term} (${getNumCourses(term)})`}
-        tag="term"
-        single
-      />
+      <div className="w-full flex flex-row items-center gap-4 flex-wrap justify-between">
+        <Dropdown
+          datasource={terms}
+          handler={(_, newTerm) => setSelectedTerm(newTerm)}
+          customLabel={(term) => `${term} (${getNumCourses(term)})`}
+          tag="term"
+          single
+        />
+
+        <button
+          className="flex flex-row items-center px-3 py-2 gap-2 text-sm font-semibold bg-zinc-100 rounded-lg text-zinc-950 disabled:text-zinc-300 disabled:bg-zinc-50"
+          onClick={() => {
+            setExportViewIsOpen(true);
+          }}
+          disabled={
+            !usedCourses.reduce((p, c) => p || c.term === selectedTerm, false)
+          }
+        >
+          Export calendar for selected term
+        </button>
+      </div>
       {/* Calendar + details */}
       <div className="flex flex-col max-w-full max-h-full border border-zinc-200 overflow-clip rounded-lg text-zinc-700">
         {/* Calendar */}
@@ -434,6 +452,14 @@ export default function ScheduleMatrix({
           </div>
         )}
       </div>
+      {usedCourses.filter((course) => course.term === selectedTerm).length ===
+      0 ? null : (
+        <ExportCalendarView
+          courses={usedCourses.filter((course) => course.term === selectedTerm)}
+          isOpen={exportViewIsOpen}
+          setOpen={setExportViewIsOpen}
+        />
+      )}
     </div>
   );
 }

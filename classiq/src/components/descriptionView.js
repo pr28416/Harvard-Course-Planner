@@ -6,6 +6,7 @@ import {
   BookOutlined,
   Close,
   InfoOutlined,
+  PlaceOutlined,
   SchoolRounded,
 } from "@mui/icons-material";
 import React, { Fragment, useState } from "react";
@@ -183,6 +184,17 @@ export default function DescriptionView({
                             className="text-zinc-700"
                           />
                           {course.subject}
+                        </div>
+                      )}
+                      {course.location === null ||
+                      course.location === undefined ||
+                      course.location.length === 0 ? null : (
+                        <div className="flex flex-row gap-2 items-center text-zinc-600 text-xs">
+                          <PlaceOutlined
+                            fontSize="small"
+                            className="text-zinc-700"
+                          />
+                          {course.location}
                         </div>
                       )}
                     </div>
