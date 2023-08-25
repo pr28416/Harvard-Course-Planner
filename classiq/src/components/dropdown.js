@@ -12,7 +12,6 @@ export default function Dropdown({
   const [selectedData, setSelectedData] = useState(
     single ? datasource[0] : [...datasource]
   );
-  const [query, setQuery] = useState("");
 
   const handleSelect = (newTerm) => {
     setSelectedData(newTerm);
