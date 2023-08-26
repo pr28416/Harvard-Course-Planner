@@ -13,6 +13,17 @@ let fuse = null;
 let ms = null;
 let flexIndex = null;
 let filterTags = { sortOption: "Relevance" };
+let points = [];
+let dayToNumMap = {
+  Su: 0,
+  M: 1,
+  T: 2,
+  W: 3,
+  Th: 4,
+  F: 5,
+  Sa: 6,
+};
+let termMap = {};
 
 async function loadData() {
   console.log("Loading data...");
@@ -25,6 +36,12 @@ async function loadData() {
   //     index: ["class_name", "class_tag"],
   //   },
   // });
+  let i = 0;
+  for (let item of fileContents.data) {
+    if (!(item.term in termMap)) {
+      termMap[item.term] = i++;
+    }
+  }
   fileContents.data.forEach((item, idx) => {
     item.id = idx;
 
@@ -59,7 +76,49 @@ async function loadData() {
         .split(", ");
     }
 
+    if (item.start_time && item.end_time) {
+      let timeSplit = item.start_time.split(":");
+      timeSplit[0] = parseInt(timeSplit[0]) % 12;
+      if (timeSplit[1][timeSplit[1].length - 2] == "p") timeSplit[0] += 12;
+      timeSplit[1] = parseInt(timeSplit[1].slice(0, timeSplit[1].length - 2));
+      item.raw_start_time = 60 * timeSplit[0] + timeSplit[1];
+
+      timeSplit = item.end_time.split(":");
+      timeSplit[0] = parseInt(timeSplit[0]) % 12;
+      if (timeSplit[1][timeSplit[1].length - 2] == "p") timeSplit[0] += 12;
+      timeSplit[1] = parseInt(timeSplit[1].slice(0, timeSplit[1].length - 2));
+      item.raw_end_time = 60 * timeSplit[0] + timeSplit[1];
+
+      for (let day of item.days || []) {
+        points.push({
+          uuid: item.uuid,
+          time:
+            item.raw_start_time +
+            60 * 24 * dayToNumMap[day] +
+            60 * 24 * 7 * 180 * termMap[item.term],
+          is_start: true,
+        });
+        points.push({
+          uuid: item.uuid,
+          time:
+            item.raw_end_time +
+            60 * 24 * dayToNumMap[day] +
+            60 * 24 * 7 * 180 * termMap[item.term],
+          is_start: false,
+        });
+      }
+    } else {
+      item.raw_start_time = null;
+      item.raw_end_time = null;
+    }
+
     // flexIndex.add(item);
+  });
+  points.sort((a, b) => {
+    if (a.time === b.time) {
+      return a.is_start ? -1 : 1;
+    }
+    return a.time - b.time;
   });
   // flexIndex.add(fileContents.data);
   const tagHeaders = ["term", "school", "subject"];
@@ -72,27 +131,7 @@ async function loadData() {
   // console.log(filterTags);
   ms = new MiniSearch({
     fields: ["class_name", "class_tag", "ab0", "ab1", "ab2"],
-    storeFields: [
-      "class_name",
-      "class_tag",
-      "instructors",
-      "term",
-      "days",
-      "description",
-      "start_time",
-      "end_time",
-      "q_report",
-      "uuid",
-      "school",
-      "subject",
-      "topic",
-      "class_notes",
-      "mean_hours",
-      "location",
-      "start_date",
-      "end_date",
-      "Overall score Course Mean",
-    ],
+    storeFields: Object.keys(fileContents.data[0]),
     searchOptions: { fuzzy: 0.3 },
   });
   ms.addAll(fileContents.data);
@@ -135,7 +174,7 @@ export default async function handler(req, res) {
   }
   // console.log(req.body);
   if (req.body.request === "filters") {
-    res.status(200).json(filterTags);
+    res.status(200).json({ filterTags: filterTags, points: points });
   } else if (req.body.request === "retrieve") {
     res.status(200).json({
       items: fileContents.data.filter((item) =>
@@ -154,6 +193,57 @@ export default async function handler(req, res) {
       fullResults = ms.search(req.body.query, {
         filter: (result) => filterFunc(result, req.body.filters),
       });
+    }
+
+    // // Overlaps
+    // for (let result of fullResults) {
+    //   result.overlaps = false;
+    // }
+
+    // for (let selectedCourse of req.body.selected) {
+    //   for (let result of fullResults) {
+    //     if (
+    //       result.term === selectedCourse.term &&
+    //       result.uuid !== selectedCourse.uuid
+    //     ) {
+    //       for (let day of selectedCourse.days || []) {
+    //         if (
+    //           result.days &&
+    //           result.days.includes(day) &&
+    //           result.raw_start_time &&
+    //           result.raw_end_time &&
+    //           selectedCourse.raw_start_time &&
+    //           selectedCourse.raw_end_time
+    //         ) {
+    //           console.log(
+    //             "selected course:",
+    //             selectedCourse.class_name,
+    //             selectedCourse.days,
+    //             selectedCourse.start_time,
+    //             selectedCourse.end_time,
+    //             "| result:",
+    //             result.class_name,
+    //             result.days,
+    //             result.start_time,
+    //             result.end_time
+    //           );
+    //           if (
+    //             !(
+    //               result.raw_start_time >= selectedCourse.raw_end_time ||
+    //               result.raw_end_time <= selectedCourse.raw_start_time
+    //             )
+    //           ) {
+    //             result.overlaps = true;
+    //             break;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+
+    for (let result of fullResults) {
+      if (result.overlaps) console.log("OVERLAP", result.class_name);
     }
 
     // Sort

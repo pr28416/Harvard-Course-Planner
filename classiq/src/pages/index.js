@@ -29,6 +29,8 @@ export default function Home() {
   const [didTrack, setTrack] = useState(false);
   const [descriptionViewCourse, setDescriptionViewCourse] = useState(null);
   const [isDescriptionViewOpen, setDescriptionViewOpen] = useState(false);
+  const [points, setPoints] = useState([]);
+  const [nonOverlappingUuids, setNonOverlappingUuids] = useState([]);
 
   useEffect(() => {
     if (!didTrack) {
@@ -59,6 +61,40 @@ export default function Home() {
 
   useEffect(() => {
     try {
+      if (didLoadPage) {
+        localStorage.setItem("starredCourses", JSON.stringify(starredCourses));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [starredCourses]);
+
+  useEffect(() => {
+    const getFilters = async () => {
+      await fetch("/api/search", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ request: "filters" }),
+      })
+        .then(async (res) => {
+          const json = await res.json();
+          const filterTags = json.filterTags;
+          setAllTerms(filterTags.term);
+          setFilterTags(filterTags);
+          setPoints(json.points);
+        })
+        .catch((err) => {
+          console.log(err);
+          setShowFilter(false);
+        });
+      setRender(true);
+    };
+
+    getFilters();
+
+    try {
       if (!didLoadPage) {
         const cookie = localStorage.getItem("starredCourses");
         if (cookie !== undefined && cookie !== null && cookie !== "{}") {
@@ -80,57 +116,147 @@ export default function Home() {
       }
     } catch (error) {
       console.log(error);
-    } finally {
     }
-  }, []);
-
-  useEffect(() => {
-    try {
-      if (didLoadPage) {
-        localStorage.setItem("starredCourses", JSON.stringify(starredCourses));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }, [starredCourses]);
-
-  useEffect(() => {
-    const getFilters = async () => {
-      await fetch("/api/search", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ request: "filters" }),
-      })
-        .then(async (res) => {
-          const json = await res.json();
-          setAllTerms(json.term);
-          setFilterTags(json);
-        })
-        .catch((err) => {
-          console.log(err);
-          setShowFilter(false);
-        });
-      setRender(true);
-    };
-
-    getFilters();
   }, []);
 
   useEffect(() => {
     handleSearch();
   }, [query, filters]);
 
+  let dayToNumMap = {
+    Su: 0,
+    M: 1,
+    T: 2,
+    W: 3,
+    Th: 4,
+    F: 5,
+    Sa: 6,
+  };
+
+  useEffect(() => {
+    let selected_uuids = new Set(Object.keys(starredCourses));
+    let selected_points = [];
+
+    for (let selected of Object.values(starredCourses)) {
+      if (selected.raw_start_time && selected.raw_end_time) {
+        for (let day of selected.days || []) {
+          selected_points.push({
+            uuid: selected.uuid,
+            time:
+              selected.raw_start_time +
+              60 * 24 * dayToNumMap[day] +
+              60 * 24 * 7 * 180 * allTerms.indexOf(selected.term),
+            is_start: true,
+          });
+          selected_points.push({
+            uuid: selected.uuid,
+            time:
+              selected.raw_end_time +
+              60 * 24 * dayToNumMap[day] +
+              60 * 24 * 7 * 180 * allTerms.indexOf(selected.term),
+            is_start: false,
+          });
+        }
+      }
+    }
+
+    selected_points.sort((a, b) => {
+      if (a.time === b.time) {
+        return a.is_start ? -1 : 1;
+      }
+      return a.time - b.time;
+    });
+
+    let unavailableSet = new Set();
+
+    // for (let point of points) {
+    //   point.available = true;
+    // }
+
+    // console.log("Selected set:", selected_set);
+    let active_count_all = 0;
+    let active_count_selected = 0;
+
+    let i = 0,
+      j = 0;
+
+    while (i < points.length || j < selected_points.length) {
+      if (
+        j === selected_points.length ||
+        (i < points.length && points[i].time <= selected_points[j].time)
+      ) {
+        if (points[i].is_start) {
+          // if (
+          //   active_count_selected > 0 ||
+          //   active_count_all - (selected_uuids.has(points[i].uuid) > 0 ? )
+          // ) {
+          //   unavailableSet.add(points[i].uuid);
+          // }
+          if (active_count_selected > 0) {
+            unavailableSet.add(points[i].uuid);
+          }
+          // if (active_count_selected > 0 || selected_uuids.has(points[i].uuid)) {
+          //   unavailableSet.add(points[i].uuid);
+          // }
+          active_count_all++;
+        } else {
+          active_count_all--;
+        }
+        i++;
+      } else {
+        if (selected_points[j].is_start) {
+          if (active_count_all > 0) {
+            // selected_points[j].available = false;
+          }
+          unavailableSet.add(selected_points[j].uuid);
+          active_count_selected++;
+        } else {
+          active_count_selected--;
+        }
+        j++;
+      }
+    }
+
+    // for (let point of points) {
+    //   if (point.is_start) {
+    //     if (
+    //       active > selected_set.size ||
+    //       (active == selected_set.size && !selected_set.has(point.uuid))
+    //     ) {
+    //       point.available = false;
+    //     }
+    //     active += 1;
+    //   } else {
+    //     active -= 1;
+    //   }
+    // }
+
+    setNonOverlappingUuids([
+      ...new Set(
+        points
+          .filter((point) => point.is_start && !unavailableSet.has(point.uuid))
+          .map((point) => point.uuid)
+      ),
+    ]);
+  }, [starredCourses]);
+
   const handleStarred = (uuid, course) => {
     // console.log("Reset");
+    let nou = null;
+
     setStarredCourses((old) => {
-      if (uuid in old) {
-        return (({ [uuid]: _, ...obj }) => obj)(old);
-      } else {
-        return { ...old, [uuid]: course };
-      }
+      return uuid in old
+        ? (({ [uuid]: _, ...obj }) => obj)(old)
+        : { ...old, [uuid]: course };
+
+      // if (uuid in old) {
+      //   return (({ [uuid]: _, ...obj }) => obj)(old);
+      // } else {
+      //   return { ...old, [uuid]: course };
+      // }
     });
+
+    console.log(nou);
   };
 
   useEffect(() => {
@@ -160,6 +286,7 @@ export default function Home() {
         filters: filters,
         request: "search",
         limit: 25,
+        // selected: Object.values(starredCourses),
       }),
     });
     const json = await response.json();
@@ -180,6 +307,7 @@ export default function Home() {
         request: "paginate",
         limit: 25,
         offset: searchResults.length,
+        // selected: Object.values(starredCourses),
       }),
     });
     const json = await response.json();
@@ -199,6 +327,7 @@ export default function Home() {
 
   return !render ? (
     <main className="flex flex-col h-screen items-center justify-center gap-12">
+      {console.log("nonover", nonOverlappingUuids)}
       <div className="text-5xl sm:text-5xl font-extrabold text-red-600">
         Classiq.
       </div>
@@ -266,6 +395,7 @@ export default function Home() {
                 handler={handleStarred}
                 setDescriptionViewCourse={setDescriptionViewCourse}
                 setDescriptionViewOpen={setDescriptionViewOpen}
+                nonOverlappingUuids={nonOverlappingUuids}
               />
             )}
 
@@ -334,6 +464,7 @@ export default function Home() {
                 handler={handleStarred}
                 setDescriptionViewCourse={setDescriptionViewCourse}
                 setDescriptionViewOpen={setDescriptionViewOpen}
+                nonOverlappingUuids={nonOverlappingUuids}
               />
             )}
 

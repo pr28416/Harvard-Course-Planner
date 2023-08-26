@@ -7,8 +7,10 @@ export default function SearchResultTable({
   handler,
   setDescriptionViewCourse,
   setDescriptionViewOpen,
+  nonOverlappingUuids,
 }) {
   // console.log("SRT:", starredCourses);
+  console.log("srt nou", nonOverlappingUuids);
   return (
     <table className="table table-auto md:divide-y-2 w-full">
       {/* Header */}
@@ -31,6 +33,7 @@ export default function SearchResultTable({
             starred={result.uuid in starredCourses}
             setDescriptionViewCourse={setDescriptionViewCourse}
             setDescriptionViewOpen={setDescriptionViewOpen}
+            nonOverlappingUuids={nonOverlappingUuids}
           />
         ))}
       </tbody>

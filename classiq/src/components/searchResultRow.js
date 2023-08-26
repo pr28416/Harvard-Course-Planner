@@ -19,6 +19,7 @@ export default function SearchResultRow({
   starred,
   setDescriptionViewCourse,
   setDescriptionViewOpen,
+  nonOverlappingUuids,
 }) {
   return (
     <tr
@@ -32,11 +33,17 @@ export default function SearchResultRow({
         <div className="flex flex-col md:mr-8 gap-1 md:gap-0 w-full">
           <div className="flex flex-row w-full justify-between items-center gap-4">
             {/* Class tag, Q-guide rating */}
-            <div className="flex flex-row flex-wrap items-center gap-2">
+            <div className="flex flex-row flex-wrap items-center gap-1">
               {/* Class tag */}
               <div className="text-xs font-medium text-zinc-600">
                 {result.class_tag}
               </div>
+              {/* Overlap indicator */}
+              {nonOverlappingUuids.includes(result.uuid) ? null : (
+                <div className="text-xs p-1 rounded-md bg-red-100 text-red-600 font-medium">
+                  Overlap
+                </div>
+              )}
             </div>
             {/* Mobile: Days */}
             <div className="md:hidden">
