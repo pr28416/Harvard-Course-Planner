@@ -82,7 +82,7 @@ export default async function handler(req, res) {
           }${endDate[0]}${endDate[1] < 10 ? "0" : ""}${endDate[1]}T000000Z`,
           //   end: [endDate[2], endDate[0], endDate[1], ...endTime],
         };
-        console.log(event);
+        // console.log(event);
         return event;
       })
     );

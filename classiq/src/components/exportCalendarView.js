@@ -36,9 +36,19 @@ export default function ExportCalendarView({ courses, isOpen, setOpen }) {
         } else {
           const json = await res.json();
           const blob = new Blob([json.value], {
-            type: "text/plain;charset=utf-8",
+            type: "text/calendar;charset=utf-8",
           });
-          saveAs(blob, "calendar.ics");
+          const calendarElem = document.createElement("a");
+          const url = URL.createObjectURL(blob);
+          calendarElem.href = url;
+          calendarElem.download = "calendar.ics";
+          document.body.appendChild(calendarElem);
+          calendarElem.click();
+          setTimeout(() => {
+            document.body.removeChild(calendarElem);
+            window.URL.revokeObjectURL(url);
+          }, 0);
+          // saveAs(blob, "calendar.ics");
           setExportFailed(false);
         }
       });

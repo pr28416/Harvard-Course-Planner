@@ -285,7 +285,7 @@ export default function ScheduleMatrix({
           single
         />
 
-        {/* <button
+        <button
           className="flex flex-row items-center px-3 py-2 gap-2 text-sm font-semibold bg-zinc-100 rounded-lg text-zinc-950 disabled:text-zinc-300 disabled:bg-zinc-50"
           onClick={() => {
             setExportViewIsOpen(true);
@@ -295,7 +295,7 @@ export default function ScheduleMatrix({
           }
         >
           Export calendar for selected term
-        </button> */}
+        </button>
       </div>
       {/* Calendar + details */}
       <div className="flex flex-col max-w-full max-h-full border border-zinc-200 overflow-clip rounded-lg text-zinc-700">
