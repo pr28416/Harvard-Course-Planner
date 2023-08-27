@@ -10,7 +10,7 @@ export default function SearchResultTable({
 }) {
   // console.log("SRT:", starredCourses);
   return (
-    <table className="table table-auto md:divide-y-2 w-full">
+    <table className="table table-auto md:divide-y-2 dark:md:divide-zinc-700 w-full">
       {/* Header */}
       <thead className="hidden md:table-header-group">
         <tr>
@@ -21,7 +21,7 @@ export default function SearchResultTable({
           {/* <th className="text-start py-2 hidden xl:table-cell">QReport</th> */}
         </tr>
       </thead>
-      <tbody className="divide-y">
+      <tbody className="divide-y dark:divide-zinc-700">
         {/* Content */}
         {searchResults.map((result, idx) => (
           <SearchResultRow

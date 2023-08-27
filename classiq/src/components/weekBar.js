@@ -3,8 +3,8 @@ import React from "react";
 export default function WeekBar({ days, minimal }) {
   // console.log(days, typeof days);
   return !minimal ? (
-    <div className="flex flex-col gap-1 items-center">
-      <div className="flex flex-row divide-x divide-zinc-200 border border-zinc-200 rounded-sm">
+    <div className="flex flex-col gap-1 items-center dark:text-zinc-500">
+      <div className="flex flex-row divide-x divide-zinc-200 dark:divide-zinc-700 border border-zinc-200 dark:border-zinc-700 rounded-sm">
         {["Su", "M", "T", "W", "Th", "F", "Sa"].map((day, idx) => (
           <div
             key={idx}
@@ -20,8 +20,8 @@ export default function WeekBar({ days, minimal }) {
       </div>
     </div>
   ) : (
-    <div className="flex flex-col gap-1 items-center">
-      <div className="flex flex-row divide-x divide-zinc-200 border border-zinc-200 rounded-sm">
+    <div className="flex flex-col gap-1 items-center dark:text-zinc-500">
+      <div className="flex flex-row divide-x divide-zinc-200 dark:divide-zinc-700 border border-zinc-200 dark:border-zinc-700 rounded-sm">
         {["Su", "M", "T", "W", "Th", "F", "Sa"].map((day, idx) => (
           <div
             key={idx}

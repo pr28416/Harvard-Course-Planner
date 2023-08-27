@@ -33,7 +33,7 @@ export default function InfoButton({
         }}
         className="focus:outline-none"
       >
-        <InfoOutlined className="text-zinc-700" />
+        <InfoOutlined className="text-zinc-700 dark:text-zinc-200" />
       </button>
       {/* <DescriptionView
         course={course}

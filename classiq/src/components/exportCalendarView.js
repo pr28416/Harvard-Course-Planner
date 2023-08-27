@@ -71,7 +71,7 @@ export default function ExportCalendarView({ courses, isOpen, setOpen }) {
           leaveTo="opacity-0"
         >
           <div
-            className="fixed inset-0 bg-black bg-opacity-25"
+            className="fixed inset-0 bg-black bg-opacity-25 dark:bg-opacity-50"
             onClick={(e) => e.stopPropagation()}
           />
         </Transition.Child>
@@ -89,11 +89,11 @@ export default function ExportCalendarView({ courses, isOpen, setOpen }) {
               leaveTo="opacity-0 scale-95"
             >
               {/* Panel */}
-              <Dialog.Panel className="flex flex-col gap-2 w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="flex flex-col gap-2 w-full max-w-xl transform overflow-hidden rounded-2xl bg-white dark:bg-zinc-900 p-6 text-left align-middle shadow-xl transition-all">
                 {/* Panel title */}
                 <Dialog.Title>
                   <div className="flex flex-row justify-between items-start gap-4">
-                    <div className="text-zinc-900 text-xl sm:text-2xl font-extrabold flex flex-row gap-2 items-center">
+                    <div className="text-zinc-900 dark:text-zinc-50 text-xl sm:text-2xl font-extrabold flex flex-row gap-2 items-center">
                       Export classes
                     </div>
                     <button
@@ -102,22 +102,24 @@ export default function ExportCalendarView({ courses, isOpen, setOpen }) {
                         setOpen(false);
                       }}
                     >
-                      <Close className="text-zinc-700" />
+                      <Close className="text-zinc-700 dark:text-zinc-400" />
                     </button>
                   </div>
                 </Dialog.Title>
 
                 {/* Panel content */}
-                <div className="flex flex-col gap-3 text-sm text-zinc-700">
+                <div className="flex flex-col gap-3 text-sm text-zinc-700 dark:text-zinc-300">
                   The following classes will be exported. Unselect the courses
                   that you do not want to export:
-                  <div className="grid grid-cols-1 sm:grid-cols-2 flex-row gap-2 flex-wrap text-zinc-950">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 flex-row gap-2 flex-wrap text-zinc-950 dark:text-zinc-50">
                     {myCourses.map((course, idx) => (
                       // Course view
                       <div
                         key={idx}
-                        className={`cursor-pointer flex flex-col gap-1 border border-zinc-200 rounded-lg p-3 ${
-                          course.selected ? "" : "bg-zinc-200 text-zinc-500"
+                        className={`cursor-pointer flex flex-col gap-1 border border-zinc-200 dark:border-zinc-700 rounded-lg p-3 ${
+                          course.selected
+                            ? ""
+                            : "bg-zinc-200 dark:bg-zinc-950 text-zinc-500 dark:text-zinc-600"
                         }`}
                         onClick={() =>
                           setMyCourses((old) => {
@@ -138,18 +140,18 @@ export default function ExportCalendarView({ courses, isOpen, setOpen }) {
                             {course.selected ? (
                               <RemoveCircleOutline
                                 fontSize="small"
-                                className="text-zinc-700"
+                                className="text-zinc-700 dark:text-zinc-400"
                               />
                             ) : (
                               <RemoveCircle
                                 fontSize="small"
-                                className="text-zinc-700"
+                                className="text-zinc-700 dark:text-zinc-600"
                               />
                             )}
                           </div>
                         </div>
                         {/* Course tag */}
-                        <div className="text-xs text-zinc-500">
+                        <div className="text-xs text-zinc-500 dark:text-zinc-300">
                           {course.class_tag}
                         </div>
                         {/* Other details */}
@@ -165,10 +167,9 @@ export default function ExportCalendarView({ courses, isOpen, setOpen }) {
                               <div className="flex flex-row gap-2 items-center">
                                 <SchoolRounded
                                   fontSize="small"
-                                  className="text-zinc-700"
+                                  className="text-zinc-700 dark:text-zinc-400"
                                 />
-
-                                <div className="text-zinc-600">
+                                <div className="text-zinc-600 dark:text-zinc-400">
                                   {course.instructors.join(", ")}
                                 </div>
                               </div>
@@ -176,10 +177,9 @@ export default function ExportCalendarView({ courses, isOpen, setOpen }) {
                               <div className="flex flex-row gap-2 items-center">
                                 <SchoolRounded
                                   fontSize="small"
-                                  className="text-zinc-300"
+                                  className="text-zinc-300 dark:text-zinc-600"
                                 />
-
-                                <div className="text-zinc-300">
+                                <div className="text-zinc-300 dark:text-zinc-600 italic">
                                   No instructors
                                 </div>
                               </div>
@@ -190,9 +190,9 @@ export default function ExportCalendarView({ courses, isOpen, setOpen }) {
                               <div className="flex flex-row gap-2 items-center">
                                 <AccessTime
                                   fontSize="small"
-                                  className="text-zinc-700"
+                                  className="text-zinc-700 dark:text-zinc-400"
                                 />
-                                <div className="text-zinc-600">
+                                <div className="text-zinc-600 dark:text-zinc-400">
                                   {course.start_time} - {course.end_time}
                                 </div>
                               </div>
@@ -200,9 +200,9 @@ export default function ExportCalendarView({ courses, isOpen, setOpen }) {
                               <div className="flex flex-row gap-2 items-center">
                                 <AccessTime
                                   fontSize="small"
-                                  className="text-zinc-300"
+                                  className="text-zinc-300 dark:text-zinc-600"
                                 />
-                                <div className="text-zinc-300 italic">
+                                <div className="text-zinc-300 dark:text-zinc-600 italic">
                                   No times
                                 </div>
                               </div>
@@ -231,7 +231,7 @@ export default function ExportCalendarView({ courses, isOpen, setOpen }) {
                     ) : (
                       <button
                         disabled={true}
-                        className="flex flex-row items-center justify-center gap-2 text-zinc-400 w-full sm:w-auto font-semibold bg-zinc-100 px-3 py-2 rounded-lg"
+                        className="flex flex-row items-center justify-center gap-2 text-zinc-400 dark:text-zinc-600 w-full sm:w-auto font-semibold bg-zinc-100 dark:bg-zinc-800 px-3 py-2 rounded-lg"
                       >
                         <EventAvailable />
                         Select at least one course

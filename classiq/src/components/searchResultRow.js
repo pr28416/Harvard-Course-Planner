@@ -22,7 +22,7 @@ export default function SearchResultRow({
 }) {
   return (
     <tr
-      className="hover:bg-zinc-50 hover:cursor-pointer"
+      className="hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:cursor-pointer"
       onClick={() => handler(result.uuid, result)}
       title={`${starred ? "Remove from" : "Add to"} starred courses`}
     >
@@ -34,7 +34,7 @@ export default function SearchResultRow({
             {/* Class tag, Q-guide rating */}
             <div className="flex flex-row flex-wrap items-center gap-2">
               {/* Class tag */}
-              <div className="text-xs font-medium text-zinc-600">
+              <div className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                 {result.class_tag}
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function SearchResultRow({
           </div>
 
           {/* Class name */}
-          <div className="font-bold text-zinc-900 text-start">
+          <div className="font-bold text-zinc-900 dark:text-zinc-50 text-start">
             {result.class_name}
             {result.topic ? `: ${result.topic}` : ""}
           </div>
@@ -66,39 +66,60 @@ export default function SearchResultRow({
               {result.instructors !== null &&
               result.instructors !== undefined ? (
                 <div className="flex flex-row gap-2 items-center">
-                  <SchoolRounded fontSize="small" className="text-zinc-700" />
+                  <SchoolRounded
+                    fontSize="small"
+                    className="text-zinc-700 dark:text-zinc-400"
+                  />
                   {/* {console.log("TYPE", typeof result.instructors)} */}
-                  <div className="text-zinc-600">
+                  <div className="text-zinc-600 dark:text-zinc-400">
                     {result.instructors.join(", ")}
                   </div>
                 </div>
               ) : (
                 <div className="flex flex-row gap-2 items-center">
-                  <SchoolRounded fontSize="small" className="text-zinc-300" />
+                  <SchoolRounded
+                    fontSize="small"
+                    className="text-zinc-300 dark:text-zinc-600"
+                  />
 
-                  <div className="text-zinc-300">No instructors</div>
+                  <div className="text-zinc-300 dark:text-zinc-600 italic">
+                    No instructors
+                  </div>
                 </div>
               )}
 
               {/* Mobile: Times */}
               {result.start_time !== null && result.end_time !== null ? (
                 <div className="flex flex-row gap-2 items-center">
-                  <AccessTime fontSize="small" className="text-zinc-700" />
-                  <div className="text-zinc-600">
+                  <AccessTime
+                    fontSize="small"
+                    className="text-zinc-700 dark:text-zinc-400"
+                  />
+                  <div className="text-zinc-600 dark:text-zinc-400">
                     {result.start_time} - {result.end_time}
                   </div>
                 </div>
               ) : (
                 <div className="flex flex-row gap-2 items-center">
-                  <AccessTime fontSize="small" className="text-zinc-300" />
-                  <div className="text-zinc-300 italic">No times</div>
+                  <AccessTime
+                    fontSize="small"
+                    className="text-zinc-300 dark:text-zinc-600"
+                  />
+                  <div className="text-zinc-300 dark:text-zinc-600 italic">
+                    No times
+                  </div>
                 </div>
               )}
 
               {/* Mobile: Term */}
               <div className="flex flex-row gap-2 items-center">
-                <Today fontSize="small" className="text-zinc-700" />
-                <div className="text-zinc-600">{result.term}</div>
+                <Today
+                  fontSize="small"
+                  className="text-zinc-700 dark:text-zinc-400"
+                />
+                <div className="text-zinc-600 dark:text-zinc-400">
+                  {result.term}
+                </div>
               </div>
             </div>
             <div className="md:hidden">
@@ -115,21 +136,23 @@ export default function SearchResultRow({
       {/* Instructors */}
       <td className="py-2 text-sm hidden md:table-cell">
         {result.instructors ? (
-          <div className="mr-8 text-zinc-500">
+          <div className="mr-8 text-zinc-500 dark:text-zinc-300">
             {result.instructors.join(", ")}
           </div>
         ) : (
-          <div className="mr-8 text-sm italic text-zinc-300">None</div>
+          <div className="mr-8 text-sm italic text-zinc-300 dark:text-zinc-600">
+            None
+          </div>
         )}
       </td>
 
       {/* Term */}
-      <td className="hidden xl:table-cell h-full py-2 text-sm text-zinc-500">
+      <td className="hidden xl:table-cell h-full py-2 text-sm text-zinc-500 dark:text-zinc-300">
         <div className="mr-8 h-full flex">{result.term}</div>
       </td>
 
       {/* Time */}
-      <td className="py-2 text-sm text-zinc-500 hidden md:table-cell">
+      <td className="py-2 text-sm text-zinc-500 dark:text-zinc-300 hidden md:table-cell">
         <div className="flex flex-col mr-8 gap-1 items-center justify-center">
           <div className="xl:hidden">{result.term}</div>
           {result.days === null ? null : <WeekBar days={result.days} />}
@@ -138,7 +161,7 @@ export default function SearchResultRow({
               {result.start_time} - {result.end_time}
             </div>
           ) : (
-            <div className="italic text-zinc-300">None</div>
+            <div className="italic text-zinc-300 dark:text-zinc-600">None</div>
           )}
         </div>
       </td>

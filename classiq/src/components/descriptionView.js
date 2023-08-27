@@ -47,7 +47,7 @@ export default function DescriptionView({
           leaveTo="opacity-0"
         >
           <div
-            className="fixed inset-0 bg-black bg-opacity-25"
+            className="fixed inset-0 bg-black bg-opacity-25 dark:bg-opacity-50"
             onClick={(e) => e.stopPropagation()}
           />
         </Transition.Child>
@@ -65,15 +65,15 @@ export default function DescriptionView({
               leaveTo="opacity-0 scale-95"
             >
               {/* Panel */}
-              <Dialog.Panel className="flex flex-col gap-2 w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="flex flex-col gap-2 w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white dark:bg-zinc-900 p-6 text-left align-middle shadow-xl transition-all">
                 {/* Panel title */}
                 <Dialog.Title>
                   <div className="flex flex-row justify-between items-start gap-4">
                     <div className="flex flex-col gap-0">
-                      <div className="text-xs text-zinc-600 font-medium flex flex-row gap-2 items-center">
+                      <div className="text-xs text-zinc-600 dark:text-zinc-400 font-medium flex flex-row gap-2 items-center">
                         {course.class_tag}
                       </div>
-                      <div className="text-zinc-900 font-bold flex flex-row gap-2 items-center">
+                      <div className="text-zinc-900 dark:text-zinc-50 font-bold flex flex-row gap-2 items-center">
                         {course.class_name}
                         {course.topic ? `: ${course.topic}` : ""}
                       </div>
@@ -84,7 +84,7 @@ export default function DescriptionView({
                         setOpen(false);
                       }}
                     >
-                      <Close className="text-zinc-700" />
+                      <Close className="text-zinc-700 dark:text-zinc-400" />
                     </button>
                   </div>
                 </Dialog.Title>
@@ -100,10 +100,10 @@ export default function DescriptionView({
                           <div className="flex flex-row gap-2 items-center">
                             <SchoolRounded
                               fontSize="small"
-                              className="text-zinc-700"
+                              className="text-zinc-700 dark:text-zinc-400"
                             />
 
-                            <div className="text-zinc-600">
+                            <div className="text-zinc-600 dark:text-zinc-400">
                               {course.instructors.join(", ")}
                             </div>
                           </div>
@@ -111,10 +111,12 @@ export default function DescriptionView({
                           <div className="flex flex-row gap-2 items-center">
                             <SchoolRounded
                               fontSize="small"
-                              className="text-zinc-300"
+                              className="text-zinc-300 dark:text-zinc-600"
                             />
 
-                            <div className="text-zinc-300">No instructors</div>
+                            <div className="text-zinc-300 dark:text-zinc-600 italic">
+                              No instructors
+                            </div>
                           </div>
                         )}
                       </div>
@@ -125,9 +127,9 @@ export default function DescriptionView({
                           <div className="flex flex-row gap-2 items-center">
                             <AccessTime
                               fontSize="small"
-                              className="text-zinc-700"
+                              className="text-zinc-700 dark:text-zinc-400"
                             />
-                            <div className="text-zinc-600">
+                            <div className="text-zinc-600 dark:text-zinc-400">
                               {course.start_time} - {course.end_time}
                             </div>
                           </div>
@@ -135,9 +137,11 @@ export default function DescriptionView({
                           <div className="flex flex-row gap-2 items-center">
                             <AccessTime
                               fontSize="small"
-                              className="text-zinc-300"
+                              className="text-zinc-300 dark:text-zinc-600"
                             />
-                            <div className="text-zinc-300 italic">No times</div>
+                            <div className="text-zinc-300 dark:text-zinc-600 italic">
+                              No times
+                            </div>
                           </div>
                         )}
                       </div>
@@ -149,13 +153,13 @@ export default function DescriptionView({
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm mt-2 text-zinc-800">
+                  <p className="text-sm mt-2 text-zinc-800 dark:text-zinc-50">
                     {course.description}
                   </p>
 
                   {/* Class notes */}
                   {course.class_notes ? (
-                    <p className="text-sm mt-2 text-zinc-800">
+                    <p className="text-sm mt-2 text-zinc-800 dark:text-zinc-50">
                       {course.class_notes}
                     </p>
                   ) : null}
@@ -169,19 +173,19 @@ export default function DescriptionView({
                         <Q_MeanHoursView result={course} />
                       </div>
                       {course.school === null ? null : (
-                        <div className="flex flex-row gap-2 items-center text-zinc-600 text-xs">
+                        <div className="flex flex-row gap-2 items-center text-zinc-600 dark:text-zinc-400 text-xs">
                           <AccountBalanceOutlined
                             fontSize="small"
-                            className="text-zinc-700"
+                            className="text-zinc-700 dark:text-zinc-400"
                           />
                           {course.school}
                         </div>
                       )}
                       {course.subject === null ? null : (
-                        <div className="flex flex-row gap-2 items-center text-zinc-600 text-xs">
+                        <div className="flex flex-row gap-2 items-center text-zinc-600 dark:text-zinc-400 text-xs">
                           <BookOutlined
                             fontSize="small"
-                            className="text-zinc-700"
+                            className="text-zinc-700 dark:text-zinc-400"
                           />
                           {course.subject}
                         </div>
@@ -189,10 +193,10 @@ export default function DescriptionView({
                       {course.location === null ||
                       course.location === undefined ||
                       course.location.length === 0 ? null : (
-                        <div className="flex flex-row gap-2 items-center text-zinc-600 text-xs">
+                        <div className="flex flex-row gap-2 items-center text-zinc-600 dark:text-zinc-400 text-xs">
                           <PlaceOutlined
                             fontSize="small"
-                            className="text-zinc-700"
+                            className="text-zinc-700 dark:text-zinc-400"
                           />
                           {course.location}
                         </div>

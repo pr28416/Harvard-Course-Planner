@@ -198,17 +198,17 @@ export default function Home() {
   };
 
   return !render ? (
-    <main className="flex flex-col h-screen items-center justify-center gap-12">
-      <div className="text-5xl sm:text-5xl font-extrabold text-red-600">
+    <main className="flex flex-col h-screen items-center justify-center gap-12 dark:bg-zinc-900">
+      <div className="text-5xl sm:text-5xl font-extrabold text-red-600 dark:text-red-500">
         Classiq.
       </div>
       <CircularProgress color="inherit" size="2rem" />
     </main>
   ) : (
     <ErrorBoundary>
-      <main className="flex flex-col min-h-screen items-center bg-white w-full text-zinc-950">
+      <main className="flex flex-col min-h-screen items-center bg-white dark:bg-zinc-900 w-full text-zinc-950 dark:text-zinc-50">
         {/* Title */}
-        <div className="w-full mt-8 sm:mt-16 mb-8 text-4xl sm:text-5xl px-4 md:px-12 text-center md:text-start font-extrabold text-red-600">
+        <div className="w-full mt-8 sm:mt-16 mb-8 text-4xl sm:text-5xl px-4 md:px-12 text-center md:text-start font-extrabold text-red-600 dark:text-red-500">
           Classiq.
         </div>
 
@@ -217,14 +217,14 @@ export default function Home() {
           {/* Search and starred */}
           <div className="flex flex-col h-full w-full justify-start">
             {/* Selected courses */}
-            <div className="mb-2 flex flex-row items-center justify-between gap-4 font-extrabold text-zinc-900">
+            <div className="mb-2 flex flex-row items-center justify-between gap-4 font-extrabold text-zinc-900 dark:text-zinc-100">
               {/* Selected courses title */}
               <div className="flex flex-row justify-start items-center flex-wrap gap-2">
                 {/* Title */}
-                <div className="text-xl sm:text-2xl ">Selected courses</div>
+                <div className="text-xl sm:text-2xl">Selected courses</div>
                 {/* Show/hide button */}
                 <button
-                  className="flex flex-row items-end rounded-full aspect-square hover:bg-zinc-100"
+                  className="flex flex-row items-end rounded-full aspect-square hover:bg-zinc-100 dark:hover:bg-zinc-800"
                   onClick={() => setShowStarredCourses((old) => !old)}
                 >
                   {showStarredCourses ? (
@@ -240,7 +240,7 @@ export default function Home() {
                 className={`flex shrink-0 font-semibold ${
                   showScheduleMatrix
                     ? "text-zinc-100 bg-red-500"
-                    : "text-zinc-700 bg-zinc-100"
+                    : "text-zinc-700 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800"
                 } text-sm px-3 py-2 rounded-lg flex-row items-center gap-2 w-fit`}
                 onClick={() => setShowScheduleMatrix(!showScheduleMatrix)}
               >
@@ -254,7 +254,7 @@ export default function Home() {
 
             {/* Starred courses */}
             {Object.keys(starredCourses).length === 0 ? (
-              <div className="h-full flex flex-col text-zinc-400 mb-4 font-medium text-md sm:text-xl">
+              <div className="h-full flex flex-col text-zinc-400 dark:text-zinc-500 mb-4 font-medium text-md sm:text-xl">
                 Your selected courses will appear here. Click the star icon to
                 select a course, which will then appear in the schedule matrix
                 alongside your other courses.
@@ -299,14 +299,14 @@ export default function Home() {
 
             {/* Search */}
             {searchResults.length === 0 ? null : (
-              <div className="mt-8 mb-2 sm:mb-2 text-xl sm:text-2xl font-extrabold text-zinc-900">
+              <div className="mt-8 mb-2 sm:mb-2 text-xl sm:text-2xl font-extrabold text-zinc-900 dark:text-zinc-100">
                 Search courses
               </div>
             )}
 
             {/* Search bar */}
             <input
-              className="placeholder:text-zinc-400 font-medium text-sm sm:text-lg mb-4 w-full focus:outline-none border border-zinc-200 rounded-lg px-3 py-2"
+              className="dark:bg-zinc-800 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 font-medium text-sm sm:text-lg mb-4 w-full focus:outline-none border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2"
               placeholder="Type a course name or number to start."
               onChange={(event) => setQuery(event.target.value)}
             />
@@ -341,7 +341,7 @@ export default function Home() {
             {searchResults.length === 0 || !canPaginate ? null : (
               <div className="flex flex-row justify-center mt-4 pb-8">
                 <button
-                  className="bg-zinc-100 font-medium text-sm  px-3 py-2 rounded-lg"
+                  className="bg-zinc-100 dark:bg-zinc-800 dark:text-zinc-100 font-medium text-sm  px-3 py-2 rounded-lg"
                   onClick={handleLoadMoreResults}
                 >
                   Load more
@@ -368,7 +368,7 @@ export default function Home() {
           </div>
         </div>
         {/* Footer & credits */}
-        <div className="flex flex-col w-full py-20 px-12 items-center text-center text-xs text-zinc-400">
+        <div className="flex flex-col w-full py-20 px-12 items-center text-center text-xs text-zinc-400 dark:text-zinc-500">
           <div>
             Made with ❤️ by{" "}
             <Link

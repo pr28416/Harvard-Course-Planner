@@ -2,16 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
+@media screen and (prefers-color-scheme: dark) {
+  .html {
+    background-color: #1a202c;
+  }
+}
 
 @layer utilities {
       /* Chrome, Safari and Opera */

@@ -11,7 +11,7 @@ export default function FilterPane({
   sortOptions,
 }) {
   return (
-    <div className="flex flex-row flex-wrap gap-4 text-zinc-700 text-sm shrink-0 items-center mb-2">
+    <div className="flex flex-row flex-wrap gap-4 text-zinc-700 dark:text-zinc-200 text-sm shrink-0 items-center mb-2">
       {/* Title */}
       {/* <div className="text-lg font-bold">Filters</div> */}
       {/* Select term */}
@@ -42,7 +42,7 @@ export default function FilterPane({
       )}
 
       {/* Only show Q ratings */}
-      <div className="flex flex-row items-center gap-2 rounded-lg border border-zinc-200 px-3 py-2">
+      <div className="flex flex-row items-center gap-2 rounded-lg border border-zinc-200 dark:border-zinc-700 px-3 py-2">
         <input
           type="checkbox"
           className=" h-4 w-4"

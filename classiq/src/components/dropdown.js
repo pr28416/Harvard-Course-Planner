@@ -21,12 +21,12 @@ export default function Dropdown({
   return (
     <Listbox
       as="div"
-      className="relative w-48 text-zinc-700 text-sm"
+      className="relative w-48 text-zinc-700 dark:text-zinc-200 text-sm"
       value={selectedData}
       onChange={handleSelect}
       multiple={!single}
     >
-      <Listbox.Button className="flex flex-row items-center w-full rounded-lg bg-white pl-3 pr-2 py-1 text-left justify-between border border-zinc-200">
+      <Listbox.Button className="flex flex-row items-center w-full rounded-lg bg-white dark:bg-zinc-800 pl-3 pr-2 py-1 text-left justify-between border border-zinc-200 dark:border-zinc-700">
         {single
           ? customLabel
             ? customLabel(selectedData)
@@ -50,12 +50,12 @@ export default function Dropdown({
         leaveTo="transform opacity-0 scale-95"
       >
         {single ? (
-          <Listbox.Options className="absolute z-10 left-0 top-12 bg-white shadow-lg rounded-lg overflow-auto no-scrollbar w-full max-h-48">
+          <Listbox.Options className="absolute z-10 left-0 top-12 bg-white dark:bg-zinc-800 shadow-lg rounded-lg overflow-auto no-scrollbar w-full max-h-48">
             {datasource.map((data, idx) => (
               <Listbox.Option
                 key={idx}
                 value={data}
-                className="flex flex-row items-center pl-4 py-2 hover:bg-orange-100 hover:text-orange-800 justify-between text-sm"
+                className="flex flex-row items-center pl-4 py-2 hover:bg-blue-50 dark:hover:bg-blue-950 hover:text-blue-800 dark:hover:text-blue-300 justify-between text-sm"
               >
                 {customLabel ? customLabel(data) : data}
                 {selectedData.includes(data) ? (
@@ -65,9 +65,9 @@ export default function Dropdown({
             ))}
           </Listbox.Options>
         ) : (
-          <Listbox.Options className="absolute z-10 left-0 top-12 bg-white shadow-lg rounded-lg overflow-auto no-scrollbar w-full max-h-48">
+          <Listbox.Options className="absolute z-10 left-0 top-12 bg-white dark:bg-zinc-800 shadow-lg rounded-lg overflow-auto no-scrollbar w-full max-h-48">
             {/* Selected data */}
-            <div className="flex flex-row items-center text-xs font-bold px-4 py-2 bg-zinc-50 justify-between">
+            <div className="flex flex-row items-center text-xs font-bold px-4 py-2 bg-zinc-50 dark:bg-zinc-700 justify-between">
               Selected
               {single ? null : (
                 <button
@@ -84,7 +84,7 @@ export default function Dropdown({
                 <Listbox.Option
                   key={idx}
                   value={data}
-                  className="flex flex-row items-center pl-4 py-2 hover:bg-orange-100 hover:text-orange-800 justify-between text-sm"
+                  className="flex flex-row items-center pl-4 py-2 hover:bg-blue-50 dark:hover:bg-blue-950 hover:text-blue-800 dark:hover:text-blue-300 justify-between text-sm"
                 >
                   {customLabel ? customLabel(data) : data}
                   <Check className="mr-4" fontSize="small" />
@@ -93,7 +93,7 @@ export default function Dropdown({
                 </Listbox.Option>
               ))}
             {/* Unselected data */}
-            <div className="flex flex-row items-center text-xs font-bold px-4 py-2 bg-zinc-50 justify-between">
+            <div className="flex flex-row items-center text-xs font-bold px-4 py-2 bg-zinc-50 dark:bg-zinc-700 justify-between">
               Unselected
               {single ? null : (
                 <button
@@ -110,7 +110,7 @@ export default function Dropdown({
                 <Listbox.Option
                   key={idx}
                   value={data}
-                  className="flex flex-row items-center px-4 py-2 hover:bg-orange-100 hover:text-orange-800 justify-between text-sm"
+                  className="flex flex-row items-center px-4 py-2 hover:bg-blue-50 dark:hover:bg-blue-950 hover:text-blue-800 dark:hover:text-blue-300 justify-between text-sm"
                 >
                   {customLabel ? customLabel(data) : data}
                   {/* {selectedData.includes(data) ? (
