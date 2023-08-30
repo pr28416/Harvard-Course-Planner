@@ -301,9 +301,9 @@ export default function ScheduleMatrix({
       <div className="flex flex-col max-w-full max-h-full border border-zinc-200 dark:border-zinc-700 overflow-clip rounded-lg text-zinc-700 dark:text-zinc-300">
         {/* Calendar */}
         <div
-          className={`border-b ${
+          className={`${
             unusedCourses.length > 0
-              ? "border-b-zinc-200 dark:border-b-zinc-700"
+              ? "border-b border-b-blue-200 dark:border-b-zinc-700"
               : ""
           } flex flex-row w-full h-full`}
         >

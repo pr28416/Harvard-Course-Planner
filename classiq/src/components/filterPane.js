@@ -2,11 +2,13 @@ import { Listbox, Transition } from "@headlessui/react";
 import { Check, KeyboardArrowDownRounded } from "@mui/icons-material";
 import React, { Fragment, useState } from "react";
 import Dropdown from "./dropdown";
+import WeekBar from "./weekBar";
 
 export default function FilterPane({
   term,
   school,
   subject,
+  days,
   handler,
   sortOptions,
 }) {
@@ -60,6 +62,12 @@ export default function FilterPane({
           handler={handler}
           tag="sortOption"
         />
+      </div>
+
+      {/* Days */}
+      <div className="flex flex-row items-center gap-2">
+        <div className="font-medium">Days</div>
+        <WeekBar days={days} selectable handler={handler} />
       </div>
     </div>
   );

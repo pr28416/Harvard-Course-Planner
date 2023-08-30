@@ -12,7 +12,10 @@ let didUpdateData = false;
 let fuse = null;
 let ms = null;
 let flexIndex = null;
-let filterTags = { sortOption: "Relevance" };
+let filterTags = {
+  sortOption: "Relevance",
+  days: ["Su", "M", "T", "W", "Th", "F", "Sa"],
+};
 
 async function loadData() {
   console.log("Loading data...");
@@ -119,6 +122,10 @@ let filterFunc = (result, filters) =>
         } else {
           return true;
         }
+      } else if (filt.tag === "days") {
+        return (
+          !result.days || result.days.every((day) => filt.items.includes(day))
+        );
       } else {
         return filt.items.includes(result[filt.tag]);
       }

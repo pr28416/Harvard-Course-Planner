@@ -189,7 +189,6 @@ export default function Home() {
   };
 
   const handleFilter = (tag, items) => {
-    // console.log(tag, items);
     setFilters((old) => {
       let mod = old.filter((item) => item.tag !== tag);
       mod.push({ tag: tag, items: items });
