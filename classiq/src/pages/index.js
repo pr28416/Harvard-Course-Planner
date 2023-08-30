@@ -64,7 +64,7 @@ export default function Home() {
         if (cookie !== undefined && cookie !== null && cookie !== "{}") {
           let res = JSON.parse(cookie);
           for (let course of Object.values(res)) {
-            console.log("Parsing", course);
+            // console.log("Parsing", course);
             if (
               "start_date" in course &&
               "end_date" in course &&
