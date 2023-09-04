@@ -197,7 +197,7 @@ export default function Home() {
   };
 
   return !render ? (
-    <main className="flex flex-col h-screen items-center justify-center gap-12 dark:bg-zinc-900">
+    <main className="flex flex-col h-screen items-center justify-center gap-12 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100">
       <div className="text-5xl sm:text-5xl font-extrabold text-red-600 dark:text-red-500">
         Classiq.
       </div>
