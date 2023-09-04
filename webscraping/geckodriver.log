@@ -29073,3 +29073,450 @@ stop@https://www.googletagmanager.com/gtag/js?id=G-6S7711N1RR:451:87
 aa.uk/c/<@https://www.googletagmanager.com/gtag/js?id=G-6S7711N1RR:451:412
 
 1692831841006	Marionette	INFO	Stopped listening on port 49259
+1693499387940	geckodriver	INFO	Listening on 127.0.0.1:54904
+1693499388460	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofile8Hr44Y"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693499388745	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693499388930	Marionette	INFO	Listening on port 54918
+WebDriver BiDi listening on ws://127.0.0.1:54905
+Read port: 54918
+1693499389033	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:54905/devtools/browser/17267cdc-2c6d-4bba-b2d7-d6a2b399bea1
+console.error: ({})
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 299: ReferenceError: isResourceLoaded is not defined
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://api-7052d448.duosecurity.com."
+console.error: ({})
+console.error: ({})
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://api-7052d448.duosecurity.com."
+1693499482734	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://portal.my.harvard.edu/cs/hrvihprd/cache_85915/PT_COMMON_MIN_3.js, line 2287: Script terminated by timeout at:
+nrWrapper@https://portal.my.harvard.edu/cs/hrvihprd/cache_85915/PT_COMMON_MIN_3.js:2287:29066
+
+1693499498315	Marionette	INFO	Stopped listening on port 54918
+1693499906465	geckodriver	INFO	Listening on 127.0.0.1:57817
+1693499906891	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileM3B4N3"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693499907169	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693499907263	Marionette	INFO	Listening on port 57829
+WebDriver BiDi listening on ws://127.0.0.1:57818
+Read port: 57829
+1693499907401	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:57818/devtools/browser/b1eee4eb-839d-42b7-8588-550ee66ffcf4
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 299: ReferenceError: isResourceLoaded is not defined
+1693499909285	Marionette	INFO	Stopped listening on port 57829
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1693499924432	geckodriver	INFO	Listening on 127.0.0.1:57943
+1693499924876	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilezYa1gg"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693499925145	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693499925329	Marionette	INFO	Listening on port 57955
+WebDriver BiDi listening on ws://127.0.0.1:57944
+Read port: 57955
+1693499925437	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:57944/devtools/browser/26f9e199-8f10-4e80-80e2-673b3cbe82d1
+console.error: ({})
+1693499926864	Marionette	INFO	Stopped listening on port 57955
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1693499964924	geckodriver	INFO	Listening on 127.0.0.1:58195
+1693499965367	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileS4qzpl"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693499965636	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693499965822	Marionette	INFO	Listening on port 58210
+WebDriver BiDi listening on ws://127.0.0.1:58196
+Read port: 58210
+1693499965933	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:58196/devtools/browser/3563fbc5-51df-4cca-8d32-3473cbe2c150
+1693499966974	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH, line 23: SecurityError: The operation is insecure.
+1693499969382	Marionette	INFO	Stopped listening on port 58210
+1693500539940	geckodriver	INFO	Listening on 127.0.0.1:60866
+1693500540384	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileRr1SG2"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693500540662	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693500540861	Marionette	INFO	Listening on port 60878
+WebDriver BiDi listening on ws://127.0.0.1:60867
+Read port: 60878
+1693500540974	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:60867/devtools/browser/bd1f43d2-9b41-4886-a584-7dbec2f32f83
+1693500542664	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH, line 23: SecurityError: The operation is insecure.
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2fpsp%2fhrvihprd%2fEMPLOYEE%2fEMPL%2fh%2f%3ftab%3dHU_CLASS_SEARCH%26SearchReqJSON%3d%257B%2522ExcludeBracketed%2522%253Atrue%252C%2522Exclude300%2522%253Atrue%252C%2522SaveRecent%2522%253Atrue%252C%2522Facets%2522%253A%255B%255D%252C%2522PageNumber%2522%253A1%252C%2522SortOrder%2522%253A%255B%2522IS_SCL_SUBJ_CAT%2522%255D%252C%2522TopN%2522%253A%2522%2522%252C%2522PageSize%2522%253A%2522%2522%252C%2522SearchText%2522%253A%2522%28%2520*%2520%29%2520%28ACAD_CAREER%253A%255C%2522FAS%255C%2522%29%2522%257D, line 299: ReferenceError: isResourceLoaded is not defined
+1693500566408	Marionette	INFO	Stopped listening on port 60878
+1693500657378	geckodriver	INFO	Listening on 127.0.0.1:61474
+1693500657822	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileHqLxB7"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693500658100	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693500658294	Marionette	INFO	Listening on port 61486
+WebDriver BiDi listening on ws://127.0.0.1:61475
+Read port: 61486
+1693500658407	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:61475/devtools/browser/412fc24f-fdb8-49f3-b866-421b589856a3
+1693500661067	Marionette	INFO	Stopped listening on port 61486
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1693500883926	geckodriver	INFO	Listening on 127.0.0.1:62602
+1693500884432	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilepRpIY1"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693500884726	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693500884915	Marionette	INFO	Listening on port 62614
+WebDriver BiDi listening on ws://127.0.0.1:62603
+Read port: 62614
+1693500885020	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:62603/devtools/browser/2c8c2988-cc69-467d-84ff-197652d75268
+console.error: ({})
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 299: ReferenceError: isResourceLoaded is not defined
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://api-7052d448.duosecurity.com."
+console.error: ({})
+1693500925057	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1693500965580	geckodriver	INFO	Listening on 127.0.0.1:63019
+1693500966090	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileTZDlaL"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693500966394	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693500966591	Marionette	INFO	Listening on port 63033
+WebDriver BiDi listening on ws://127.0.0.1:63020
+Read port: 63033
+1693500966684	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:63020/devtools/browser/d3876706-fc90-427b-99c7-d628c481668b
+console.error: ({})
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 299: ReferenceError: isResourceLoaded is not defined
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://api-7052d448.duosecurity.com."
+console.error: ({})
+1693500995803	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1693501000389	Marionette	INFO	Stopped listening on port 63033
+1693501006672	geckodriver	INFO	Listening on 127.0.0.1:63290
+1693501007115	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilewkviDU"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693501007396	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693501007595	Marionette	INFO	Listening on port 63302
+WebDriver BiDi listening on ws://127.0.0.1:63291
+Read port: 63302
+1693501007710	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:63291/devtools/browser/915b4e0d-f057-43a3-97cd-093a022b17ab
+1693501010050	Marionette	INFO	Stopped listening on port 63302
+JavaScript warning: https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js, line 74: Script terminated by timeout at:
+X<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:74:254
+C<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:281:215
+M<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:90:42
+k<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:176:74
+Q</N<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:428:169
+X<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:73:413
+Q</this.next@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:405:298
+k</N<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:148:50
+k<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:147:454
+Q<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:419:49
+Q<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:428:94
+L</N<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:483:492
+X<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:73:413
+Q</this.next@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:405:298
+k</N<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:148:50
+k<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:147:454
+Q<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:419:49
+L<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:483:423
+be<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:809:288
+X<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:73:413
+Q</this.next@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:405:298
+k</N<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:148:50
+k<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:147:454
+Q<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:419:49
+@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:809:61
+Q</W<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:424:381
+X<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:73:413
+Q</this.next@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:405:298
+k</N<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:148:50
+k<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:147:454
+Q<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:419:49
+Q<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:424:182
+k</N<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:149:198
+X<@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:73:413
+Q</this.next@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:405:298
+W@https://www.gstatic.com/recaptcha/releases/0hCdE87LyjzAkFO5Ff-v7Hj1/recaptcha__en.js:147:407
+
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-KBLBYHG5EP&l=dataLayer&cx=c, line 150: Script terminated by timeout at:
+qa@https://www.googletagmanager.com/gtag/js?id=G-KBLBYHG5EP&l=dataLayer&cx=c:150:268
+@https://www.googletagmanager.com/gtag/js?id=G-KBLBYHG5EP&l=dataLayer&cx=c:155:1140
+@https://www.googletagmanager.com/gtag/js?id=G-KBLBYHG5EP&l=dataLayer&cx=c:615:3
+
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1693501023564	geckodriver	INFO	Listening on 127.0.0.1:63446
+1693501024010	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilecg7UIM"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693501024284	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693501024471	Marionette	INFO	Listening on port 63459
+WebDriver BiDi listening on ws://127.0.0.1:63447
+Read port: 63459
+1693501024583	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:63447/devtools/browser/f5e031fd-2672-4747-9dbe-ef89b9f33355
+console.error: ({})
+1693501025791	Marionette	INFO	Stopped listening on port 63459
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1693501046423	geckodriver	INFO	Listening on 127.0.0.1:63589
+1693501046932	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileupPX1a"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693501047197	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693501047400	Marionette	INFO	Listening on port 63602
+WebDriver BiDi listening on ws://127.0.0.1:63590
+Read port: 63602
+1693501047520	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:63590/devtools/browser/6311675d-4038-4f99-a0bd-45c007374f68
+console.error: ({})
+1693501050803	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH, line 23: SecurityError: The operation is insecure.
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2fpsp%2fhrvihprd%2f%3fcmd%3dstart%26_gl%3d1*56zrdq*_ga*MjAwNTQ3MjkzMS4xNjkzNTAxMDUy*_ga_KXXJPP5D7C*MTY5MzUwMTA1Mi4xLjAuMTY5MzUwMTA1Mi4wLjAuMA.., line 299: ReferenceError: isResourceLoaded is not defined
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://api-7052d448.duosecurity.com."
+console.error: ({})
+1693501082817	Marionette	INFO	Stopped listening on port 63602
+1693501087716	geckodriver	INFO	Listening on 127.0.0.1:63869
+1693501088163	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileQupxra"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693501088442	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693501088644	Marionette	INFO	Listening on port 63881
+WebDriver BiDi listening on ws://127.0.0.1:63870
+Read port: 63881
+1693501088756	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:63870/devtools/browser/e0e32935-69d2-4485-8546-96baaeb039fd
+console.error: ({})
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2fpsp%2fhrvihprd%2fEMPLOYEE%2fEMPL%2fh%2f%3ftab%3dHU_CLASS_SEARCH%26SearchReqJSON%3d%257B%2522ExcludeBracketed%2522%253Atrue%252C%2522Exclude300%2522%253Atrue%252C%2522SaveRecent%2522%253Atrue%252C%2522Facets%2522%253A%255B%255D%252C%2522PageNumber%2522%253A1%252C%2522SortOrder%2522%253A%255B%2522IS_SCL_SUBJ_CAT%2522%255D%252C%2522TopN%2522%253A%2522%2522%252C%2522PageSize%2522%253A%2522%2522%252C%2522SearchText%2522%253A%2522%28%2520*%2520%29%2520%28ACAD_CAREER%253A%255C%2522FAS%255C%2522%29%2522%257D, line 299: ReferenceError: isResourceLoaded is not defined
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2fpsc%2fhrvihprd%2fEMPLOYEE%2fEMPL%2fs%2fWEBLIB_HU_TMOUT.HU_TIMEOUTWARNING.FieldFormula.IScript_HU_TIMEOUTWARNING, line 299: ReferenceError: isResourceLoaded is not defined
+JavaScript warning: https://www.google.com/xjs/_/js/k=xjs.snr.en_US.k_Q-afVLX70.O/am=ChCAgAAAAAAAACAAAKonHALYAAbgn_sAAABBABQAAAAAgKoIAAYAgvefJAOAgAAhACaAONwDACihCtgBAAAAYz8AAAAAAMACYLwAgEYAHAgBCkAAAAAA5AHAeQDBwYQFAAAAAAAAAAAAEHAJgsEB6bGAAAgAAAAAAAAAAACQSiYvBxAAAAM/d=1/ed=1/dg=2/rs=ACT90oFjG0qNJ4I2gLWXqFmRlXORVVuFpA/ee=cEt90b:ws9Tlc;qddgKe:x4FYXe,d7YSfd;yxTchf:KUM7Z;dtl0hd:lLQWFe;eHDfl:ofjVkb;qaS3gd:yiLg6e;nAFL3:NTMZac,s39S4;oGtAuc:sOXFj;iFQyKf:vfuNJf,QIhFr;SNUn3:ZwDk9d,x8cHvb;io8t5d:sgY6Zb;Oj465e:KG2eXe,KG2eXe;Erl4fe:FloWmf,FloWmf;JsbNhc:Xd8iUd;sP4Vbe:VwDzFe;kMFpHd:OTA3Ae;uY49fb:COQbmf;Pjplud:PoEs9b,EEDORb;QGR0gd:Mlhmy;a56pNe:JEfCwb;Me32dd:MEeYgc;wR5FRb:TtcOte,O1Gjze;pXdRYb:JKoKVe,MdUzUe;dIoSBb:ZgGg9b;EmZ2Bf:zr1jrb;NSEoX:lazG7b;eBAeSb:Ck63tb;WCEKNd:I46Hvd;wV5Pjc:L8KGxe;EVNhjf:pw70Gc;sTsDMc:kHVSUb;wQlYve:aLUfP;zOsCQe:Ko78Df;KcokUb:KiuZBf;YV5bee:IvPZ6d;kbAm9d:MkHyGd;ZWEUA:afR4Cf;g8nkx:U4MzKc;lzgfYb:PI40bd;w9w86d:dt4g2b;GleZL:J1A7Od;bcPXSc:gSZLJb;JXS8fb:Qj0suc;IoGlCf:b5lhvb;vfVwPd:OXTqFb;ESrPQc:mNTJvc;qavrXe:zQzcXe,mYbt1d;pNsl2d:j9Yuyc;VGRfx:VFqbr;BjwMce:cXX2Wb;R9Ulx:CR7Ufe;kY7VAf:d91TEb;KpRAue:Tia57b;jY0zg:Q6tNgc;l8Azde:j4Ca9b;oSUNyd:fTfGO,fTfGO,vjQg0b;SMDL4c:fTfGO,vjQg0b;aZ61od:arTwJ;ZrFutb:W4Cdfc;K8vqCc:MyIcle;NPKaK:SdcwHb;LBgRLc:XVMNvd,SdcwHb;rQSrae:C6D5Fc;kCQyJ:ueyPK;KQzWid:mB4wNe;EABSZ:MXZt9d;TxfV6d:YORN0b;UDrY1c:eps46d;F9mqte:UoRcbe;Nyt6ic:jn2sGd;w3bZCb:ZPGaIb;G0KhTb:LIaoZ;aAJE9c:WHW6Ef;V2HTTe:RolTY;Wfmdue:g3MJlb;imqimf:jKGL2e;BgS6mb:fidj5d;UVmjEd:EesRsb;z97YGf:oug9te;AfeaP:TkrAjf;eBZ5Nd:audvde;CxXAWb:YyRLvc;VN6jIc:ddQyuf;SLtqO:Kh1xYe;tosKvd:ZCqP3;VOcgDe:YquhTb;uuQkY:u2V3ud;WDGyFe:jcVOxd;trZL0b:qY8PFe;VxQ32b:k0XsBb;DULqB:RKfG5c;Np8Qkd:Dpx6qc;cFTWae:gT8qnd;gaub4:TN6bMe;xBbsrc:NEW1Qc;DpcR3d:zL72xf;hjRo6e:F62sG;yGxLoc:FmAr0c;oUlnpc:RagDlc;R2kc8b:ALJqWb;pj82le:mg5CW;dLlj2:Qqt3Gf;qGV2uc:HHi04c;gtVSi:ekUOYd;UyG7Kb:wQd0G;LsNahb:ucGLNb;xbe2wc:uRMPBc;Q1Ow7b:x5CSu;okUaUd:wItadb;G6wU6e:hezEbd;uknmt:GkPrzb;PqHfGe:im2cZe;Fmv9Nc:O1Tzwc;hK67qb:QWEO5b;BMxAGc:E5bFse;R4IIIb:QWfeKf;whEZac:F4AmNb;tH4IIe:Ymry6;zxnPse:GkRiKb;xqZiqf:wmnU7d;lkq0A:Z0MWEf;daB6be:lMxGPd;U96pRd:FsR04;LEikZe:byfTOb,lsjVmc/m=attn,cdos,cr,gwc,hsm,jsanr,mb4ZUb,d,csi,cEt90b,SNUn3,qddgKe,sTsDMc,dtl0hd,eHDfl, line 406: Script terminated by timeout at:
+b@https://www.google.com/xjs/_/js/k=xjs.snr.en_US.k_Q-afVLX70.O/am=ChCAgAAAAAAAACAAAKonHALYAAbgn_sAAABBABQAAAAAgKoIAAYAgvefJAOAgAAhACaAONwDACihCtgBAAAAYz8AAAAAAMACYLwAgEYAHAgBCkAAAAAA5AHAeQDBwYQFAAAAAAAAAAAAEHAJgsEB6bGAAAgAAAAAAAAAAACQSiYvBxAAAAM/d=1/ed=1/dg=2/rs=ACT90oFjG0qNJ4I2gLWXqFmRlXORVVuFpA/ee=cEt90b:ws9Tlc;qddgKe:x4FYXe,d7YSfd;yxTchf:KUM7Z;dtl0hd:lLQWFe;eHDfl:ofjVkb;qaS3gd:yiLg6e;nAFL3:NTMZac,s39S4;oGtAuc:sOXFj;iFQyKf:vfuNJf,QIhFr;SNUn3:ZwDk9d,x8cHvb;io8t5d:sgY6Zb;Oj465e:KG2eXe,KG2eXe;Erl4fe:FloWmf,FloWmf;JsbNhc:Xd8iUd;sP4Vbe:VwDzFe;kMFpHd:OTA3Ae;uY49fb:COQbmf;Pjplud:PoEs9b,EEDORb;QGR0gd:Mlhmy;a56pNe:JEfCwb;Me32dd:MEeYgc;wR5FRb:TtcOte,O1Gjze;pXdRYb:JKoKVe,MdUzUe;dIoSBb:ZgGg9b;EmZ2Bf:zr1jrb;NSEoX:lazG7b;eBAeSb:Ck63tb;WCEKNd:I46Hvd;wV5Pjc:L8KGxe;EVNhjf:pw70Gc;sTsDMc:kHVSUb;wQlYve:aLUfP;zOsCQe:Ko78Df;KcokUb:KiuZBf;YV5bee:IvPZ6d;kbAm9d:MkHyGd;ZWEUA:afR4Cf;g8nkx:U4MzKc;lzgfYb:PI40bd;w9w86d:dt4g2b;GleZL:J1A7Od;bcPXSc:gSZLJb;JXS8fb:Qj0suc;IoGlCf:b5lhvb;vfVwPd:OXTqFb;ESrPQc:mNTJvc;qavrXe:zQzcXe,mYbt1d;pNsl2d:j9Yuyc;VGRfx:VFqbr;BjwMce:cXX2Wb;R9Ulx:CR7Ufe;kY7VAf:d91TEb;KpRAue:Tia57b;jY0zg:Q6tNgc;l8Azde:j4Ca9b;oSUNyd:fTfGO,fTfGO,vjQg0b;SMDL4c:fTfGO,vjQg0b;aZ61od:arTwJ;ZrFutb:W4Cdfc;K8vqCc:MyIcle;NPKaK:SdcwHb;LBgRLc:XVMNvd,SdcwHb;rQSrae:C6D5Fc;kCQyJ:ueyPK;KQzWid:mB4wNe;EABSZ:MXZt9d;TxfV6d:YORN0b;UDrY1c:eps46d;F9mqte:UoRcbe;Nyt6ic:jn2sGd;w3bZCb:ZPGaIb;G0KhTb:LIaoZ;aAJE9c:WHW6Ef;V2HTTe:RolTY;Wfmdue:g3MJlb;imqimf:jKGL2e;BgS6mb:fidj5d;UVmjEd:EesRsb;z97YGf:oug9te;AfeaP:TkrAjf;eBZ5Nd:audvde;CxXAWb:YyRLvc;VN6jIc:ddQyuf;SLtqO:Kh1xYe;tosKvd:ZCqP3;VOcgDe:YquhTb;uuQkY:u2V3ud;WDGyFe:jcVOxd;trZL0b:qY8PFe;VxQ32b:k0XsBb;DULqB:RKfG5c;Np8Qkd:Dpx6qc;cFTWae:gT8qnd;gaub4:TN6bMe;xBbsrc:NEW1Qc;DpcR3d:zL72xf;hjRo6e:F62sG;yGxLoc:FmAr0c;oUlnpc:RagDlc;R2kc8b:ALJqWb;pj82le:mg5CW;dLlj2:Qqt3Gf;qGV2uc:HHi04c;gtVSi:ekUOYd;UyG7Kb:wQd0G;LsNahb:ucGLNb;xbe2wc:uRMPBc;Q1Ow7b:x5CSu;okUaUd:wItadb;G6wU6e:hezEbd;uknmt:GkPrzb;PqHfGe:im2cZe;Fmv9Nc:O1Tzwc;hK67qb:QWEO5b;BMxAGc:E5bFse;R4IIIb:QWfeKf;whEZac:F4AmNb;tH4IIe:Ymry6;zxnPse:GkRiKb;xqZiqf:wmnU7d;lkq0A:Z0MWEf;daB6be:lMxGPd;U96pRd:FsR04;LEikZe:byfTOb,lsjVmc/m=attn,cdos,cr,gwc,hsm,jsanr,mb4ZUb,d,csi,cEt90b,SNUn3,qddgKe,sTsDMc,dtl0hd,eHDfl:406:40
+
+JavaScript warning: https://www.google.com/xjs/_/js/k=xjs.snr.en_US.k_Q-afVLX70.O/am=ChCAgAAAAAAAACAAAKonHALYAAbgn_sAAABBABQAAAAAgKoIAAYAgvefJAOAgAAhACaAONwDACihCtgBAAAAYz8AAAAAAMACYLwAgEYAHAgBCkAAAAAA5AHAeQDBwYQFAAAAAAAAAAAAEHAJgsEB6bGAAAgAAAAAAAAAAACQSiYvBxAAAAM/d=1/ed=1/dg=2/rs=ACT90oFjG0qNJ4I2gLWXqFmRlXORVVuFpA/ee=cEt90b:ws9Tlc;qddgKe:x4FYXe,d7YSfd;yxTchf:KUM7Z;dtl0hd:lLQWFe;eHDfl:ofjVkb;qaS3gd:yiLg6e;nAFL3:NTMZac,s39S4;oGtAuc:sOXFj;iFQyKf:vfuNJf,QIhFr;SNUn3:ZwDk9d,x8cHvb;io8t5d:sgY6Zb;Oj465e:KG2eXe,KG2eXe;Erl4fe:FloWmf,FloWmf;JsbNhc:Xd8iUd;sP4Vbe:VwDzFe;kMFpHd:OTA3Ae;uY49fb:COQbmf;Pjplud:PoEs9b,EEDORb;QGR0gd:Mlhmy;a56pNe:JEfCwb;Me32dd:MEeYgc;wR5FRb:TtcOte,O1Gjze;pXdRYb:JKoKVe,MdUzUe;dIoSBb:ZgGg9b;EmZ2Bf:zr1jrb;NSEoX:lazG7b;eBAeSb:Ck63tb;WCEKNd:I46Hvd;wV5Pjc:L8KGxe;EVNhjf:pw70Gc;sTsDMc:kHVSUb;wQlYve:aLUfP;zOsCQe:Ko78Df;KcokUb:KiuZBf;YV5bee:IvPZ6d;kbAm9d:MkHyGd;ZWEUA:afR4Cf;g8nkx:U4MzKc;lzgfYb:PI40bd;w9w86d:dt4g2b;GleZL:J1A7Od;bcPXSc:gSZLJb;JXS8fb:Qj0suc;IoGlCf:b5lhvb;vfVwPd:OXTqFb;ESrPQc:mNTJvc;qavrXe:zQzcXe,mYbt1d;pNsl2d:j9Yuyc;VGRfx:VFqbr;BjwMce:cXX2Wb;R9Ulx:CR7Ufe;kY7VAf:d91TEb;KpRAue:Tia57b;jY0zg:Q6tNgc;l8Azde:j4Ca9b;oSUNyd:fTfGO,fTfGO,vjQg0b;SMDL4c:fTfGO,vjQg0b;aZ61od:arTwJ;ZrFutb:W4Cdfc;K8vqCc:MyIcle;NPKaK:SdcwHb;LBgRLc:XVMNvd,SdcwHb;rQSrae:C6D5Fc;kCQyJ:ueyPK;KQzWid:mB4wNe;EABSZ:MXZt9d;TxfV6d:YORN0b;UDrY1c:eps46d;F9mqte:UoRcbe;Nyt6ic:jn2sGd;w3bZCb:ZPGaIb;G0KhTb:LIaoZ;aAJE9c:WHW6Ef;V2HTTe:RolTY;Wfmdue:g3MJlb;imqimf:jKGL2e;BgS6mb:fidj5d;UVmjEd:EesRsb;z97YGf:oug9te;AfeaP:TkrAjf;eBZ5Nd:audvde;CxXAWb:YyRLvc;VN6jIc:ddQyuf;SLtqO:Kh1xYe;tosKvd:ZCqP3;VOcgDe:YquhTb;uuQkY:u2V3ud;WDGyFe:jcVOxd;trZL0b:qY8PFe;VxQ32b:k0XsBb;DULqB:RKfG5c;Np8Qkd:Dpx6qc;cFTWae:gT8qnd;gaub4:TN6bMe;xBbsrc:NEW1Qc;DpcR3d:zL72xf;hjRo6e:F62sG;yGxLoc:FmAr0c;oUlnpc:RagDlc;R2kc8b:ALJqWb;pj82le:mg5CW;dLlj2:Qqt3Gf;qGV2uc:HHi04c;gtVSi:ekUOYd;UyG7Kb:wQd0G;LsNahb:ucGLNb;xbe2wc:uRMPBc;Q1Ow7b:x5CSu;okUaUd:wItadb;G6wU6e:hezEbd;uknmt:GkPrzb;PqHfGe:im2cZe;Fmv9Nc:O1Tzwc;hK67qb:QWEO5b;BMxAGc:E5bFse;R4IIIb:QWfeKf;whEZac:F4AmNb;tH4IIe:Ymry6;zxnPse:GkRiKb;xqZiqf:wmnU7d;lkq0A:Z0MWEf;daB6be:lMxGPd;U96pRd:FsR04;LEikZe:byfTOb,lsjVmc/m=attn,cdos,cr,gwc,hsm,jsanr,mb4ZUb,d,csi,cEt90b,SNUn3,qddgKe,sTsDMc,dtl0hd,eHDfl, line 406: Script terminated by timeout at:
+b@https://www.google.com/xjs/_/js/k=xjs.snr.en_US.k_Q-afVLX70.O/am=ChCAgAAAAAAAACAAAKonHALYAAbgn_sAAABBABQAAAAAgKoIAAYAgvefJAOAgAAhACaAONwDACihCtgBAAAAYz8AAAAAAMACYLwAgEYAHAgBCkAAAAAA5AHAeQDBwYQFAAAAAAAAAAAAEHAJgsEB6bGAAAgAAAAAAAAAAACQSiYvBxAAAAM/d=1/ed=1/dg=2/rs=ACT90oFjG0qNJ4I2gLWXqFmRlXORVVuFpA/ee=cEt90b:ws9Tlc;qddgKe:x4FYXe,d7YSfd;yxTchf:KUM7Z;dtl0hd:lLQWFe;eHDfl:ofjVkb;qaS3gd:yiLg6e;nAFL3:NTMZac,s39S4;oGtAuc:sOXFj;iFQyKf:vfuNJf,QIhFr;SNUn3:ZwDk9d,x8cHvb;io8t5d:sgY6Zb;Oj465e:KG2eXe,KG2eXe;Erl4fe:FloWmf,FloWmf;JsbNhc:Xd8iUd;sP4Vbe:VwDzFe;kMFpHd:OTA3Ae;uY49fb:COQbmf;Pjplud:PoEs9b,EEDORb;QGR0gd:Mlhmy;a56pNe:JEfCwb;Me32dd:MEeYgc;wR5FRb:TtcOte,O1Gjze;pXdRYb:JKoKVe,MdUzUe;dIoSBb:ZgGg9b;EmZ2Bf:zr1jrb;NSEoX:lazG7b;eBAeSb:Ck63tb;WCEKNd:I46Hvd;wV5Pjc:L8KGxe;EVNhjf:pw70Gc;sTsDMc:kHVSUb;wQlYve:aLUfP;zOsCQe:Ko78Df;KcokUb:KiuZBf;YV5bee:IvPZ6d;kbAm9d:MkHyGd;ZWEUA:afR4Cf;g8nkx:U4MzKc;lzgfYb:PI40bd;w9w86d:dt4g2b;GleZL:J1A7Od;bcPXSc:gSZLJb;JXS8fb:Qj0suc;IoGlCf:b5lhvb;vfVwPd:OXTqFb;ESrPQc:mNTJvc;qavrXe:zQzcXe,mYbt1d;pNsl2d:j9Yuyc;VGRfx:VFqbr;BjwMce:cXX2Wb;R9Ulx:CR7Ufe;kY7VAf:d91TEb;KpRAue:Tia57b;jY0zg:Q6tNgc;l8Azde:j4Ca9b;oSUNyd:fTfGO,fTfGO,vjQg0b;SMDL4c:fTfGO,vjQg0b;aZ61od:arTwJ;ZrFutb:W4Cdfc;K8vqCc:MyIcle;NPKaK:SdcwHb;LBgRLc:XVMNvd,SdcwHb;rQSrae:C6D5Fc;kCQyJ:ueyPK;KQzWid:mB4wNe;EABSZ:MXZt9d;TxfV6d:YORN0b;UDrY1c:eps46d;F9mqte:UoRcbe;Nyt6ic:jn2sGd;w3bZCb:ZPGaIb;G0KhTb:LIaoZ;aAJE9c:WHW6Ef;V2HTTe:RolTY;Wfmdue:g3MJlb;imqimf:jKGL2e;BgS6mb:fidj5d;UVmjEd:EesRsb;z97YGf:oug9te;AfeaP:TkrAjf;eBZ5Nd:audvde;CxXAWb:YyRLvc;VN6jIc:ddQyuf;SLtqO:Kh1xYe;tosKvd:ZCqP3;VOcgDe:YquhTb;uuQkY:u2V3ud;WDGyFe:jcVOxd;trZL0b:qY8PFe;VxQ32b:k0XsBb;DULqB:RKfG5c;Np8Qkd:Dpx6qc;cFTWae:gT8qnd;gaub4:TN6bMe;xBbsrc:NEW1Qc;DpcR3d:zL72xf;hjRo6e:F62sG;yGxLoc:FmAr0c;oUlnpc:RagDlc;R2kc8b:ALJqWb;pj82le:mg5CW;dLlj2:Qqt3Gf;qGV2uc:HHi04c;gtVSi:ekUOYd;UyG7Kb:wQd0G;LsNahb:ucGLNb;xbe2wc:uRMPBc;Q1Ow7b:x5CSu;okUaUd:wItadb;G6wU6e:hezEbd;uknmt:GkPrzb;PqHfGe:im2cZe;Fmv9Nc:O1Tzwc;hK67qb:QWEO5b;BMxAGc:E5bFse;R4IIIb:QWfeKf;whEZac:F4AmNb;tH4IIe:Ymry6;zxnPse:GkRiKb;xqZiqf:wmnU7d;lkq0A:Z0MWEf;daB6be:lMxGPd;U96pRd:FsR04;LEikZe:byfTOb,lsjVmc/m=attn,cdos,cr,gwc,hsm,jsanr,mb4ZUb,d,csi,cEt90b,SNUn3,qddgKe,sTsDMc,dtl0hd,eHDfl:406:40
+
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2fpsp%2fhrvihprd%2fEMPLOYEE%2fEMPL%2f%3fcmd%3dexpire, line 299: ReferenceError: isResourceLoaded is not defined
+JavaScript warning: https://classiq.red/_next/static/chunks/main-faed6a2ba5a67a42.js, line 1: Script terminated by timeout at:
+r@https://classiq.red/_next/static/chunks/main-faed6a2ba5a67a42.js:1:90426
+
+1693527920755	Marionette	INFO	Stopped listening on port 62614
+1693577311919	geckodriver	INFO	Listening on 127.0.0.1:50576
+1693577312432	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileh7iHXM"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693577312741	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693577312839	Marionette	INFO	Listening on port 50593
+Read port: 50593
+WebDriver BiDi listening on ws://127.0.0.1:50577
+1693577312893	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:50577/devtools/browser/64fe9b3c-20ab-4b76-8623-3bade7ed5201
+console.error: ({})
+1693577316785	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH, line 23: SecurityError: The operation is insecure.
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2fpsp%2fhrvihprd%2f%3fcmd%3dstart%26_gl%3d1*39h0he*_ga*MzU3MTA4NDAxLjE2OTM1NzczMTk.*_ga_KXXJPP5D7C*MTY5MzU3NzMxOC4xLjAuMTY5MzU3NzMxOC4wLjAuMA.., line 299: ReferenceError: isResourceLoaded is not defined
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://api-7052d448.duosecurity.com."
+console.error: ({})
+1693577352153	Marionette	INFO	Stopped listening on port 50593
+1693577952528	geckodriver	INFO	Listening on 127.0.0.1:53497
+1693577952972	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileOU0JPI"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693577953238	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693577953420	Marionette	INFO	Listening on port 53509
+WebDriver BiDi listening on ws://127.0.0.1:53498
+Read port: 53509
+1693577953526	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:53498/devtools/browser/1082c2b2-6140-4cd8-bfde-5a242781fa30
+console.error: ({})
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 299: ReferenceError: isResourceLoaded is not defined
+1693577957400	Marionette	INFO	Stopped listening on port 53509
+JavaScript warning: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 277: Script terminated by timeout at:
+@https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f:277:30
+
+1693577993466	geckodriver	INFO	Listening on 127.0.0.1:53766
+1693577993910	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilentGowD"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693577994190	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693577994390	Marionette	INFO	Listening on port 53779
+WebDriver BiDi listening on ws://127.0.0.1:53767
+Read port: 53779
+1693577994500	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:53767/devtools/browser/179729c1-6124-472f-acc7-e33dd94500f0
+console.error: ({})
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 299: ReferenceError: isResourceLoaded is not defined
+1693577997674	Marionette	INFO	Stopped listening on port 53779
+JavaScript warning: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 277: Script terminated by timeout at:
+@https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f:277:30
+
+1693578072941	geckodriver	INFO	Listening on 127.0.0.1:54204
+1693578073390	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileLxu0Tn"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693578073664	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693578073860	Marionette	INFO	Listening on port 54218
+WebDriver BiDi listening on ws://127.0.0.1:54205
+Read port: 54218
+1693578073972	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:54205/devtools/browser/f26a7405-9a9f-4ce4-9ecf-696c118f4a53
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 299: ReferenceError: isResourceLoaded is not defined
+1693578075699	Marionette	INFO	Stopped listening on port 54218
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1693578086999	geckodriver	INFO	Listening on 127.0.0.1:54325
+1693578087447	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofile8Ar39J"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693578087721	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693578087922	Marionette	INFO	Listening on port 54337
+WebDriver BiDi listening on ws://127.0.0.1:54326
+Read port: 54337
+1693578088040	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:54326/devtools/browser/337ee53d-07a0-4abd-9f4d-779e4721f64f
+console.error: ({})
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 299: ReferenceError: isResourceLoaded is not defined
+1693578090834	Marionette	INFO	Stopped listening on port 54337
+1693578139705	geckodriver	INFO	Listening on 127.0.0.1:54634
+1693578140153	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileQAfcZV"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693578140413	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693578140600	Marionette	INFO	Listening on port 54646
+WebDriver BiDi listening on ws://127.0.0.1:54635
+Read port: 54646
+1693578140706	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:54635/devtools/browser/7acdf54e-d442-4801-9cac-b552287c4386
+console.error: ({})
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 299: ReferenceError: isResourceLoaded is not defined
+1693578144001	Marionette	INFO	Stopped listening on port 54646
+JavaScript warning: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 277: Script terminated by timeout at:
+@https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f:277:30
+
+1693578989547	geckodriver	INFO	Listening on 127.0.0.1:58388
+1693578990054	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilezetxmY"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693578990322	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693578990422	Marionette	INFO	Listening on port 58400
+Read port: 58400
+WebDriver BiDi listening on ws://127.0.0.1:58389
+1693578990522	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:58389/devtools/browser/32b2658e-6ebb-47d4-88ac-6f748eaf833a
+console.error: ({})
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f, line 299: ReferenceError: isResourceLoaded is not defined
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.pin1.harvard.edu."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://api-7052d448.duosecurity.com."
+console.error: ({})
+1693579023328	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1693579046345	Marionette	INFO	Stopped listening on port 58400
+1693579054184	geckodriver	INFO	Listening on 127.0.0.1:58742
+1693579054623	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilefkeN4G"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693579054898	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693579055082	Marionette	INFO	Listening on port 58754
+WebDriver BiDi listening on ws://127.0.0.1:58743
+Read port: 58754
+1693579055184	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:58743/devtools/browser/d5abdfef-6e0c-439c-b13a-2b0d59aaf31c
+1693579055856	Marionette	INFO	Stopped listening on port 58754
+console.error: (new NetworkError("Network error: TypeError: NetworkError: Network request failed", "resource://services-settings/RemoteSettingsClient.sys.mjs", 111))
+console.error: (new NetworkError("Network error: TypeError: NetworkError: Network request failed", "resource://services-settings/RemoteSettingsClient.sys.mjs", 111))
+console.error: (new NetworkError("Network error: TypeError: NetworkError: Network request failed", "resource://services-settings/RemoteSettingsClient.sys.mjs", 111))
+1693579066309	geckodriver	INFO	Listening on 127.0.0.1:58822
+1693579066757	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileS45s4n"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693579067031	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693579067224	Marionette	INFO	Listening on port 58835
+WebDriver BiDi listening on ws://127.0.0.1:58823
+Read port: 58835
+1693579067333	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:58823/devtools/browser/1a0713ed-2be2-4a9d-8a8d-2a2b6c3d289a
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f404, line 299: ReferenceError: isResourceLoaded is not defined
+1693579070043	Marionette	INFO	Stopped listening on port 58835
+1693579089852	geckodriver	INFO	Listening on 127.0.0.1:59015
+1693579090298	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileZ25AMG"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693579090565	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693579090752	Marionette	INFO	Listening on port 59027
+WebDriver BiDi listening on ws://127.0.0.1:59016
+Read port: 59027
+1693579090860	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:59016/devtools/browser/4b85875f-dff5-4c04-8c5c-2562443c1270
+1693579092605	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f404, line 299: ReferenceError: isResourceLoaded is not defined
+1693579093537	Marionette	INFO	Stopped listening on port 59027
+1693579221889	geckodriver	INFO	Listening on 127.0.0.1:59786
+1693579222328	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileTMd9cC"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693579222613	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693579222800	Marionette	INFO	Listening on port 59798
+WebDriver BiDi listening on ws://127.0.0.1:59787
+Read port: 59798
+1693579222911	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:59787/devtools/browser/c33c5259-ab83-4d81-ae13-5359ef82cc4c
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2f404, line 299: ReferenceError: isResourceLoaded is not defined
+1693579225339	Marionette	INFO	Stopped listening on port 59798

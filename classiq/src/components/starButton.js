@@ -21,14 +21,14 @@ export default function StarButton({ starred, handler, result, full = false }) {
       </button>
     ) : (
       <button
-        className="focus:outline-none flex flex-row gap-1 px-3 py-2 items-center font-semibold rounded-lg text-sm bg-zinc-100 dark:bg-zinc-800"
+        className="focus:outline-none flex flex-row gap-1 px-3 py-2 items-center font-semibold rounded-lg text-sm bg-zinc-100 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-100"
         onClick={(e) => {
           e.stopPropagation();
           handler(result.uuid, result);
         }}
       >
-        <StarBorderRounded fontSize="small" className="dark:text-zinc-100" />
-        <div className="text-zinc-950 dark:text-zinc-100">Select course</div>
+        <StarBorderRounded fontSize="small" />
+        <div>Select course</div>
       </button>
     )
   ) : (

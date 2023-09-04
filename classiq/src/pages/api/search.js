@@ -17,10 +17,43 @@ let filterTags = {
   days: ["Su", "M", "T", "W", "Th", "F", "Sa"],
 };
 
+function parseArrayStr(arrayStr) {
+  let elements = [];
+  let currentElement = "";
+  let inString = false;
+  let quoteChar = null;
+
+  for (let i = 1; i < arrayStr.length; i++) {
+    // Starting from 1 to skip initial [
+    const char = arrayStr[i];
+
+    if (inString) {
+      if (char === quoteChar && arrayStr[i - 1] !== "\\") {
+        // Replace escaped quotes with quotes
+        currentElement = currentElement.replace(
+          new RegExp(`\\\\${quoteChar}`, "g"),
+          quoteChar
+        );
+
+        elements.push(currentElement);
+        currentElement = "";
+        inString = false;
+      } else {
+        currentElement += char;
+      }
+    } else if (char === '"' || char === "'") {
+      inString = true;
+      quoteChar = char;
+    }
+  }
+
+  return elements;
+}
+
 async function loadData() {
   console.log("Loading data...");
   const jsonDirectory = path.join(process.cwd(), "src/json");
-  fileContents = await fs.readFile(jsonDirectory + "/qcomb.json", "utf8");
+  fileContents = await fs.readFile(jsonDirectory + "/nqfinal.json", "utf8");
   fileContents = JSON.parse(fileContents);
   // flexIndex = new Document({
   //   document: {
@@ -62,6 +95,14 @@ async function loadData() {
         .split(", ");
     }
 
+    if (
+      item.comments &&
+      item.comments[0] === "[" &&
+      item.comments[item.comments.length - 1] === "]"
+    ) {
+      item.comments = parseArrayStr(item.comments);
+    }
+
     // flexIndex.add(item);
   });
   // flexIndex.add(fileContents.data);
@@ -75,27 +116,7 @@ async function loadData() {
   // console.log(filterTags);
   ms = new MiniSearch({
     fields: ["class_name", "class_tag", "ab0", "ab1", "ab2"],
-    storeFields: [
-      "class_name",
-      "class_tag",
-      "instructors",
-      "term",
-      "days",
-      "description",
-      "start_time",
-      "end_time",
-      "q_report",
-      "uuid",
-      "school",
-      "subject",
-      "topic",
-      "class_notes",
-      "mean_hours",
-      "location",
-      "start_date",
-      "end_date",
-      "Overall score Course Mean",
-    ],
+    storeFields: Object.keys(fileContents.data[0]),
     searchOptions: { fuzzy: 0.3 },
   });
   ms.addAll(fileContents.data);

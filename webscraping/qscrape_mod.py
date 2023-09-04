@@ -49,13 +49,14 @@ def isFloat(val):
 
 
 def qscrape():
-    df = pd.read_csv("qcomb.csv")
+    df = pd.read_csv("newscrape/newcombined.csv")
     class_tags = df["class_tag"].values
     class_names = df["class_name"].values
     # print(class_tags)
-    options = webdriver.FirefoxOptions()
-    options.add_argument("-headless")
-    driver = webdriver.Firefox(
+    options = webdriver.ChromeOptions()
+    if not (save := False):
+        options.add_argument("-headless")
+    driver = webdriver.Chrome(
         # service=FirefoxService(GeckoDriverManager().install()),
         options=options,
     )
@@ -76,35 +77,35 @@ def qscrape():
         WebDriverWait(driver, 120).until(
             EC.presence_of_element_located((By.ID, "content-wrapper"))
         )
-        load_cookie(driver, "qreport_cookies.txt")
         # WebDriverWait(driver, 120).until(
         #     EC.presence_of_element_located((By.ID, "dtCourses"))
         # )
-        driver.get(URL)
-        # input("Hit enter when you're ready to continue...")
-        # time.sleep(120)
-        # save_cookie(driver, "qreport_cookies.txt")
-        # raise
-        # print("Saved cookies to qreport_cookies.txt")
+
+        if save:
+            driver.get(URL)
+            input("Hit enter when you're ready to continue...")
+            save_cookie(driver, "qreport_cookies.txt")
+            print("Saved cookies to qreport_cookies.txt")
+            raise
+        else:
+            load_cookie(driver, "qreport_cookies.txt")
+            driver.get(URL)
+
         all_results = []
         print("Gotten url, starting")
         for class_tag_idx, class_tag in enumerate(class_tags):
-            if pd.isna(df.iloc[class_tag_idx]["mean_hours"]) or isFloat(
-                df.iloc[class_tag_idx]["mean_hours"]
-            ):
-                # print(
-                #     f"Skip course {class_tag_idx+1} of {len(class_tags)}: {class_tag}",
-                #     df.iloc[class_tag_idx],
-                #     df.iloc[class_tag_idx]["mean_hours"],
-                # )
-                continue
-            print(
-                f"On course {class_tag_idx+1} of {len(class_tags)}: {class_tag}",
-                df.iloc[class_tag_idx]["mean_hours"],
-                type(df.iloc[class_tag_idx]["mean_hours"]),
-                pd.api.types.is_numeric_dtype(df.iloc[class_tag_idx]["mean_hours"]),
-            )
-            results = {"class_tag_mod": class_tag}
+            # if pd.isna(df.iloc[class_tag_idx]["mean_hours"]) or isFloat(
+            #     df.iloc[class_tag_idx]["mean_hours"]
+            # ):
+            #     continue
+            # print(
+            #     f"On course {class_tag_idx+1} of {len(class_tags)}: {class_tag}",
+            #     df.iloc[class_tag_idx]["mean_hours"],
+            #     type(df.iloc[class_tag_idx]["mean_hours"]),
+            #     pd.api.types.is_numeric_dtype(df.iloc[class_tag_idx]["mean_hours"]),
+            # )
+            print(f"On course {class_tag_idx+1} of {len(class_tags)}: {class_tag}")
+            results = {"class_tag": class_tag}
             try:
                 sp = class_tag.split(" ")
                 tag, section = (
@@ -161,19 +162,31 @@ def qscrape():
                         ] = cell.text
 
                 # Get course hours
-                report = None
                 for r in reports:
                     h3 = r.find_element(By.TAG_NAME, "h3").text
                     if "hour" in h3:
-                        report = r
+                        table = r.find_element(By.TAG_NAME, "table")
+                        tbody = table.find_element(By.TAG_NAME, "tbody")
+                        results["mean_hours"] = tbody.find_elements(By.TAG_NAME, "tr")[
+                            2
+                        ].text[5:]
                         break
                 else:
                     continue
-                table = report.find_element(By.TAG_NAME, "table")
-                tbody = table.find_element(By.TAG_NAME, "tbody")
-                results["mean_hours"] = tbody.find_elements(By.TAG_NAME, "tr")[2].text[
-                    5:
-                ]
+
+                # Get course comments
+                results["comments"] = []
+                try:
+                    commentSection = driver.find_element(
+                        By.CLASS_NAME, "CommentBlockRow"
+                    )
+                    comments = commentSection.find_elements(
+                        By.CLASS_NAME, "TabularBody_LeftColumn"
+                    )
+                    for comment in comments:
+                        results["comments"].append(comment.text)
+                except Exception as e:
+                    print("Failed to get comments for course", class_tag, ": ", e)
 
             except Exception as e:
                 print(class_tag, "Inner error:", e)
@@ -187,7 +200,8 @@ def qscrape():
     finally:
         driver.quit()
         sdf = pd.DataFrame.from_records(all_results)
-        sdf.to_csv("qtmp.csv", index=False)
+        sdf.to_json("newscrape/nqrawdata.json", index=False)
+        sdf.to_excel("newscrape/nqrawdata.xlsx", index=False)
 
 
 qscrape()

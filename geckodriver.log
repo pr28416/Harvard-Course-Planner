@@ -1,0 +1,65 @@
+1693499359563	geckodriver	INFO	Listening on 127.0.0.1:54670
+1693499360059	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilenRPzMh"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693499360374	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693499360510	Marionette	INFO	Listening on port 54739
+WebDriver BiDi listening on ws://127.0.0.1:54671
+Read port: 54739
+1693499360643	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:54671/devtools/browser/43c090c9-5115-4122-93a2-04924ded7373
+console.error: ({})
+1693579134873	geckodriver	INFO	Listening on 127.0.0.1:59277
+1693579134877	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileKxpcPu"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693579135130	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693579135217	Marionette	INFO	Listening on port 59287
+Read port: 59287
+WebDriver BiDi listening on ws://127.0.0.1:59278
+1693579135330	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+Exiting due to channel error.
+Exiting due to channel error.
+1693579151942	geckodriver	INFO	Listening on 127.0.0.1:59366
+1693579152399	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofileyb7kCv"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693579152685	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693579152874	Marionette	INFO	Listening on port 59378
+WebDriver BiDi listening on ws://127.0.0.1:59367
+Read port: 59378
+1693579152980	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:59367/devtools/browser/15118d98-23dd-48ab-adc7-89d28650bd78
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2fpsp%2fhrvihprd%2fEMPLOYEE%2fEMPL%2fh%2f%3ftab%3dHU_CLASS_SEARCH%26SearchReqJSON%3d%257B%2522ExcludeBracketed%2522%253Atrue%252C%2522Exclude300%2522%253Atrue%252C%2522SaveRecent%2522%253Atrue%252C%2522Facets%2522%253A%255B%255D%252C%2522PageNumber%2522%253A1%252C%2522SortOrder%2522%253A%255B%2522IS_SCL_SUBJ_CAT%2522%255D%252C%2522TopN%2522%253A%2522%2522%252C%2522PageSize%2522%253A%2522%2522%252C%2522SearchText%2522%253A%2522%28%2520*%2520%29%2520%28ACAD_CAREER%253A%255C%2522FAS%255C%2522%29%2522%257D, line 299: ReferenceError: isResourceLoaded is not defined
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1693579175018	geckodriver	INFO	Listening on 127.0.0.1:59523
+1693579175456	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/wf/fpgj0w4x52x8z6b0hh9kw6z80000gn/T/rust_mozprofilecPgnHT"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693579175743	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693579175928	Marionette	INFO	Listening on port 59535
+WebDriver BiDi listening on ws://127.0.0.1:59524
+Read port: 59535
+1693579176031	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:59524/devtools/browser/b7623157-6b01-4ddf-9a06-5df6a39a03fe
+JavaScript error: https://www.pin1.harvard.edu/cas/login?service=https%3a%2f%2fportal.my.harvard.edu%2fpsp%2fhrvihprd%2fEMPLOYEE%2fEMPL%2fh%2f%3ftab%3dHU_CLASS_SEARCH%26SearchReqJSON%3d%257B%2522ExcludeBracketed%2522%253Atrue%252C%2522Exclude300%2522%253Atrue%252C%2522SaveRecent%2522%253Atrue%252C%2522Facets%2522%253A%255B%255D%252C%2522PageNumber%2522%253A1%252C%2522SortOrder%2522%253A%255B%2522IS_SCL_SUBJ_CAT%2522%255D%252C%2522TopN%2522%253A%2522%2522%252C%2522PageSize%2522%253A%2522%2522%252C%2522SearchText%2522%253A%2522%28%2520*%2520%29%2520%28ACAD_CAREER%253A%255C%2522FAS%255C%2522%29%2522%257D, line 299: ReferenceError: isResourceLoaded is not defined
+1693579198158	Marionette	INFO	Stopped listening on port 59535
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.

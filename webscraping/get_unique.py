@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("fas.csv")
+df = pd.read_csv("newscrape/newfas.csv")
 alt = pd.read_csv("alt_courses.csv")
 
 
@@ -23,9 +23,10 @@ def two():
     merged_df = pd.merge(df, alt, left_on="subject", right_on="subject", how="left")
 
     # Split the 'class_tag' column to extract course number
-    merged_df["course_tag"], merged_df["course_number"] = (
-        merged_df["class_tag"].str.split(" ", 1).str
-    )
+    # a = merged_df["class_tag"].str.split(" ", n=1).str
+    # print(a)
+    # merged_df["course_tag"], merged_df["course_number"] = a
+    merged_df["course_number"] = merged_df["class_tag"].str.split(" ").str[-1]
 
     # Create new columns with alternative abbreviations
     merged_df["new_ab0"] = merged_df.apply(
@@ -48,14 +49,13 @@ def two():
     )
 
     # Drop and rename columns as needed
-    merged_df = merged_df.drop(
-        columns=["ab0", "ab1", "ab2", "course_tag", "course_number"]
-    )
+    merged_df = merged_df.drop(columns=["ab0", "ab1", "ab2", "course_number"])
     merged_df = merged_df.rename(
         columns={"new_ab0": "ab0", "new_ab1": "ab1", "new_ab2": "ab2"}
     )
 
-    merged_df.to_csv("combined.csv", index=False)
+    merged_df.to_csv("newscrape/newcombined.csv", index=False)
 
 
+# one()
 two()

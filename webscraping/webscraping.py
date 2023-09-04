@@ -12,6 +12,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
 from bs4 import BeautifulSoup
+from getHUIDCreds import load_cookie
 
 
 # options = webdriver.ChromeOptions()
@@ -29,45 +30,22 @@ from bs4 import BeautifulSoup
 URL = "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22Exclude300%22%3Afalse%2C%22SaveRecent%22%3Atrue%2C%22Facets%22%3A%5B%5D%2C%22PageNumber%22%3A1%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22TopN%22%3A%22%22%2C%22PageSize%22%3A%22%22%2C%22SearchText%22%3A%22*%22%7D"
 
 urls = [
+    # "https://portal.my.harvard.edu/psp/hrvihprd/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22Exclude300%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22Facets%22%3A%5B%5D%2C%22PageNumber%22%3A1%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22TopN%22%3A%22%22%2C%22PageSize%22%3A%22%22%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22FAS%5C%22)%22%7D",
+    # "https://portal.my.harvard.edu/psp/hrvihprd/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22Exclude300%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22Facets%22%3A%5B%5D%2C%22PageNumber%22%3A1%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22TopN%22%3A%22%22%2C%22PageSize%22%3A%22%22%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22NONH%5C%22)%22%7D"
     # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22Exclude300%22%3Afalse%2C%22SaveRecent%22%3Atrue%2C%22Facets%22%3A%5B%5D%2C%22PageNumber%22%3A1%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22TopN%22%3A%22%22%2C%22PageSize%22%3A%22%22%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22FAS%5C%22)%22%7D",
-    "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22GSD%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
-    "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HBSD%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
-    "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HBSM%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
-    "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HGSE%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
-    "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HSPH%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
-    "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HDS%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
-    "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HKS%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
-    "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HLS%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
-    "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HMS%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
+    # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22GSD%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
+    # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HBSD%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
+    # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HBSM%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
+    # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HGSE%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
+    # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HSPH%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
+    # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HDS%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
+    # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HKS%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
+    # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HLS%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
+    # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HMS%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
     "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22NONH%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
-    "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HSDM%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
+    # "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22ExcludeBracketed%22%3Atrue%2C%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Atrue%2C%22TopN%22%3A%22%22%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(%20*%20)%20(ACAD_CAREER%3A%5C%22HSDM%5C%22)%22%2C%22DeepLink%22%3Afalse%7D",
 ]
 # URL = "https://courses.my.harvard.edu/psp/courses/EMPLOYEE/EMPL/h/?tab=HU_CLASS_SEARCH&SearchReqJSON=%7B%22PageNumber%22%3A1%2C%22PageSize%22%3A%22%22%2C%22SortOrder%22%3A%5B%22IS_SCL_SUBJ_CAT%22%5D%2C%22Facets%22%3A%5B%5D%2C%22Category%22%3A%22HU_SCL_SCHEDULED_BRACKETED_COURSES%22%2C%22SearchPropertiesInResults%22%3Atrue%2C%22FacetsInResults%22%3Atrue%2C%22SaveRecent%22%3Afalse%2C%22TopN%22%3A%22%22%2C%22ExcludeBracketed%22%3Atrue%2C%22Exclude300%22%3Afalse%2C%22SearchText%22%3A%22(STRM%3A%5C%222238%5C%22)%22%2C%22DeepLink%22%3Afalse%7D"
-
-
-def yaaas():
-    options = webdriver.ChromeOptions()
-    options.add_argument("-headless")
-    driver = webdriver.Chrome(
-        service=ChromeService(ChromeDriverManager().install()),
-        options=options,
-    )
-    driver.get(URL)
-    try:
-        while True:
-            WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.CLASS_NAME, "isSCL_RPNext"))
-            )
-            next_page_button = driver.find_element(By.CLASS_NAME, "isSCL_RPNext")
-            next_page_button.click()
-            time.sleep(10)
-    except Exception as e:
-        print("Broke out of loop", str(e))
-
-
-def simple_webscrape():
-    req = requests.get(URL)
-    print(BeautifulSoup(req.content, "html.parser").prettify())
 
 
 def selenium_webscrape():
@@ -75,11 +53,30 @@ def selenium_webscrape():
         parsed_results = []
         # Load the page
         options = webdriver.ChromeOptions()
-        options.add_argument("-headless")
+        # options.add_argument("-headless")
         driver = webdriver.Chrome(
             service=ChromeService(ChromeDriverManager().install()),
             options=options,
         )
+        # driver.get("https://my.harvard.edu")
+        # WebDriverWait(driver, 120).until(
+        #     EC.presence_of_element_located((By.TAG_NAME, "body"))
+        # )
+        # load_cookie(driver, "myharvard.pkl")
+        # driver.add_cookie(
+        #     {
+        #         "name": "hrvcsprdinternal-859p-8080-PORTAL-PSJSESSIONID",
+        #         "value": "ezpMaPhmWUk5Nsd4emAfLvn0g-jRpFNe!-337340126",
+        #     }
+        # )
+
+        # driver.get("https://portal.my.harvard.edu")
+        # WebDriverWait(driver, 120).until(
+        #     EC.presence_of_element_located((By.TAG_NAME, "body"))
+        # )
+
+        # input("Press enter when you're ready to continue...")
+        print("Loaded cookie")
         for url in urls:
             print("Starting URL:", url)
             driver.get(url)
@@ -132,6 +129,12 @@ def selenium_webscrape():
                         except NoSuchElementException as e:
                             print(e)
 
+                        print(
+                            "Starting class:",
+                            result_map["class_tag"],
+                            result_map["class_name"],
+                        )
+
                         # Instructors
                         try:
                             if e := top_html.find_elements(
@@ -161,6 +164,22 @@ def selenium_webscrape():
                         except NoSuchElementException as e:
                             print(e)
 
+                        # Class times
+                        try:
+                            if e := top_html.find_element(
+                                By.CLASS_NAME, "isSCL_LBTime"
+                            ):
+                                if (
+                                    "TBA" not in e.text
+                                    and "cancelled" not in e.text.lower()
+                                ):
+                                    times = e.text.split(" - ")
+                                    if len(times) == 2:
+                                        result_map["start_time"] = times[0]
+                                        result_map["end_time"] = times[1]
+                        except NoSuchElementException as e:
+                            print(e)
+
                         # Dates
                         try:
                             if e := top_html.find_element(
@@ -171,6 +190,19 @@ def selenium_webscrape():
                                     result_map["start_date"],
                                     result_map["end_date"],
                                 ) = e.text.split(" to ")
+                        except NoSuchElementException as e:
+                            print(e)
+
+                        # Room info
+                        try:
+                            if e := top_html.find_element(By.CLASS_NAME, "isSCL_LBLOC"):
+                                addr = e.find_element(By.CLASS_NAME, "isSCL_GoogleMap")
+                                result_map["room"] = (
+                                    e.text.replace("Harvard Maps", "")
+                                    .replace("Google Maps", "")
+                                    .strip()
+                                )
+                                result_map["addr"] = addr.get_attribute("href")
                         except NoSuchElementException as e:
                             print(e)
 
@@ -185,19 +217,6 @@ def selenium_webscrape():
                                     result_map["days"] = list(
                                         map(lambda elem: elem.text, days)
                                     )
-                        except NoSuchElementException as e:
-                            print(e)
-
-                        # Class times
-                        try:
-                            if e := top_html.find_element(
-                                By.CLASS_NAME, "isSCL_LBTime"
-                            ):
-                                if "TBA" not in e.text:
-                                    times = e.text.split(" - ")
-                                    if len(times) == 2:
-                                        result_map["start_time"] = times[0]
-                                        result_map["end_time"] = times[1]
                         except NoSuchElementException as e:
                             print(e)
 
@@ -318,7 +337,12 @@ def selenium_webscrape():
                         # raise ("Stopped by myself")
 
                     # Navigate to the next page
-                    if button := driver.find_element(By.CLASS_NAME, "isSCL_RPNext"):
+                    buttonPanel = driver.find_element(
+                        By.CLASS_NAME, "isSCL_ResultsPaging"
+                    )
+                    if button := buttonPanel.find_element(
+                        By.CLASS_NAME, "isSCL_RPNext"
+                    ):
                         pagination = driver.find_element(
                             By.CLASS_NAME, "isSCL_ResultsPaging"
                         )
@@ -327,6 +351,9 @@ def selenium_webscrape():
                                 2
                             ]
                         )
+                        WebDriverWait(buttonPanel, 5).until(
+                            EC.element_to_be_clickable((By.CLASS_NAME, "isSCL_RPNext"))
+                        )
                         button.click()
                         WebDriverWait(pagination, 120).until(
                             EC.text_to_be_present_in_element(
@@ -334,8 +361,10 @@ def selenium_webscrape():
                             )
                         )
                     else:
+                        print("No next page")
                         break
-            except:
+            except Exception as e:
+                print("ERROR:", e)
                 continue
             # else:
             #     break
@@ -344,13 +373,12 @@ def selenium_webscrape():
             #     print(item.text)
             #     print()
     except Exception as e:
-        print(className)
+        print("Error:", str(e))
         raise e
-        # print("Error:", str(e))
     finally:
         driver.quit()
         df = pd.DataFrame.from_records(parsed_results)
-        df.to_csv("courses1.csv", index=False)
+        df.to_csv("mitcourses.csv", index=False)
         pass
 
 

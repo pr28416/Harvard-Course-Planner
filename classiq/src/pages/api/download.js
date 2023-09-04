@@ -12,6 +12,27 @@ const dayMap = {
   Sa: "SA",
 };
 
+function getGeoCode(url) {
+  const parsedUrl = new URL(url);
+  const params = new URLSearchParams(parsedUrl.search);
+  const daddr = params.get("daddr");
+
+  if (daddr) {
+    let [latitude, longitude] = daddr.split(",");
+    try {
+      latitude = parseFloat(latitude);
+      longitude = parseFloat(longitude);
+    } catch {
+      return null;
+    }
+    if (latitude === 0 && longitude === 0) {
+      return null;
+    }
+    return { lat: latitude, lon: longitude };
+  }
+  return null;
+}
+
 export default async function handler(req, res) {
   if (req.body.courses) {
     const { error, value } = ics.createEvents(
@@ -68,8 +89,12 @@ export default async function handler(req, res) {
         const rawTimeDiff =
           60 * (endTime[0] - startTime[0]) + endTime[1] - startTime[1];
 
-        const event = {
-          title: `${course.class_tag} - ${course.class_name}`,
+        let event = {
+          title: `${course.class_tag} - ${course.class_name}${
+            course.room && !course.room.includes("TBA")
+              ? ` - ${course.room}`
+              : ""
+          }`,
           start: [startDate[2], startDate[0], startDate[1], ...startTime],
           duration: {
             hours: Math.floor(rawTimeDiff / 60),
@@ -82,6 +107,12 @@ export default async function handler(req, res) {
           }${endDate[0]}${endDate[1] < 10 ? "0" : ""}${endDate[1]}T000000Z`,
           //   end: [endDate[2], endDate[0], endDate[1], ...endTime],
         };
+        const geo = getGeoCode(course.addr);
+        if (geo) {
+          event.geo = geo;
+          event.location = course.room;
+          event.description = course.addr;
+        }
         // console.log(event);
         return event;
       })
@@ -91,7 +122,7 @@ export default async function handler(req, res) {
       res.status(400).json({ error: error });
     } else {
       // writeFileSync("calendar.ics", value);
-      //   console.log("VALUE:", value);
+      // console.log("VALUE:", value);
 
       try {
         res.status(200).json({ value: value });
