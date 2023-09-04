@@ -69,7 +69,9 @@ export default function Home() {
               "start_date" in course &&
               "end_date" in course &&
               course.start_date &&
-              course.end_date
+              course.end_date &&
+              "comments" in course &&
+              course.comments
             ) {
               setStarredCourses(res);
               break;
