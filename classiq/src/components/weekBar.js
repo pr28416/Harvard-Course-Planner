@@ -67,7 +67,7 @@ export default function WeekBar({
             key={idx}
             style={{ fontSize: "0.6rem", width: "1.1rem", height: "1.1rem" }}
             className={`flex text-center items-center justify-center ${
-              selected.includes(day)
+              days.includes(day)
                 ? "bg-red-600 text-white font-bold"
                 : "font-semibold"
             }`}
