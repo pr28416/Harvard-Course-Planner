@@ -1,0 +1,277 @@
+{
+  "schema": {
+    "fields": [
+      { "name": "domain", "type": "string" },
+      { "name": "expiry", "type": "number" },
+      { "name": "httpOnly", "type": "boolean" },
+      { "name": "name", "type": "string" },
+      { "name": "path", "type": "string" },
+      { "name": "sameSite", "type": "string" },
+      { "name": "secure", "type": "boolean" },
+      { "name": "value", "type": "string" }
+    ],
+    "pandas_version": "1.4.0"
+  },
+  "data": [
+    {
+      "domain": "portal.my.harvard.edu",
+      "expiry": 1698251970.0,
+      "httpOnly": false,
+      "name": "AWSALBCORS",
+      "path": "/",
+      "sameSite": "None",
+      "secure": true,
+      "value": "FQ9IPEtwNuiPaqF/TUO2wkNf3RG8G2jgl74gNzLQjnDyu2H6vzPGUHCiNvVEWKe1T7DkZhbwzY0pK9i6Z45HAdka3/9RQlDHaveAi3W94LHxJouQULbERsYEBw4z"
+    },
+    {
+      "domain": "portal.my.harvard.edu",
+      "expiry": 1698251970.0,
+      "httpOnly": false,
+      "name": "AWSALB",
+      "path": "/",
+      "sameSite": "Lax",
+      "secure": false,
+      "value": "FQ9IPEtwNuiPaqF/TUO2wkNf3RG8G2jgl74gNzLQjnDyu2H6vzPGUHCiNvVEWKe1T7DkZhbwzY0pK9i6Z45HAdka3/9RQlDHaveAi3W94LHxJouQULbERsYEBw4z"
+    },
+    {
+      "domain": ".harvard.edu",
+      "expiry": 1732207170.0,
+      "httpOnly": false,
+      "name": "_ga_ECX5BHYZT7",
+      "path": "/",
+      "sameSite": "Lax",
+      "secure": false,
+      "value": "GS1.1.1697647168.1.1.1697647170.0.0.0"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "LastActiveTab",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "HU_SSS"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": true,
+      "name": "PS_LASTSITE",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "https://portal.my.harvard.edu/psp/hrvihprd/"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "https%3a%2f%2fportal.my.harvard.edu%2fpsp%2fhrvihprd%2femployee%2fempl%2frefresh",
+      "path": "/",
+      "sameSite": "Lax",
+      "secure": false,
+      "value": "list:%20%3Ftab%3Dhu_class_search%7C%3Frp%3Dhu_class_search%7C%3Ftab%3Dremoteunifieddashboard%7C%3Frp%3Dremoteunifieddashboard"
+    },
+    {
+      "domain": ".harvard.edu",
+      "expiry": 1697733568.0,
+      "httpOnly": false,
+      "name": "_gid",
+      "path": "/",
+      "sameSite": "Lax",
+      "secure": false,
+      "value": "GA1.2.1206617047.1697647169"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "PS_TOKENEXPIRE",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "18_Oct_2023_16:39:30_GMT"
+    },
+    {
+      "domain": ".harvard.edu",
+      "expiry": 1697647228.0,
+      "httpOnly": false,
+      "name": "_gat",
+      "path": "/",
+      "sameSite": "Lax",
+      "secure": false,
+      "value": "1"
+    },
+    {
+      "domain": "portal.my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "ps_theme",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "node:EMPL portal:EMPLOYEE theme_id:HU_BRANDING_THEME accessibility:N formfactor:3 piamode:2"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": 1732207168.0,
+      "httpOnly": false,
+      "name": "PS_DEVICEFEATURES",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "width:3440 height:1440 pixelratio:1 touch:0 geolocation:1 websockets:1 webworkers:1 datepicker:1 dtpicker:1 timepicker:1 dnd:1 sessionstorage:1 localstorage:1 history:1 canvas:1 svg:1 postmessage:1 hc:0 maf:0"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": true,
+      "name": "hrvcsprd-clb-859p-8080-PORTAL-PSJSESSIONID",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "C1pDqAge6pTEQtFoAOQCTwkGkSVXas9U!-1930021659"
+    },
+    {
+      "domain": ".harvard.edu",
+      "expiry": 1732207168.0,
+      "httpOnly": false,
+      "name": "_ga",
+      "path": "/",
+      "sameSite": "Lax",
+      "secure": false,
+      "value": "GA1.1.1765488398.1697647169"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "HPTabNameRemote",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": ""
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "PS_LOGINLIST",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "https://csinternal.my.harvard.edu/hrvcsprd https://portal.my.harvard.edu/hrvihprd"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": true,
+      "name": "ExpirePage",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "https://portal.my.harvard.edu/psp/hrvihprd/"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "PS_TOKEN",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "rQAAAAQDAgEBAAAAvAIAAAAAAAAsAAAABABTaGRyAk4AfQg4AC4AMQAwABQJpVBR4yPgdIgM0vtRJGGt7ro8v20AAAAFAFNkYXRhYXicHYxLDkBAFATLJ9bW7kDGGGH2vhsRxNZJ3MzhNG9R3al03g3EURgEyifkv9RR4mjwtHw96VkYyVZ2Bg4uJjZOZuWq1uEsBktFrrn52YpGLGS9aPWqoJb5Fl6WFzkEDUQ="
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": true,
+      "name": "AWSELB",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "A973E36B08FF96435AC3E8069A66CE2A5C755E8607B111785A5869117A9B31BCFE1F2A815FA2AD8DDA4F13D2E5C4940FC2586642984C808963817DFFC9823F08C4ECB6E51DF77FE49114F3047CE82E785D70174365E495F9B1A68A573FE5A6D441FCA2134C2D7C0D55C825826C75960D4B85C606A4"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "HPTabName",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "HU_SSS"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "psback",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "%22%22url%22%3A%22https%3A%2F%2Fportal.my.harvard.edu%2Fpsp%2Fhrvihprd%2FEMPLOYEE%2FEMPL%2Fh%2F%3Ftab%3DHU_SSS%22%20%22label%22%3A%22Home%22%20%22origin%22%3A%22PIA%22%20%22layout%22%3A%220%22%20%22refurl%22%3A%22https%3A%2F%2Fportal.my.harvard.edu%2Fpsp%2Fhrvihprd%2FEMPLOYEE%2FEMPL%2Fh%2F%3Ftab%3DHU_SSS%22%22"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": 1697648367.0,
+      "httpOnly": false,
+      "name": "https%3a%2f%2fcsinternal.my.harvard.edu%2fpsp%2fhrvcsprd%2femployee%2fhrms%2frefresh",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "list: %3ftab%3ddefault|%3frp%3ddefault|%3ftab%3dfas_gened_lottery|%3frp%3dfas_gened_lottery|%3ftab%3dfas_hcol_admin_rpts_workcenter|%3frp%3dfas_hcol_admin_rpts_workcenter|%3ftab%3dg3workcenter|%3frp%3dg3workcenter|%3ftab%3dhms_student_affairs_wc|%3frp%3dhms_student_affairs_wc|%3ftab%3dremoteunifieddashboard|%3frp%3dremoteunifieddashboard|%3ftab%3dsf_stipends_dashboard|%3frp%3dsf_stipends_dashboard"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "ps_theme",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "node:EMPL portal:EMPLOYEE theme_id:HU_BRANDING_THEME accessibility:N formfactor:3 piamode:2"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": true,
+      "name": "PS_TokenSite",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": "https://portal.my.harvard.edu/psp/hrvihprd/?hrvihprd-859p-8080-PORTAL-PSJSESSIONID"
+    },
+    {
+      "domain": "portal.my.harvard.edu",
+      "expiry": null,
+      "httpOnly": false,
+      "name": "MOD_AUTH_CAS",
+      "path": "/",
+      "sameSite": "Lax",
+      "secure": false,
+      "value": "10c6be13f750c4e504f2542174f0d6a3"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": true,
+      "name": "hrvihprd-859p-8080-PORTAL-PSJSESSIONID",
+      "path": "/",
+      "sameSite": "Lax",
+      "secure": false,
+      "value": "yHRDp_yo-4RqrCQGI8ZpooYs_eq9tWDG!1816585535"
+    },
+    {
+      "domain": ".my.harvard.edu",
+      "expiry": null,
+      "httpOnly": true,
+      "name": "SignOnDefault",
+      "path": "/",
+      "sameSite": "Strict",
+      "secure": true,
+      "value": ""
+    }
+  ]
+}

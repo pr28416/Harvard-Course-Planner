@@ -1,4 +1,4 @@
-import path from "path";
+import path, { format } from "path";
 import { promises as fs } from "fs";
 // const Fuse = require("fuse.js");
 import Fuse from "fuse.js";
@@ -50,10 +50,21 @@ function parseArrayStr(arrayStr) {
   return elements;
 }
 
+function formatDate(raw_date) {
+  let date = new Date(raw_date);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let ampm = hours >= 12 ? "pm" : "am";
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  return hours + ":" + minutes + "" + ampm;
+}
+
 async function loadData() {
   console.log("Loading data...");
   const jsonDirectory = path.join(process.cwd(), "src/json");
-  fileContents = await fs.readFile(jsonDirectory + "/nqfinal.json", "utf8");
+  fileContents = await fs.readFile(jsonDirectory + "/final.json", "utf8");
   fileContents = JSON.parse(fileContents);
   // flexIndex = new Document({
   //   document: {
@@ -63,6 +74,13 @@ async function loadData() {
   // });
   fileContents.data.forEach((item, idx) => {
     item.id = idx;
+
+    if (item.start_time) {
+      item.start_time = formatDate(item.start_time);
+    }
+    if (item.end_time) {
+      item.end_time = formatDate(item.end_time);
+    }
 
     if (
       // item.subject &&
