@@ -25,10 +25,12 @@ def merge():
     df1 = pd.read_json("webscraping/spring2024scrape/coursescrape.json", orient="table")
     df2 = pd.read_json("webscraping/spring2024scrape/nqrawdata.json", orient="table")
     df = pd.merge(df1, df2, how="outer")
+    df = df.dropna(subset=["subject"])
     # df["instructors"] = df["instructors"].apply(safe_literal_eval)
-    df["uuid"] = [uuid.uuid4().hex for _ in range(len(df.index))]
+    # df["uuid"] = [uuid.uuid4().hex for _ in range(len(df.index))]
     df.to_json("webscraping/spring2024scrape/final.json", orient="table", index=False)
-    df.to_excel("webscraping/spring2024scrape/final.xlsx", index=False)
+    df.to_csv("webscraping/spring2024scrape/final.csv", index=False)
+    # df.to_excel("webscraping/spring2024scrape/final.xlsx", index=False)
 
 
 def isFloat(value):

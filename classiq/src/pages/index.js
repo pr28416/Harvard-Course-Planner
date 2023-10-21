@@ -209,8 +209,9 @@ export default function Home() {
     <ErrorBoundary>
       <main className="flex flex-col min-h-screen items-center bg-white dark:bg-zinc-900 w-full text-zinc-950 dark:text-zinc-50">
         {/* Title */}
-        <div className="w-full mt-8 sm:mt-16 mb-8 text-4xl sm:text-5xl px-4 md:px-12 text-center md:text-start font-extrabold text-red-600 dark:text-red-500">
+        <div className="sm:w-full flex flex-col sm:items-baseline sm:flex-row gap-2 mt-8 sm:mt-16 mb-8 text-4xl sm:text-5xl px-4 md:px-12 text-center md:text-start font-extrabold text-red-600 dark:text-red-500">
           Classiq.
+          <div className="text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950 px-2 py-1 rounded-lg">Spring 2024 Ed.</div>
         </div>
 
         {/* Main content */}

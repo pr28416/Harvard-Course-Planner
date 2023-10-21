@@ -49,7 +49,7 @@ function parseArrayStr(arrayStr) {
 
   return elements;
 }
-
+ 
 function formatDate(raw_date) {
   let date = new Date(raw_date);
   let hours = date.getHours();
@@ -82,13 +82,18 @@ async function loadData() {
       item.end_time = formatDate(item.end_time);
     }
 
-    if (
-      // item.subject &&
-      item.subject[0] === "[" &&
-      item.subject[item.subject.length - 1] === "]"
-    ) {
-      item.subject = item.subject.replace(/[\[\]']+/g, "");
+    try {
+      if (
+        // item.subject &&
+        item.subject[0] === "[" &&
+        item.subject[item.subject.length - 1] === "]"
+      ) {
+        item.subject = item.subject.replace(/[\[\]']+/g, "");
+      }
+    } catch (err) {
+      console.log(item.class_tag, err);
     }
+
 
     if (
       item.days &&
