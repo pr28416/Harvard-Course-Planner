@@ -138,7 +138,7 @@ async function loadData() {
   }
   // console.log(filterTags);
   ms = new MiniSearch({
-    fields: ["class_name", "class_tag", "ab0", "ab1", "ab2"],
+    fields: ["class_name", "class_tag", "ab0", "ab1", "ab2", "instructors"],
     storeFields: Object.keys(fileContents.data[0]),
     searchOptions: { fuzzy: 0.3 },
   });
