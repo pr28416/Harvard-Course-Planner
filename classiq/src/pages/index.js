@@ -406,6 +406,8 @@ export default function Home() {
             handler={handleStarred}
           />
         ) : null}
+        {/* <!-- Embeds the agent chat UI into an existing page. --> */}
+        {/* <iframe className="absolute h-96 w-96 bottom-4 right-4" src="https://embed.fixie.ai/agents/b625b628-3891-40f0-9500-3e0e471a5069?debug=1" allow="clipboard-write" /> */}
       </main>
     </ErrorBoundary>
   );

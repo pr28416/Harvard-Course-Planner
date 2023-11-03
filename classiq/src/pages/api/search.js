@@ -63,7 +63,8 @@ function formatDate(raw_date) {
 
 async function loadData() {
   console.log("Loading data...");
-  const jsonDirectory = path.join(process.cwd(), "src/json");
+  const jsonDirectory = path.join(process.cwd(), "public");
+  // const jsonDirectory = path.join(process.cwd(), "src/json");
   fileContents = await fs.readFile(jsonDirectory + "/final.json", "utf8");
   fileContents = JSON.parse(fileContents);
   // flexIndex = new Document({
@@ -185,7 +186,9 @@ export default async function handler(req, res) {
     // console.log(fileContents);
   }
   // console.log(req.body);
-  if (req.body.request === "filters") {
+  if (req.body.request == "all") {
+    res.status(200).json(fileContents.data);
+  } else if (req.body.request === "filters") {
     res.status(200).json(filterTags);
   } else if (req.body.request === "retrieve") {
     res.status(200).json({
